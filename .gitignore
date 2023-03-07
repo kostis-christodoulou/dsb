@@ -1,3 +1,10 @@
+.DS_Store
+/work_in_progress
+/website
+.gitignore
+dsb2023-github7.Rproj
+
+
 # History files
 .Rhistory
 .Rapp.history
