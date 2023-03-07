@@ -1,3 +1,3 @@
-# Data Science for Business
+# Data Science for Business with R
 
-A repo for the Data Science in Business elective
+A repo for the Data Science elective
