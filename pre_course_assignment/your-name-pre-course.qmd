@@ -10,8 +10,6 @@ format:
 editor: visual
 ---
 
-
-
 ```{r}
 #| label: load-libraries
 #| echo: false # This option disables the printing of code (only output is displayed).
@@ -30,7 +28,7 @@ You should successfully install R and R studio in your computer. We will do all 
 
 You can find details on how to [install both R and R studio here](https://dsb2023.netlify.app/reference/01-reference/)
 
-## Install `tidyverse`  and `janitor` packages
+## Install `tidyverse` and `janitor` packages
 
 A clean installation of R is known as **base R**. We need to install a collection of packages named `tidyverse`. Go to the packages panel in the bottom right of RStudio, click on "Install," type `tidyverse`,`janitor` and press enter. You'll see a bunch of output in the RStudio console as all the packages are installed and, depending on the speed of your computer, this may take a while. You can also just paste and run the following
 
@@ -45,7 +43,7 @@ You can find details on [installing the tidyverse here](https://dsb2023.netlify.
 
 Assignments will be submitted using `Markdown` is a lightweight text formatting language that easily converts between file formats. It is integrated directly into [Quarto Markdown](https://quarto.org/docs/get-started/hello/rstudio.html), which combines R code, output, and written text into a single document (`.qmd`). You can [find more about markdown here](https://dsb2023.netlify.app/reference/03-reference/).
 
-Quarto allows you to use a `Visual` editor, much like using word-processing software, but you can always switch back to `Source`. 
+Quarto allows you to use a `Visual` editor, much like using word-processing software, but you can always switch back to `Source`.
 
 ## Pandoc
 
@@ -93,6 +91,7 @@ animal_rescue <- read_csv(url,
 # quick look at the dataframe- how many rows- columns, type of variables (characters, numbers, etc )
 glimpse(animal_rescue)
 ```
+
 One of the more useful things one can do with any data set is quick counts, namely to see how many observations fall within one category. For instance, if we wanted to count the number of incidents by year, we would either use `group_by()... summarise()` or, simply [`count()`](https://dplyr.tidyverse.org/reference/count.html)
 
 ```{r}
@@ -109,7 +108,7 @@ animal_rescue %>%
 
 ```
 
-Once we `count()` how many incidents we have per year, we can pipe `%>%` the table to a ggplot and draw a simple time series chart. 
+Once we `count()` how many incidents we have per year, we can pipe `%>%` the table to a ggplot and draw a simple time series chart.
 
 ```{r}
 #| label: plot-by-calendar-year
@@ -158,7 +157,6 @@ animal_rescue %>%
 
 ```
 
-
 Let us try to see how many incidents we have by animal group. Again, we can do this either using group_by() and summarise(), or by using count()
 
 ```{r}
@@ -192,7 +190,7 @@ animal_rescue %>%
 
 ```
 
-Do you see anything strange in these tables? 
+Do you see anything strange in these tables?
 
 Finally, let us have a loot at the notional cost for rescuing each of these animals. As the LFB says,
 
@@ -200,9 +198,8 @@ Finally, let us have a loot at the notional cost for rescuing each of these anim
 
 There is two things we will do:
 
-1. Calculate the mean and median `incident_notional_cost_a` for each `animal_group_parent`
-2. Plot a boxplot to get a feel for the distribution of `incident_notional_cost_a` by `animal_group_parent`.
-
+1.  Calculate the mean and median `incident_notional_cost_a` for each `animal_group_parent`
+2.  Plot a boxplot to get a feel for the distribution of `incident_notional_cost_a` by `animal_group_parent`.
 
 Before we go on, however, we need to fix `incident_notional_cost_a` as it is stored as a `chr`, or character, rather than a number.
 
@@ -226,8 +223,7 @@ typeof(animal_rescue$incident_notional_cost_a)
 
 ```
 
-Now that `incident_notional_cost_a` is numeric, let us quickly calculate summary statistics for each animal group. 
-
+Now that `incident_notional_cost_a` is numeric, let us quickly calculate summary statistics for each animal group.
 
 ```{r}
 #| label: stats_on_incident_cost
@@ -255,8 +251,6 @@ animal_rescue %>%
   arrange(desc(count))
 
 ```
-
-
 
 Compare the mean and the median for each animal group. What do you think this is telling us? Anything else that stands out? Any outliers?
 
@@ -297,8 +291,6 @@ Using LFB's `incident_notional_cost_a`, plot a line graph showing the total inci
 
 ```
 
-
-
 # Submit the assignment
 
 Render the completed Quarto Markdown file as an HTML document (use the "Render" button at the top of the script editor window) and email me your work.
@@ -310,4 +302,3 @@ If you want to, please answer the following
 -   Who did you collaborate with: TYPE NAMES HERE
 -   Approximately how much time did you spend on this problem set: ANSWER HERE
 -   What, if anything, gave you the most trouble: ANSWER HERE
-
