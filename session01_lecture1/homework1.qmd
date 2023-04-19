@@ -3,6 +3,7 @@ title: "Homerwork 1"
 author: "YOUR NAME HERE"
 date: 2023-05-14
 format: 
+  docx: default
   html:
     toc: true
     toc_float: true
@@ -256,7 +257,7 @@ $$\frac{\text{Your age}}{2} + 7 < \text{Partner Age} < (\text{Your age} - 7) * 2
 
 # Deliverables
 
-There is a lot of explanatory text, comments, etc. You do not need these, so delete them and produce a stand-alone document that you could share with someone. Knit the edited and completed Quarto Markdown (qmd) file as an HTML document (use the "Render" button at the top of the script editor window) and upload it to Canvas.
+There is a lot of explanatory text, comments, etc. You do not need these, so delete them and produce a stand-alone document that you could share with someone. Render the edited and completed Quarto Markdown (qmd) file as an Word document (use the "Render" button at the top of the script editor window) and upload it to Canvas.
 
 # Details
 
