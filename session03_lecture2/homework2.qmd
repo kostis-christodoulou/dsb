@@ -46,7 +46,7 @@ glimpse(mass_shootings)
 ```
 
 | column(variable)     | description                                                                 |
-|-----------------------|-------------------------------------------------|
+|------------------------|------------------------------------------------|
 | case                 | short name of incident                                                      |
 | year, month, day     | year, month, day in which the shooting occurred                             |
 | location             | city and state where the shooting occcurred                                 |
@@ -138,10 +138,9 @@ You will use
 
 ## 2. A scatter plot that looks at how CO2 per capita and GDP per capita are related
 
-## 3. A scatter plot that looks at how electricity usage (kWh) per capita/day  GDP per capita are related
+## 3. A scatter plot that looks at how electricity usage (kWh) per capita/day GDP per capita are related
 
 We will get energy data from the Our World in Data website, and CO2 and GDP per capita emissions from the World Bank, using the `wbstats`package.
-
 
 ```{r}
 #| message: false
@@ -199,14 +198,14 @@ gdp_percap <- wb_data(country = "countries_only",
 
 Specific questions:
 
-1. How would you turn `energy` to long, tidy format? 
-2. You may need to join these data frames 
-    * Use `left_join` from `dplyr` to [join the tables](http://r4ds.had.co.nz/relational-data.html)
-    * To complete the merge, you need a unique *key* to match observations between the data frames. Country names may not be consistent among the three dataframes, so please use the 3-digit ISO code for each country
-    * An aside: There is a great package called [`countrycode`](https://github.com/vincentarelbundock/countrycode) that helps solve the problem of inconsistent country names (Is it UK? United Kingdon? Great Britain?). `countrycode()` takes as an input a country's name in a specific format and outputs it using whatever format you specify.
-3. Write a function that takes as input any country's name and returns all three graphs. You can use the `patchwork` package to arrange the three graphs
-      
+1.  How would you turn `energy` to long, tidy format?
+2.  You may need to join these data frames
+    -   Use `left_join` from `dplyr` to [join the tables](http://r4ds.had.co.nz/relational-data.html)
+    -   To complete the merge, you need a unique *key* to match observations between the data frames. Country names may not be consistent among the three dataframes, so please use the 3-digit ISO code for each country
+    -   An aside: There is a great package called [`countrycode`](https://github.com/vincentarelbundock/countrycode) that helps solve the problem of inconsistent country names (Is it UK? United Kingdon? Great Britain?). `countrycode()` takes as an input a country's name in a specific format and outputs it using whatever format you specify.
+3.  Write a function that takes as input any country's name and returns all three graphs. You can use the `patchwork` package to arrange the three graphs as shown below
 
+![](images/electricity-co2-gdp.png)
 
 # Deliverables
 
