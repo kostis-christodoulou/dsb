@@ -1,7 +1,7 @@
 ---
-title: "E628 Pre-course assignment"
+title: "Homerwork 1"
 author: "YOUR NAME HERE"
-date: 2023-05-08
+date: 2023-05-14
 format: 
   html:
     toc: true
@@ -26,12 +26,14 @@ library(skimr)
 
 ## Problem 1: Use logical operators to find flights that:
 
-    -   Had an arrival delay of two or more hours (\> 120 minutes)
-    -   Flew to Houston (IAH or HOU)
-    -   Were operated by United (`UA`), American (`AA`), or Delta (`DL`)
-    -   Departed in summer (July, August, and September)
-    -   Arrived more than two hours late, but didn't leave late
-    -   Were delayed by at least an hour, but made up over 30 minutes in flight
+```         
+-   Had an arrival delay of two or more hours (\> 120 minutes)
+-   Flew to Houston (IAH or HOU)
+-   Were operated by United (`UA`), American (`AA`), or Delta (`DL`)
+-   Departed in summer (July, August, and September)
+-   Arrived more than two hours late, but didn't leave late
+-   Were delayed by at least an hour, but made up over 30 minutes in flight
+```
 
 ```{r}
 #| label: problem-1
@@ -58,8 +60,10 @@ library(skimr)
 
 <!-- -->
 
-    flights %>% 
-      filter(is.na(dep_time)) 
+```         
+flights %>% 
+  filter(is.na(dep_time)) 
+```
 
 ```{r}
 #| label: problem-2
@@ -79,9 +83,11 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ## Problem 4: The `nycflights13` package includes a table (`weather`) that describes the weather during 2013. Use that table to answer the following questions:
 
-    -   What is the distribution of temperature (`temp`) in July 2013? Identify any important outliers in terms of the `wind_speed` variable.
-    -   What is the relationship between `dewp` and `humid`?
-    -   What is the relationship between `precip` and `visib`?
+```         
+-   What is the distribution of temperature (`temp`) in July 2013? Identify any important outliers in terms of the `wind_speed` variable.
+-   What is the relationship between `dewp` and `humid`?
+-   What is the relationship between `precip` and `visib`?
+```
 
 ```{r}
 
@@ -89,9 +95,11 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ## Problem 5: Use the `flights` and `planes` tables to answer the following questions:
 
-    -   How many planes have a missing date of manufacture?
-    -   What are the five most common manufacturers?
-    -   Has the distribution of manufacturer changed over time as reflected by the airplanes flying from NYC in 2013? (Hint: you may need to use case_when() to recode the manufacturer name and collapse rare vendors into a category called Other.)
+```         
+-   How many planes have a missing date of manufacture?
+-   What are the five most common manufacturers?
+-   Has the distribution of manufacturer changed over time as reflected by the airplanes flying from NYC in 2013? (Hint: you may need to use case_when() to recode the manufacturer name and collapse rare vendors into a category called Other.)
+```
 
 ```{r}
 
@@ -99,8 +107,10 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ## Problem 6: Use the `flights` and `planes` tables to answer the following questions:
 
-    -   What is the oldest plane (specified by the tailnum variable) that flew from New York City airports in 2013?
-    -   How many airplanes that flew from New York City are included in the planes table?
+```         
+-   What is the oldest plane (specified by the tailnum variable) that flew from New York City airports in 2013?
+-   How many airplanes that flew from New York City are included in the planes table?
+```
 
 ```{r}
 
@@ -108,8 +118,10 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ## Problem 7: Use the `nycflights13` to answer the following questions:
 
-    -   What is the median arrival delay on a month-by-month basis in each airport?
-    -   For each airline, plot the median arrival delay for each month and origin airport.
+```         
+-   What is the median arrival delay on a month-by-month basis in each airport?
+-   For each airline, plot the median arrival delay for each month and origin airport.
+```
 
 ```{r}
 
