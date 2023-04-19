@@ -24,7 +24,7 @@ library(skimr)
 
 # Data Manipulation
 
-##   Problem 1: Use logical operators to find flights that:
+## Problem 1: Use logical operators to find flights that:
 
     -   Had an arrival delay of two or more hours (\> 120 minutes)
     -   Flew to Houston (IAH or HOU)
@@ -54,7 +54,7 @@ library(skimr)
 # Were delayed by at least an hour, but made up over 30 minutes in flight
 ```
 
-##   Problem 2: What months had the highest and lowest proportion of cancelled flights? Interpret any seasonal patterns. To determine if a flight was cancelled use the following code
+## Problem 2: What months had the highest and lowest proportion of cancelled flights? Interpret any seasonal patterns. To determine if a flight was cancelled use the following code
 
 <!-- -->
 
@@ -68,7 +68,7 @@ library(skimr)
 
 ```
 
-##   Problem 3: What plane (specified by the `tailnum` variable) traveled the most times from New York City airports in 2013? Please `left_join()` the resulting table with the table `planes` (also included in the `nycflights13` package).
+## Problem 3: What plane (specified by the `tailnum` variable) traveled the most times from New York City airports in 2013? Please `left_join()` the resulting table with the table `planes` (also included in the `nycflights13` package).
 
 For the plane with the greatest number of flights and that had more than 50 seats, please create a table where it flew to during 2013.
 
@@ -77,7 +77,7 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ```
 
-##   Problem 4: The `nycflights13` package includes a table (`weather`) that describes the weather during 2013. Use that table to answer the following questions:
+## Problem 4: The `nycflights13` package includes a table (`weather`) that describes the weather during 2013. Use that table to answer the following questions:
 
     -   What is the distribution of temperature (`temp`) in July 2013? Identify any important outliers in terms of the `wind_speed` variable.
     -   What is the relationship between `dewp` and `humid`?
@@ -87,7 +87,7 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ```
 
-##   Problem 5: Use the `flights` and `planes` tables to answer the following questions:
+## Problem 5: Use the `flights` and `planes` tables to answer the following questions:
 
     -   How many planes have a missing date of manufacture?
     -   What are the five most common manufacturers?
@@ -97,7 +97,7 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ```
 
-##   Problem 6: Use the `flights` and `planes` tables to answer the following questions:
+## Problem 6: Use the `flights` and `planes` tables to answer the following questions:
 
     -   What is the oldest plane (specified by the tailnum variable) that flew from New York City airports in 2013?
     -   How many airplanes that flew from New York City are included in the planes table?
@@ -106,7 +106,7 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ```
 
-##   Problem 7: Use the `nycflights13` to answer the following questions:
+## Problem 7: Use the `nycflights13` to answer the following questions:
 
     -   What is the median arrival delay on a month-by-month basis in each airport?
     -   For each airline, plot the median arrival delay for each month and origin airport.
@@ -115,7 +115,7 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ```
 
-##   Problem 8: Let's take a closer look at what carriers service the route to San Francisco International (SFO). Join the `flights` and `airlines` tables and count which airlines flew the most to SFO. Produce a new dataframe, `fly_into_sfo` that contains three variables: the `name` of the airline, e.g., `United Air Lines Inc.` not `UA`, the count (number) of times it flew to SFO, and the `percent` of the trips that that particular airline flew to SFO.
+## Problem 8: Let's take a closer look at what carriers service the route to San Francisco International (SFO). Join the `flights` and `airlines` tables and count which airlines flew the most to SFO. Produce a new dataframe, `fly_into_sfo` that contains three variables: the `name` of the airline, e.g., `United Air Lines Inc.` not `UA`, the count (number) of times it flew to SFO, and the `percent` of the trips that that particular airline flew to SFO.
 
 ```{r}
 
@@ -176,7 +176,7 @@ fly_into_sfo %>%
  
 ```
 
-##   Problem 9: Let's take a look at cancellations of flights to SFO. We create a new dataframe `cancellations` as follows
+## Problem 9: Let's take a look at cancellations of flights to SFO. We create a new dataframe `cancellations` as follows
 
 ```{r}
 
@@ -193,6 +193,54 @@ cancellations <- flights %>%
 I want you to think how we would organise our data manipulation to create the following plot. No need to write the code, just explain in words how you would go about it.
 
 ![](images/sfo-cancellations.png)
+
+## Problem 10: On your own -- Hollywood Age Gap
+
+The website https://hollywoodagegap.com is a record of *THE AGE DIFFERENCE IN YEARS BETWEEN MOVIE LOVE INTERESTS*. This is an informational site showing the age gap between movie love interests and the data follows certain rules:
+
+-   The two (or more) actors play actual love interests (not just friends, coworkers, or some other non-romantic type of relationship)
+-   The youngest of the two actors is at least 17 years old
+-   No animated characters
+
+The age gaps dataset includes "gender" columns, which always contain the values "man" or "woman". These values appear to indicate how the characters in each film identify and some of these values do not match how the actor identifies. We apologize if any characters are misgendered in the data!
+
+The following is a data dictionary of the variables used
+
+| variable            | class     | description                                                                                             |
+|:--------------------------|:-----------------|:--------------------------|
+| movie_name          | character | Name of the film                                                                                        |
+| release_year        | integer   | Release year                                                                                            |
+| director            | character | Director of the film                                                                                    |
+| age_difference      | integer   | Age difference between the characters in whole years                                                    |
+| couple_number       | integer   | An identifier for the couple in case multiple couples are listed for this film                          |
+| actor_1\_name       | character | The name of the older actor in this couple                                                              |
+| actor_2\_name       | character | The name of the younger actor in this couple                                                            |
+| character_1\_gender | character | The gender of the older character, as identified by the person who submitted the data for this couple   |
+| character_2\_gender | character | The gender of the younger character, as identified by the person who submitted the data for this couple |
+| actor_1\_birthdate  | date      | The birthdate of the older member of the couple                                                         |
+| actor_2\_birthdate  | date      | The birthdate of the younger member of the couple                                                       |
+| actor_1\_age        | integer   | The age of the older actor when the film was released                                                   |
+| actor_2\_age        | integer   | The age of the younger actor when the film was released                                                 |
+
+```{r}
+
+age_gaps <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv')
+
+
+```
+
+How would you explore this data set? Here are some ideas of tables/ graphs to help you with your analysis
+
+-   How is `age_difference` distributed? What's the 'typical' `age_difference` in movies?
+
+-   The `half plus seven\` rule. Large age disparities in relationships carry certain stigmas. One popular rule of thumb is the [half-your-age-plus-seven](https://en.wikipedia.org/wiki/Age_disparity_in_sexual_relationships#The_.22half-your-age-plus-seven.22_rule) rule. This rule states you should never date anyone under half your age plus seven, establishing a minimum boundary on whom one can date. In order for a dating relationship to be acceptable under this rule, your partner's age must be:
+
+$$\frac{\text{Your age}}{2} + 7 < \text{Partner Age} < (\text{Your age} - 7) * 2$$ How frequently does this rule apply in this dataset?
+
+-   Which movie has the greatest number of love interests?
+-   Which actors/ actresses have the greatest number of love interests in this dataset?
+-   Is the mean/median age difference staying constant over the years (1935 - 2022)?
+-   How frequently does Hollywood depict same-gender love interests?
 
 # Deliverables
 

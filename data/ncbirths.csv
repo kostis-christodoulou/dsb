@@ -1,0 +1,1451 @@
+plural,sex,mom_age,weeks,marital,gained,smoke,birth_weight_gm,low,premie,mom_race,gained_gm
+1,male,32,40,married,38,0,3146.85,0,0,white,17252
+1,female,32,37,married,34,0,3288.6,0,0,white,15436
+1,male,27,39,married,12,0,3912.3,0,0,white,5448
+1,male,27,39,married,15,0,3855.6,0,0,white,6810
+1,male,25,39,married,32,0,3430.35,0,0,white,14528
+1,male,28,43,married,32,0,3316.95,0,0,white,14528
+1,female,25,39,married,75,0,4054.05,0,0,white,34050
+1,female,15,42,not married,25,0,3203.55,0,0,white,11350
+1,female,21,39,married,28,0,3402,0,0,white,12712
+1,female,27,40,not married,37,0,3515.4,0,0,white,16798
+1,male,26,41,married,45,0,3430.35,0,0,white,20430
+1,female,20,41,not married,52,1,3175.2,0,0,white,23608
+1,female,19,40,married,26,1,3713.85,0,0,white,11804
+1,female,18,36,not married,31,1,2494.8,1,1,hispanic,14074
+1,female,26,39,not married,40,0,2636.55,0,0,white,18160
+1,male,24,40,married,51,0,3969,0,0,hispanic,23154
+1,male,24,38,married,45,1,2976.75,0,0,white,20430
+1,male,36,37,married,25,0,2579.85,0,0,white,11350
+1,male,21,30,married,0,0,1445.85,1,1,white,0
+1,male,21,38,married,20,0,2041.2,1,0,hispanic,9080
+1,female,26,39,married,20,0,3288.6,0,0,white,9080
+1,female,30,38,married,38,0,3231.9,0,0,white,17252
+1,female,32,43,not married,15,0,3231.9,0,0,hispanic,6810
+1,female,34,38,married,3,0,3061.8,0,0,white,1362
+1,female,24,37,not married,9,0,3487.05,0,0,hispanic,4086
+1,male,34,37,married,37,0,3373.65,0,0,white,16798
+1,female,24,39,not married,30,0,3458.7,0,0,white,13620
+1,female,25,39,married,40,0,3798.9,0,0,white,18160
+1,male,22,41,not married,37,0,3402,0,0,hispanic,16798
+1,female,24,37,married,56,0,3430.35,0,0,white,25424
+1,male,35,38,married,48,0,3487.05,0,0,white,21792
+1,female,38,37,married,4,0,2693.25,0,0,white,1816
+1,female,35,39,married,43,0,3316.95,0,0,hispanic,19522
+1,male,23,39,married,40,0,3458.7,0,0,white,18160
+1,female,32,31,married,25,0,1077.3,1,1,white,11350
+1,female,28,39,married,53,0,3373.65,0,0,white,24062
+1,male,18,39,not married,15,0,2749.95,0,0,hispanic,6810
+1,female,33,38,married,19,0,3628.8,0,0,hispanic,8626
+1,male,20,38,married,26,0,3628.8,0,0,hispanic,11804
+1,female,40,39,married,32,0,3402,0,0,white,14528
+1,female,28,40,not married,25,0,4082.4,0,0,white,11350
+1,male,32,38,married,50,0,3430.35,0,0,white,22700
+1,female,30,41,married,34,0,3713.85,0,0,white,15436
+1,male,17,37,not married,2,1,3288.6,0,0,white,908
+1,male,25,40,married,23,0,3231.9,0,0,white,10442
+1,male,21,40,married,16,1,1927.8,1,0,white,7264
+1,female,19,41,not married,48,0,3657.15,0,0,white,21792
+1,male,28,37,not married,80,1,4195.8,0,0,white,36320
+1,male,25,38,married,19,0,3345.3,0,0,white,8626
+1,female,18,36,married,16,0,2806.65,0,1,white,7264
+1,female,24,38,married,50,1,3146.85,0,0,white,22700
+2,male,35,30,married,55,0,1389.15,1,1,white,24970
+1,female,20,40,married,25,0,2835,0,0,white,11350
+1,female,30,39,married,33,0,3487.05,0,0,white,14982
+1,female,24,43,not married,10,0,3203.55,0,0,hispanic,4540
+1,male,27,39,married,30,0,3203.55,0,0,white,13620
+1,male,27,45,married,30,0,3912.3,0,0,white,13620
+1,female,17,40,not married,NA,0,3203.55,0,0,white,NA
+1,male,23,40,not married,55,0,3061.8,0,0,white,24970
+1,female,40,40,married,38,0,3118.5,0,0,white,17252
+1,male,32,38,married,33,0,3090.15,0,0,white,14982
+1,female,33,37,married,49,0,3855.6,0,0,white,22246
+1,male,24,43,married,14,0,3657.15,0,0,hispanic,6356
+1,female,19,41,not married,18,1,2835,0,0,white,8172
+1,female,27,41,married,40,0,2778.3,0,0,hispanic,18160
+1,male,32,38,married,30,0,2920.05,0,0,white,13620
+1,male,40,37,married,17,0,3402,0,0,white,7718
+1,female,25,37,married,45,0,3090.15,0,0,hispanic,20430
+1,male,28,36,married,15,0,2182.95,1,1,white,6810
+1,male,19,38,married,31,1,3203.55,0,0,white,14074
+1,female,30,33,married,50,0,1530.9,1,1,white,22700
+1,female,25,40,married,25,0,3770.55,0,0,white,11350
+1,male,25,37,married,12,1,2608.2,0,0,white,5448
+1,male,39,41,married,38,0,3373.65,0,0,white,17252
+1,female,27,40,married,47,0,3798.9,0,0,white,21338
+1,female,34,38,married,20,0,2891.7,0,0,white,9080
+1,male,28,39,married,40,0,3798.9,0,0,white,18160
+1,male,31,37,married,34,0,3231.9,0,0,white,15436
+1,female,22,40,married,5,1,3061.8,0,0,white,2270
+1,male,34,39,married,25,0,3515.4,0,0,white,11350
+1,female,31,39,married,18,0,3997.35,0,0,white,8172
+1,female,32,39,married,27,0,3146.85,0,0,white,12258
+1,female,28,40,married,46,0,3373.65,0,0,white,20884
+1,male,25,39,married,31,0,2835,0,0,hispanic,14074
+1,male,38,39,married,48,0,4195.8,0,0,white,21792
+1,male,26,40,married,15,0,3487.05,0,0,hispanic,6810
+1,female,18,41,married,51,0,3146.85,0,0,white,23154
+1,female,22,42,not married,12,0,3997.35,0,0,hispanic,5448
+1,female,30,37,married,33,0,3855.6,0,0,white,14982
+1,male,20,39,not married,17,0,4564.35,0,0,white,7718
+1,male,36,39,married,25,0,3260.25,0,0,white,11350
+1,male,35,36,married,31,0,3969,0,1,white,14074
+1,male,39,41,married,24,1,3061.8,0,0,white,10896
+1,male,30,40,married,16,0,3827.25,0,0,white,7264
+1,male,20,38,not married,18,1,3345.3,0,0,white,8172
+1,male,19,40,married,40,0,3373.65,0,0,white,18160
+1,male,25,34,married,16,0,2664.9,0,1,white,7264
+1,female,24,40,married,57,0,3742.2,0,0,white,25878
+1,female,24,37,married,18,0,3090.15,0,0,white,8172
+1,male,24,38,married,29,0,4677.75,0,0,hispanic,13166
+1,male,42,42,married,45,0,4791.15,0,0,white,20430
+1,male,32,37,married,18,1,2693.25,0,0,white,8172
+1,male,22,39,married,11,1,3855.6,0,0,white,4994
+1,female,35,41,married,20,0,3770.55,0,0,hispanic,9080
+1,female,22,41,not married,50,0,3713.85,0,0,white,22700
+1,male,22,37,married,26,0,3713.85,0,0,white,11804
+1,female,36,38,married,20,0,3487.05,0,0,white,9080
+1,male,26,38,married,35,0,4252.5,0,0,white,15890
+1,female,31,40,not married,12,0,2749.95,0,0,white,5448
+1,male,30,41,married,38,0,3713.85,0,0,white,17252
+1,male,28,39,married,50,0,3628.8,0,0,white,22700
+1,female,37,39,married,28,0,2438.1,1,0,white,12712
+1,male,34,38,married,34,0,3175.2,0,0,white,15436
+1,female,40,39,not married,41,1,3515.4,0,0,white,18614
+1,male,32,39,married,20,0,3061.8,0,0,white,9080
+1,male,20,37,married,5,0,3515.4,0,0,hispanic,2270
+1,female,30,40,married,30,0,3912.3,0,0,white,13620
+1,female,26,38,married,35,0,3430.35,0,0,hispanic,15890
+1,male,18,37,not married,16,0,2296.35,1,0,white,7264
+1,male,29,40,married,32,0,3345.3,0,0,white,14528
+1,female,21,38,not married,40,1,3458.7,0,0,white,18160
+1,male,21,42,married,30,0,3345.3,0,0,white,13620
+1,female,26,44,married,28,0,3402,0,0,white,12712
+1,male,15,42,not married,25,0,3260.25,0,0,white,11350
+1,female,30,41,married,50,0,2891.7,0,0,white,22700
+1,male,23,40,not married,25,0,4479.3,0,0,hispanic,11350
+1,male,33,40,married,0,0,3146.85,0,0,white,0
+1,female,26,34,married,7,0,1559.25,1,1,white,3178
+1,female,24,40,married,24,0,3203.55,0,0,hispanic,10896
+1,male,25,38,not married,34,1,3798.9,0,0,white,15436
+1,male,28,42,married,40,0,4054.05,0,0,white,18160
+1,male,21,39,not married,32,0,3430.35,0,0,white,14528
+1,female,25,40,married,25,1,3316.95,0,0,white,11350
+1,female,19,39,married,25,0,3600.45,0,0,white,11350
+1,female,21,38,married,25,0,3798.9,0,0,hispanic,11350
+1,male,21,39,married,0,0,2126.25,1,0,white,0
+1,male,30,39,married,47,0,3940.65,0,0,white,21338
+2,male,31,37,married,45,0,2778.3,0,0,white,20430
+1,male,36,39,married,34,0,3572.1,0,0,white,15436
+1,female,36,38,married,46,0,2976.75,0,0,white,20884
+1,male,23,40,not married,40,0,3487.05,0,0,white,18160
+1,male,30,39,married,38,0,4110.75,0,0,white,17252
+1,female,17,39,married,0,0,2976.75,0,0,hispanic,0
+1,male,22,37,married,35,0,3713.85,0,0,white,15890
+1,male,29,39,married,10,1,4110.75,0,0,white,4540
+1,male,24,41,married,23,0,3798.9,0,0,hispanic,10442
+1,male,26,40,married,27,0,3373.65,0,0,hispanic,12258
+1,female,21,39,married,10,0,3175.2,0,0,white,4540
+1,female,37,39,married,10,1,3657.15,0,0,white,4540
+1,male,32,39,married,32,0,3402,0,0,white,14528
+1,male,30,38,married,58,0,3487.05,0,0,white,26332
+1,male,26,41,married,27,0,3345.3,0,0,white,12258
+1,male,17,38,not married,51,1,3146.85,0,0,white,23154
+2,female,40,36,married,20,0,2154.6,1,1,white,9080
+1,female,30,40,married,20,0,4224.15,0,0,white,9080
+1,female,28,34,married,55,0,2239.65,1,1,white,24970
+1,female,32,43,not married,19,0,3430.35,0,0,white,8626
+1,female,31,41,married,30,0,3600.45,0,0,white,13620
+1,female,24,38,married,0,0,3316.95,0,0,white,0
+1,female,22,39,not married,43,1,2806.65,0,0,white,19522
+1,male,19,40,not married,46,0,3175.2,0,0,white,20884
+1,female,26,39,married,25,0,2976.75,0,0,white,11350
+1,male,15,39,not married,25,0,2835,0,0,hispanic,11350
+1,male,29,43,married,50,1,3543.75,0,0,white,22700
+1,male,41,40,married,40,0,3515.4,0,0,hispanic,18160
+1,male,31,40,married,17,0,2806.65,0,0,white,7718
+1,male,28,39,married,35,0,3543.75,0,0,hispanic,15890
+1,female,34,41,married,45,0,3770.55,0,0,hispanic,20430
+1,female,26,39,married,NA,0,3005.1,0,0,white,NA
+1,female,31,38,not married,32,0,3600.45,0,0,white,14528
+1,male,31,41,married,33,1,3090.15,0,0,white,14982
+1,male,33,39,married,30,0,3487.05,0,0,hispanic,13620
+1,male,42,38,married,50,0,4167.45,0,0,white,22700
+1,male,34,37,married,35,0,2806.65,0,0,white,15890
+1,female,41,40,married,29,0,3855.6,0,0,white,13166
+1,male,23,39,married,30,0,3203.55,0,0,hispanic,13620
+1,female,31,40,married,15,0,4337.55,0,0,hispanic,6810
+1,male,20,40,married,26,0,4167.45,0,0,white,11804
+1,male,27,39,married,NA,0,3855.6,0,0,hispanic,NA
+1,male,29,40,married,19,0,3260.25,0,0,white,8626
+1,female,20,40,married,26,0,3005.1,0,0,white,11804
+1,female,33,38,married,16,0,2579.85,0,0,white,7264
+1,female,36,37,married,21,0,3430.35,0,0,white,9534
+1,female,40,37,not married,33,1,2523.15,0,0,white,14982
+1,female,25,39,married,30,0,3628.8,0,0,white,13620
+1,male,34,38,married,33,0,3260.25,0,0,white,14982
+1,female,22,41,not married,61,1,3316.95,0,0,white,27694
+1,male,21,42,not married,11,1,3600.45,0,0,white,4994
+1,female,40,38,married,22,0,3118.5,0,0,white,9988
+1,male,24,39,not married,29,0,3316.95,0,0,white,13166
+1,female,27,40,married,21,0,3628.8,0,0,hispanic,9534
+1,female,22,43,not married,0,1,3033.45,0,0,white,0
+1,male,30,39,married,34,0,4082.4,0,0,white,15436
+1,female,23,41,married,12,0,3118.5,0,0,hispanic,5448
+1,male,25,37,married,34,0,2863.35,0,0,white,15436
+1,male,28,38,married,31,0,3855.6,0,0,white,14074
+1,male,25,32,not married,39,0,2863.35,0,1,white,17706
+1,male,29,38,married,42,0,4224.15,0,0,white,19068
+1,female,29,40,married,9,0,4082.4,0,0,white,4086
+1,female,19,38,married,20,0,3260.25,0,0,white,9080
+1,male,23,39,married,NA,1,2664.9,0,0,white,NA
+1,male,38,40,married,24,1,2693.25,0,0,white,10896
+1,female,31,41,married,28,0,3855.6,0,0,white,12712
+1,male,18,40,not married,21,1,3685.5,0,0,white,9534
+1,female,20,39,not married,26,0,4110.75,0,0,white,11804
+1,male,28,38,married,30,0,3203.55,0,0,white,13620
+1,male,37,38,married,30,0,3883.95,0,0,white,13620
+1,female,27,39,married,35,0,3742.2,0,0,hispanic,15890
+1,male,22,42,married,43,1,3487.05,0,0,white,19522
+1,female,23,37,married,28,1,2636.55,0,0,white,12712
+1,male,28,43,married,35,0,3231.9,0,0,white,15890
+1,male,21,39,not married,41,0,3685.5,0,0,white,18614
+1,male,23,40,married,40,0,2664.9,0,0,white,18160
+1,male,24,40,not married,20,0,3316.95,0,0,white,9080
+1,male,31,38,not married,25,1,2749.95,0,0,white,11350
+1,female,39,40,married,50,0,3855.6,0,0,white,22700
+1,male,34,39,married,30,0,4167.45,0,0,white,13620
+1,female,21,39,not married,20,0,2920.05,0,0,hispanic,9080
+1,female,30,35,married,20,1,2211.3,1,1,white,9080
+1,male,26,37,married,23,0,4025.7,0,0,white,10442
+1,female,32,37,married,40,0,3883.95,0,0,white,18160
+1,female,33,39,married,35,0,3628.8,0,0,white,15890
+1,male,31,38,married,22,0,3798.9,0,0,white,9988
+1,male,23,41,not married,60,1,3458.7,0,0,white,27240
+1,female,26,37,not married,33,0,3231.9,0,0,white,14982
+1,female,32,39,married,30,0,3288.6,0,0,white,13620
+1,female,26,41,married,20,0,4536,0,0,white,9080
+1,female,35,39,not married,28,1,3033.45,0,0,white,12712
+1,male,21,43,married,30,0,3997.35,0,0,white,13620
+1,female,22,40,married,58,0,4706.1,0,0,white,26332
+1,male,36,40,married,30,0,3487.05,0,0,white,13620
+1,female,22,38,married,50,0,3345.3,0,0,white,22700
+1,male,30,43,married,45,0,3685.5,0,0,white,20430
+1,male,20,41,not married,40,0,3231.9,0,0,white,18160
+1,male,22,42,not married,10,1,2182.95,1,0,white,4540
+1,male,34,40,married,25,0,3061.8,0,0,white,11350
+1,female,32,39,married,40,0,4025.7,0,0,white,18160
+1,female,26,40,married,33,0,3827.25,0,0,white,14982
+1,female,22,39,not married,20,0,3373.65,0,0,hispanic,9080
+1,male,36,38,married,26,0,2778.3,0,0,white,11804
+1,female,21,41,not married,25,0,3203.55,0,0,white,11350
+1,female,32,37,married,26,0,3458.7,0,0,white,11804
+1,female,31,41,married,43,0,3713.85,0,0,white,19522
+1,female,30,38,not married,NA,0,3061.8,0,0,white,NA
+1,female,15,35,not married,NA,0,3402,0,1,hispanic,NA
+1,female,19,38,married,56,0,3203.55,0,0,white,25424
+1,male,33,41,not married,21,1,2551.5,0,0,white,9534
+1,male,37,37,married,NA,NA,2891.7,0,0,white,NA
+2,female,21,38,not married,40,0,1956.15,1,0,white,18160
+1,male,31,38,married,45,0,3572.1,0,0,white,20430
+1,female,32,40,married,50,0,4195.8,0,0,white,22700
+1,male,35,39,married,46,0,4337.55,0,0,white,20884
+1,female,32,38,married,20,0,3203.55,0,0,white,9080
+1,female,27,38,married,40,0,3402,0,0,white,18160
+1,male,19,24,not married,NA,0,567,1,1,white,NA
+1,female,37,38,married,40,0,3628.8,0,0,white,18160
+1,female,28,41,married,33,0,3855.6,0,0,white,14982
+1,male,26,38,married,40,0,3203.55,0,0,white,18160
+1,male,24,40,not married,51,0,4479.3,0,0,white,23154
+1,female,26,39,married,25,1,2948.4,0,0,white,11350
+1,female,22,40,married,30,0,3402,0,0,white,13620
+1,male,18,38,not married,40,0,3713.85,0,0,hispanic,18160
+1,male,16,38,not married,20,0,2693.25,0,0,hispanic,9080
+1,male,28,40,married,35,0,3345.3,0,0,white,15890
+1,female,35,41,not married,35,0,4195.8,0,0,white,15890
+2,female,31,37,married,34,0,2353.05,1,0,white,15436
+1,male,34,37,married,38,0,3657.15,0,0,white,17252
+1,female,26,34,married,28,0,2863.35,0,1,hispanic,12712
+1,female,25,39,not married,20,1,2891.7,0,0,white,9080
+1,male,24,40,not married,70,0,3572.1,0,0,white,31780
+1,female,30,40,married,20,0,3316.95,0,0,white,9080
+1,male,34,40,married,24,0,3402,0,0,white,10896
+1,female,33,41,married,43,0,3061.8,0,0,white,19522
+1,male,25,40,married,50,0,3231.9,0,0,white,22700
+1,male,31,31,married,12,1,1927.8,1,1,white,5448
+1,male,36,38,not married,22,1,3458.7,0,0,white,9988
+1,male,31,40,married,18,0,3997.35,0,0,white,8172
+1,male,32,35,not married,51,1,2438.1,1,1,white,23154
+1,female,29,38,married,50,0,4592.7,0,0,white,22700
+1,female,36,39,not married,25,0,3373.65,0,0,white,11350
+1,male,30,36,married,1,1,3203.55,0,1,white,454
+1,male,27,40,married,35,1,3657.15,0,0,white,15890
+1,male,26,37,married,20,0,3458.7,0,0,white,9080
+1,male,31,38,married,33,0,3402,0,0,white,14982
+1,female,31,39,married,20,0,3288.6,0,0,white,9080
+1,male,36,40,married,35,0,3883.95,0,0,white,15890
+1,male,26,41,married,34,0,4479.3,0,0,white,15436
+1,male,17,39,not married,33,0,3033.45,0,0,white,14982
+1,female,22,40,married,15,1,3090.15,0,0,white,6810
+1,female,25,40,married,31,0,3430.35,0,0,white,14074
+1,female,32,40,married,36,0,3118.5,0,0,white,16344
+1,female,36,39,married,38,0,3175.2,0,0,white,17252
+1,male,23,38,married,30,1,3798.9,0,0,white,13620
+1,female,24,34,married,33,0,2920.05,0,1,white,14982
+2,male,39,27,married,12,0,907.2,1,1,white,5448
+1,female,20,40,married,45,0,3231.9,0,0,white,20430
+1,female,24,39,married,34,0,2721.6,0,0,white,15436
+1,male,39,38,married,40,0,3543.75,0,0,white,18160
+1,male,21,40,married,35,0,3316.95,0,0,white,15890
+1,female,22,39,married,55,0,3033.45,0,0,white,24970
+1,male,29,42,married,19,0,3288.6,0,0,white,8626
+1,male,19,42,not married,39,0,2920.05,0,0,white,17706
+1,male,31,39,not married,19,1,3033.45,0,0,white,8626
+1,male,32,38,married,NA,0,4224.15,0,0,white,NA
+1,male,32,39,married,27,0,4110.75,0,0,white,12258
+1,female,37,40,married,20,0,3203.55,0,0,white,9080
+1,female,32,40,married,35,0,3997.35,0,0,white,15890
+1,female,32,41,married,40,1,3572.1,0,0,white,18160
+1,male,21,39,not married,35,1,2608.2,0,0,white,15890
+1,female,30,40,married,30,0,2636.55,0,0,white,13620
+1,female,20,40,not married,43,1,3912.3,0,0,white,19522
+1,male,30,37,married,36,0,3288.6,0,0,white,16344
+1,male,23,39,married,40,0,4195.8,0,0,white,18160
+1,male,33,39,married,45,0,4536,0,0,white,20430
+1,male,26,39,married,26,0,3912.3,0,0,white,11804
+1,female,32,39,married,34,0,3827.25,0,0,white,15436
+1,male,23,40,married,30,0,3487.05,0,0,white,13620
+1,male,34,39,married,20,0,3487.05,0,0,white,9080
+1,female,30,37,married,14,0,2608.2,0,0,white,6356
+1,male,31,41,married,20,0,3316.95,0,0,white,9080
+1,female,23,38,not married,29,1,2749.95,0,0,white,13166
+1,male,30,38,married,35,0,3912.3,0,0,white,15890
+1,female,21,38,married,42,0,3005.1,0,0,white,19068
+1,male,32,36,married,37,0,4479.3,0,1,hispanic,16798
+1,female,29,39,married,9,0,4110.75,0,0,white,4086
+1,female,30,38,married,20,0,3430.35,0,0,white,9080
+1,female,26,37,married,32,0,2976.75,0,0,white,14528
+1,male,20,38,not married,0,1,3090.15,0,0,white,0
+1,female,30,45,not married,30,0,3203.55,0,0,hispanic,13620
+1,female,33,39,married,35,0,4195.8,0,0,white,15890
+1,female,24,39,married,45,0,3288.6,0,0,white,20430
+1,male,21,37,not married,50,0,3231.9,0,0,hispanic,22700
+1,male,29,40,married,50,0,3798.9,0,0,white,22700
+1,male,27,41,married,25,0,4167.45,0,0,white,11350
+1,female,16,36,not married,NA,0,2409.75,1,1,white,NA
+1,female,38,38,married,34,0,3402,0,0,white,15436
+1,male,30,39,married,56,0,3855.6,0,0,white,25424
+1,female,20,39,not married,15,0,3345.3,0,0,white,6810
+1,male,29,37,married,40,0,3005.1,0,0,white,18160
+1,female,28,38,married,28,0,2806.65,0,0,white,12712
+1,male,21,39,married,20,1,3175.2,0,0,white,9080
+1,female,28,42,married,25,0,2778.3,0,0,white,11350
+1,male,32,40,married,40,0,3345.3,0,0,white,18160
+1,male,33,39,married,28,0,4365.9,0,0,white,12712
+1,male,24,40,not married,40,0,3288.6,0,0,hispanic,18160
+1,female,28,40,married,43,0,3912.3,0,0,white,19522
+1,male,22,38,married,22,0,3090.15,0,0,white,9988
+1,male,32,41,married,34,0,3543.75,0,0,white,15436
+2,male,32,35,married,33,0,2409.75,1,1,white,14982
+1,female,28,39,married,38,0,3118.5,0,0,white,17252
+2,female,27,36,married,53,0,2353.05,1,1,white,24062
+1,male,30,40,married,29,0,3827.25,0,0,white,13166
+1,female,26,40,married,16,0,3713.85,0,0,white,7264
+1,female,31,40,married,45,0,3572.1,0,0,white,20430
+1,female,32,36,married,33,0,2664.9,0,1,white,14982
+1,female,26,37,married,31,1,3090.15,0,0,white,14074
+1,male,16,43,not married,18,0,2835,0,0,white,8172
+1,male,22,41,married,39,0,3883.95,0,0,white,17706
+1,male,27,37,married,20,1,3175.2,0,0,white,9080
+1,female,23,37,married,9,0,2381.4,1,0,white,4086
+1,male,29,38,married,25,0,4054.05,0,0,white,11350
+1,female,21,41,married,15,0,3685.5,0,0,white,6810
+1,male,36,37,married,25,0,3628.8,0,0,white,11350
+1,female,25,39,married,40,0,3969,0,0,white,18160
+1,male,34,37,married,11,0,3657.15,0,0,white,4994
+1,female,17,38,not married,22,0,2920.05,0,0,white,9988
+1,male,22,39,not married,NA,0,3742.2,0,0,hispanic,NA
+1,male,31,40,married,43,0,4734.45,0,0,white,19522
+1,female,34,36,married,30,0,2721.6,0,1,white,13620
+1,female,26,39,not married,37,0,3090.15,0,0,white,16798
+1,female,27,39,married,46,0,2664.9,0,0,white,20884
+1,female,25,41,married,16,1,3855.6,0,0,white,7264
+1,male,17,35,not married,40,1,3798.9,0,1,white,18160
+1,female,32,38,married,21,0,3572.1,0,0,white,9534
+1,male,20,40,married,24,1,3402,0,0,white,10896
+1,female,23,40,married,38,0,3628.8,0,0,white,17252
+1,male,25,38,married,46,0,3260.25,0,0,hispanic,20884
+1,female,27,37,married,21,0,3487.05,0,0,white,9534
+1,female,32,38,married,23,0,3855.6,0,0,white,10442
+1,male,28,37,married,35,0,3543.75,0,0,white,15890
+1,male,21,39,married,45,0,3685.5,0,0,white,20430
+2,female,32,37,married,55,0,2749.95,0,0,white,24970
+1,female,33,38,married,30,0,3572.1,0,0,white,13620
+1,male,19,40,married,34,0,3487.05,0,0,white,15436
+1,female,29,38,married,30,1,2239.65,1,0,white,13620
+1,female,22,40,not married,11,0,3770.55,0,0,hispanic,4994
+1,female,27,40,married,55,0,3997.35,0,0,white,24970
+1,male,23,43,not married,11,0,3883.95,0,0,white,4994
+1,female,22,40,married,29,1,3883.95,0,0,white,13166
+1,male,26,40,married,23,0,4706.1,0,0,white,10442
+1,male,25,45,married,26,0,3316.95,0,0,white,11804
+1,female,26,38,married,8,0,2835,0,0,white,3632
+1,female,17,42,not married,27,0,2976.75,0,0,hispanic,12258
+1,male,39,36,married,20,0,3543.75,0,1,white,9080
+1,female,38,43,married,34,0,3515.4,0,0,white,15436
+1,female,32,38,married,26,0,2976.75,0,0,white,11804
+1,female,29,43,married,40,0,3855.6,0,0,white,18160
+1,male,23,38,not married,0,0,2806.65,0,0,hispanic,0
+1,female,26,37,married,32,0,3061.8,0,0,white,14528
+1,male,20,38,married,33,0,2976.75,0,0,hispanic,14982
+1,female,18,41,not married,47,0,3628.8,0,0,white,21338
+1,female,17,40,not married,41,0,3742.2,0,0,white,18614
+1,female,21,41,married,30,0,4195.8,0,0,white,13620
+1,female,23,35,not married,25,0,3600.45,0,1,hispanic,11350
+1,female,20,36,not married,22,1,3175.2,0,1,white,9988
+1,female,32,39,married,35,0,3912.3,0,0,white,15890
+1,female,21,40,married,5,0,1871.1,1,0,white,2270
+1,male,27,40,married,25,0,4195.8,0,0,white,11350
+1,male,38,37,not married,30,0,3572.1,0,0,white,13620
+1,female,32,41,married,18,0,4054.05,0,0,white,8172
+1,female,18,23,not married,18,0,453.6,1,1,white,8172
+1,male,29,39,married,36,0,3175.2,0,0,white,16344
+1,male,37,37,married,29,0,3798.9,0,0,white,13166
+2,male,27,37,not married,34,0,2324.7,1,0,hispanic,15436
+1,male,33,40,married,30,0,4139.1,0,0,white,13620
+1,female,28,38,married,30,0,3940.65,0,0,white,13620
+2,male,33,35,married,21,0,2268,1,1,white,9534
+1,male,29,37,married,26,0,3373.65,0,0,white,11804
+1,male,37,40,married,45,0,4054.05,0,0,white,20430
+1,male,23,39,married,15,0,2863.35,0,0,hispanic,6810
+1,male,25,38,married,12,0,3288.6,0,0,white,5448
+1,male,35,39,married,37,0,3231.9,0,0,white,16798
+1,male,31,38,not married,20,0,3515.4,0,0,hispanic,9080
+1,female,31,37,married,31,0,3628.8,0,0,white,14074
+1,male,27,40,married,23,0,3883.95,0,0,white,10442
+1,female,35,38,married,39,0,3770.55,0,0,white,17706
+1,female,33,38,married,33,1,3430.35,0,0,white,14982
+1,female,23,34,married,10,0,2409.75,1,1,hispanic,4540
+1,male,30,41,married,33,0,4536,0,0,white,14982
+1,female,36,38,married,45,0,3798.9,0,0,white,20430
+1,male,20,40,not married,46,0,2948.4,0,0,hispanic,20884
+1,female,26,41,married,21,0,4365.9,0,0,white,9534
+1,female,33,39,married,45,0,4621.05,0,0,white,20430
+1,male,30,38,married,38,0,3458.7,0,0,white,17252
+1,male,29,39,married,24,0,3458.7,0,0,white,10896
+1,female,32,39,married,30,0,3061.8,0,0,white,13620
+1,female,27,40,married,20,0,3827.25,0,0,white,9080
+1,female,25,38,married,11,0,3572.1,0,0,white,4994
+1,male,20,40,not married,16,1,2891.7,0,0,white,7264
+1,male,24,41,married,30,0,3458.7,0,0,white,13620
+1,female,20,38,not married,10,0,3543.75,0,0,white,4540
+1,female,36,41,married,33,0,3402,0,0,white,14982
+1,male,34,38,married,40,0,3742.2,0,0,white,18160
+1,female,28,39,married,24,0,3033.45,0,0,white,10896
+1,male,23,38,married,32,0,3827.25,0,0,white,14528
+1,female,21,38,married,55,0,3742.2,0,0,hispanic,24970
+1,male,19,36,married,30,0,3033.45,0,1,white,13620
+1,male,19,38,not married,20,0,3005.1,0,0,hispanic,9080
+1,male,38,38,married,20,0,3033.45,0,0,white,9080
+1,female,39,40,married,40,0,3940.65,0,0,white,18160
+1,male,35,36,married,34,0,3402,0,1,white,15436
+1,female,30,40,married,27,0,3855.6,0,0,white,12258
+2,male,18,29,not married,24,0,1729.35,1,1,white,10896
+1,male,30,39,married,30,0,3770.55,0,0,white,13620
+1,female,26,39,married,20,1,3316.95,0,0,white,9080
+1,male,39,39,married,29,0,4054.05,0,0,white,13166
+1,male,28,40,married,51,1,3430.35,0,0,white,23154
+1,female,30,38,married,23,0,2891.7,0,0,white,10442
+1,male,28,40,married,7,0,3685.5,0,0,hispanic,3178
+1,female,31,44,married,25,1,3146.85,0,0,white,11350
+1,female,35,23,married,NA,0,652.05,1,1,white,NA
+1,male,24,39,married,8,0,3430.35,0,0,hispanic,3632
+1,female,31,40,married,50,0,4649.4,0,0,white,22700
+1,female,38,40,married,40,0,4450.95,0,0,white,18160
+1,female,33,39,married,35,0,3260.25,0,0,white,15890
+1,female,30,35,not married,38,0,2494.8,1,1,hispanic,17252
+1,female,22,39,married,34,0,3090.15,0,0,white,15436
+1,male,32,39,married,38,0,3798.9,0,0,white,17252
+1,female,30,37,married,26,0,3175.2,0,0,white,11804
+2,male,38,33,married,69,0,2636.55,0,1,white,31326
+1,male,20,38,not married,10,0,3316.95,0,0,hispanic,4540
+1,female,25,40,married,35,0,3345.3,0,0,white,15890
+1,male,32,40,married,19,0,4082.4,0,0,white,8626
+1,male,25,35,married,31,0,2664.9,0,1,hispanic,14074
+1,female,33,39,married,20,1,3770.55,0,0,white,9080
+1,female,25,38,married,32,0,2523.15,0,0,white,14528
+1,male,29,42,married,18,0,3061.8,0,0,white,8172
+1,female,35,38,married,60,0,4252.5,0,0,white,27240
+1,female,31,38,married,40,0,2976.75,0,0,white,18160
+1,female,19,41,married,NA,0,3146.85,0,0,hispanic,NA
+1,female,37,38,married,NA,0,3373.65,0,0,white,NA
+1,male,31,38,married,16,0,3345.3,0,0,white,7264
+1,female,34,39,married,24,0,3572.1,0,0,white,10896
+1,male,27,38,married,20,0,2835,0,0,white,9080
+1,male,29,39,married,38,0,4082.4,0,0,white,17252
+1,male,41,37,married,33,0,4167.45,0,0,white,14982
+1,female,31,39,married,30,0,4280.85,0,0,white,13620
+1,male,23,41,not married,22,0,3827.25,0,0,hispanic,9988
+1,male,27,39,married,20,0,3118.5,0,0,white,9080
+1,male,34,39,married,28,0,3430.35,0,0,white,12712
+1,male,24,41,not married,45,0,4110.75,0,0,white,20430
+2,female,26,35,married,NA,0,2551.5,0,1,white,NA
+1,male,20,38,not married,53,0,3203.55,0,0,white,24062
+1,male,20,37,not married,11,0,2891.7,0,0,white,4994
+1,female,27,38,not married,35,0,3175.2,0,0,hispanic,15890
+1,male,39,43,not married,22,1,4309.2,0,0,white,9988
+1,female,32,40,married,44,0,3288.6,0,0,white,19976
+1,male,34,37,married,22,0,2636.55,0,0,white,9988
+1,male,34,39,married,27,0,3175.2,0,0,white,12258
+1,male,26,39,married,40,0,3458.7,0,0,hispanic,18160
+1,female,23,39,not married,36,0,3033.45,0,0,white,16344
+1,female,22,40,married,31,0,3203.55,0,0,white,14074
+2,female,16,39,not married,47,0,2126.25,1,0,white,21338
+1,male,22,37,married,68,0,4536,0,0,white,30872
+1,female,31,40,married,26,0,3600.45,0,0,white,11804
+1,female,20,38,not married,32,0,3288.6,0,0,white,14528
+1,male,26,41,married,28,0,3798.9,0,0,white,12712
+1,male,35,38,married,43,0,3600.45,0,0,white,19522
+1,male,35,37,married,29,1,3061.8,0,0,white,13166
+1,female,25,39,married,53,1,3260.25,0,0,white,24062
+1,female,29,39,married,25,0,3515.4,0,0,white,11350
+1,female,27,41,married,49,0,3345.3,0,0,hispanic,22246
+1,male,31,37,not married,55,0,3628.8,0,0,white,24970
+2,female,18,25,not married,30,0,935.55,1,1,white,13620
+1,male,23,39,not married,44,0,3515.4,0,0,white,19976
+1,female,31,44,married,22,0,3345.3,0,0,hispanic,9988
+1,male,26,37,married,18,0,2948.4,0,0,white,8172
+1,female,35,40,married,50,0,3912.3,0,0,white,22700
+2,female,32,39,married,49,0,3005.1,0,0,white,22246
+1,female,22,39,not married,18,0,3260.25,0,0,hispanic,8172
+1,male,30,39,married,40,0,3260.25,0,0,white,18160
+1,male,26,37,married,25,0,2891.7,0,0,white,11350
+1,male,20,36,not married,44,1,3005.1,0,1,white,19976
+1,male,37,40,married,30,0,2948.4,0,0,white,13620
+1,female,25,43,married,18,1,1984.5,1,0,white,8172
+1,male,26,39,married,0,0,3713.85,0,0,white,0
+1,male,25,39,married,25,0,4139.1,0,0,white,11350
+1,male,25,36,married,26,0,3657.15,0,1,white,11804
+1,female,19,37,not married,50,0,3912.3,0,0,white,22700
+1,female,22,41,married,NA,0,3203.55,0,0,white,NA
+1,male,21,32,not married,31,0,2693.25,0,1,white,14074
+1,male,32,40,married,30,0,4082.4,0,0,white,13620
+1,male,32,38,married,24,1,4025.7,0,0,white,10896
+1,male,23,36,not married,20,0,2891.7,0,1,hispanic,9080
+1,female,23,37,not married,35,1,3061.8,0,0,white,15890
+1,female,16,41,not married,35,1,3175.2,0,0,white,15890
+2,male,31,34,married,42,0,2239.65,1,1,white,19068
+1,male,35,40,married,25,0,4252.5,0,0,white,11350
+1,male,30,40,married,35,0,3345.3,0,0,white,15890
+1,female,23,40,married,47,0,3742.2,0,0,white,21338
+2,female,29,35,not married,17,0,1502.55,1,1,white,7718
+1,male,28,40,married,22,0,3855.6,0,0,white,9988
+1,female,31,38,married,25,0,2920.05,0,0,white,11350
+1,male,26,40,not married,24,0,3373.65,0,0,white,10896
+1,female,24,37,married,40,0,3005.1,0,0,white,18160
+1,male,34,39,married,15,1,3231.9,0,0,white,6810
+1,male,33,41,married,39,0,4139.1,0,0,white,17706
+1,male,22,39,married,20,0,3402,0,0,white,9080
+1,female,37,39,married,14,0,3231.9,0,0,white,6356
+1,female,38,39,married,52,0,3373.65,0,0,white,23608
+1,female,24,38,married,23,0,3402,0,0,white,10442
+1,male,26,36,not married,25,0,2381.4,1,1,white,11350
+1,male,29,39,not married,31,1,3373.65,0,0,white,14074
+1,male,32,39,married,12,0,3402,0,0,hispanic,5448
+1,male,26,40,married,25,1,3855.6,0,0,white,11350
+1,female,17,44,married,30,0,3175.2,0,0,hispanic,13620
+1,female,29,36,married,45,0,4054.05,0,1,white,20430
+1,male,18,37,not married,41,0,3430.35,0,0,white,18614
+1,female,33,38,married,21,0,3430.35,0,0,white,9534
+1,female,33,40,married,44,0,3713.85,0,0,white,19976
+1,male,25,40,married,95,0,3827.25,0,0,white,43130
+1,female,26,37,married,25,0,3373.65,0,0,white,11350
+1,female,35,41,married,27,0,3543.75,0,0,white,12258
+1,male,20,40,married,27,0,3402,0,0,white,12258
+1,male,19,39,not married,69,1,3373.65,0,0,white,31326
+1,female,28,42,not married,43,0,4677.75,0,0,white,19522
+1,female,23,37,married,20,0,3685.5,0,0,hispanic,9080
+1,male,32,38,married,50,0,3827.25,0,0,white,22700
+1,male,25,36,married,29,0,2948.4,0,1,white,13166
+1,male,22,42,not married,10,0,2778.3,0,0,white,4540
+1,female,20,39,married,35,0,2891.7,0,0,white,15890
+2,female,34,37,married,33,0,2494.8,1,0,white,14982
+1,male,30,41,married,6,0,4167.45,0,0,white,2724
+1,female,35,38,married,NA,0,3260.25,0,0,white,NA
+1,male,28,38,married,42,0,3883.95,0,0,white,19068
+1,male,18,36,not married,35,0,3175.2,0,1,white,15890
+1,male,23,42,married,60,1,2948.4,0,0,white,27240
+1,female,23,41,married,45,0,3515.4,0,0,white,20430
+1,male,38,45,married,28,0,3912.3,0,0,white,12712
+1,male,37,38,married,20,0,3373.65,0,0,white,9080
+1,male,35,37,not married,NA,0,2494.8,1,0,hispanic,NA
+1,male,38,35,not married,20,0,3231.9,0,1,hispanic,9080
+1,female,27,40,not married,14,1,3657.15,0,0,white,6356
+1,female,31,39,married,27,0,3487.05,0,0,white,12258
+1,male,23,36,married,29,0,2778.3,0,1,white,13166
+1,male,35,38,married,30,0,4365.9,0,0,white,13620
+1,male,29,39,married,31,0,3600.45,0,0,white,14074
+1,female,29,40,not married,40,0,4394.25,0,0,hispanic,18160
+1,female,27,38,married,31,0,2976.75,0,0,white,14074
+1,male,17,40,not married,75,0,3657.15,0,0,white,34050
+1,male,33,41,married,27,0,3515.4,0,0,white,12258
+1,female,29,36,married,25,0,2976.75,0,1,white,11350
+1,male,29,40,married,34,1,2353.05,1,0,white,15436
+1,female,26,43,married,11,0,3345.3,0,0,white,4994
+1,female,26,39,married,20,0,3175.2,0,0,white,9080
+1,male,32,38,married,40,0,3940.65,0,0,white,18160
+1,male,36,41,married,30,0,4677.75,0,0,white,13620
+1,male,26,38,married,30,0,3798.9,0,0,white,13620
+1,female,30,40,married,20,0,3487.05,0,0,white,9080
+1,male,34,42,married,23,0,3600.45,0,0,white,10442
+1,male,23,31,not married,20,1,1757.7,1,1,white,9080
+1,female,34,40,married,15,0,3288.6,0,0,white,6810
+1,male,19,31,not married,10,0,2438.1,1,1,white,4540
+1,male,19,42,married,37,0,3515.4,0,0,white,16798
+1,female,25,37,not married,35,1,3146.85,0,0,white,15890
+1,female,18,38,not married,28,0,3146.85,0,0,hispanic,12712
+1,male,23,39,married,45,0,2749.95,0,0,hispanic,20430
+1,female,20,41,not married,17,0,3770.55,0,0,hispanic,7718
+1,male,21,39,married,30,0,3543.75,0,0,hispanic,13620
+1,male,25,39,married,36,0,3515.4,0,0,white,16344
+1,male,26,39,not married,42,0,3770.55,0,0,hispanic,19068
+1,male,33,39,married,10,0,4054.05,0,0,white,4540
+1,female,31,39,married,21,0,3543.75,0,0,white,9534
+1,female,31,40,married,0,0,3316.95,0,0,white,0
+1,female,20,43,married,33,0,3316.95,0,0,hispanic,14982
+1,male,30,38,married,38,0,3402,0,0,hispanic,17252
+1,female,29,39,married,56,0,3515.4,0,0,white,25424
+1,male,29,40,not married,22,0,4450.95,0,0,hispanic,9988
+1,female,20,39,not married,40,1,2664.9,0,0,white,18160
+1,male,23,38,married,24,1,3458.7,0,0,white,10896
+1,male,26,43,married,52,0,3231.9,0,0,white,23608
+1,female,32,36,married,30,1,2693.25,0,1,white,13620
+1,male,28,38,married,36,0,3713.85,0,0,white,16344
+1,male,32,40,married,24,0,4224.15,0,0,hispanic,10896
+1,male,28,38,not married,0,1,3600.45,0,0,white,0
+1,female,32,39,married,9,0,2806.65,0,0,white,4086
+1,female,21,39,married,32,0,3316.95,0,0,white,14528
+1,male,34,40,married,14,0,3912.3,0,0,white,6356
+1,male,38,39,married,23,0,2721.6,0,0,white,10442
+1,female,23,39,not married,50,1,3203.55,0,0,white,22700
+1,male,38,36,married,29,0,2976.75,0,1,white,13166
+3,female,37,25,married,25,0,708.75,1,1,white,11350
+1,female,39,40,married,40,0,3231.9,0,0,white,18160
+1,female,31,38,married,20,1,2835,0,0,white,9080
+2,female,34,32,not married,55,0,1956.15,1,1,white,24970
+1,female,27,35,married,25,1,2976.75,0,1,white,11350
+1,male,19,39,married,35,1,4110.75,0,0,white,15890
+1,male,30,39,married,38,0,3543.75,0,0,hispanic,17252
+1,female,35,39,married,25,0,3572.1,0,0,white,11350
+2,male,33,41,married,15,0,2721.6,0,0,white,6810
+1,male,21,29,married,33,0,822.15,1,1,white,14982
+1,female,21,40,not married,4,0,3487.05,0,0,white,1816
+1,male,13,37,not married,29,1,3742.2,0,0,white,13166
+1,female,32,41,married,24,0,3543.75,0,0,white,10896
+1,female,32,38,married,31,0,2835,0,0,white,14074
+1,male,26,40,married,41,0,4054.05,0,0,white,18614
+1,male,27,40,married,40,0,3543.75,0,0,white,18160
+1,female,30,39,married,36,0,3345.3,0,0,white,16344
+1,female,22,41,married,17,0,4110.75,0,0,white,7718
+3,male,30,32,married,40,0,1786.05,1,1,white,18160
+1,female,36,41,not married,35,0,3231.9,0,0,white,15890
+1,female,22,39,not married,14,0,2778.3,0,0,white,6356
+1,male,24,40,not married,26,0,3033.45,0,0,hispanic,11804
+1,male,29,38,married,35,0,3628.8,0,0,white,15890
+1,male,20,39,not married,44,0,3600.45,0,0,white,19976
+1,female,26,38,married,32,0,3572.1,0,0,white,14528
+1,female,16,40,not married,28,0,3487.05,0,0,white,12712
+1,female,30,39,married,27,0,3231.9,0,0,white,12258
+1,female,23,39,married,30,1,2948.4,0,0,white,13620
+1,female,22,37,married,32,0,3316.95,0,0,white,14528
+1,male,22,37,married,25,0,3402,0,0,white,11350
+1,female,32,42,not married,20,0,3685.5,0,0,hispanic,9080
+1,male,25,39,married,40,0,3912.3,0,0,white,18160
+1,male,33,36,married,34,0,2494.8,1,1,hispanic,15436
+1,male,32,39,not married,60,0,2749.95,0,0,hispanic,27240
+1,female,27,36,married,20,0,3033.45,0,1,white,9080
+1,male,26,39,not married,50,0,4195.8,0,0,hispanic,22700
+1,female,25,38,married,27,0,3912.3,0,0,white,12258
+1,male,41,38,married,8,0,3883.95,0,0,white,3632
+2,male,29,37,married,55,0,2608.2,0,0,white,24970
+1,female,33,38,married,28,0,3231.9,0,0,white,12712
+1,female,26,42,married,18,0,3572.1,0,0,white,8172
+1,male,32,40,married,8,0,3316.95,0,0,white,3632
+1,female,28,38,married,50,0,3402,0,0,white,22700
+1,male,26,37,married,30,0,2693.25,0,0,white,13620
+1,male,22,40,not married,25,0,3628.8,0,0,hispanic,11350
+1,female,27,38,married,28,0,3260.25,0,0,white,12712
+1,female,41,37,married,20,0,3175.2,0,0,white,9080
+1,female,26,41,not married,0,0,4450.95,0,0,white,0
+1,male,34,40,married,31,0,3316.95,0,0,white,14074
+1,female,37,38,married,25,0,3515.4,0,0,white,11350
+1,male,25,34,married,NA,0,3713.85,0,1,hispanic,NA
+1,female,21,40,married,24,0,3430.35,0,0,white,10896
+1,female,37,40,not married,30,0,3770.55,0,0,hispanic,13620
+1,male,28,39,married,18,0,3628.8,0,0,hispanic,8172
+1,female,34,39,married,16,0,3572.1,0,0,white,7264
+1,female,37,36,not married,NA,0,2239.65,1,1,hispanic,NA
+1,female,37,40,married,30,0,3742.2,0,0,white,13620
+1,female,19,40,not married,1,0,3402,0,0,white,454
+1,female,17,41,not married,38,0,3770.55,0,0,hispanic,17252
+1,male,16,40,not married,5,0,3061.8,0,0,hispanic,2270
+1,female,38,38,married,17,0,3345.3,0,0,white,7718
+1,male,16,35,not married,7,0,2381.4,1,1,white,3178
+1,male,17,36,not married,32,0,2664.9,0,1,white,14528
+1,male,29,37,married,50,1,3146.85,0,0,white,22700
+1,female,21,38,not married,10,0,3033.45,0,0,hispanic,4540
+1,male,22,39,married,35,0,3600.45,0,0,hispanic,15890
+1,female,24,38,not married,10,0,3005.1,0,0,hispanic,4540
+1,female,17,39,not married,55,1,3316.95,0,0,white,24970
+1,male,27,43,married,20,0,2636.55,0,0,white,9080
+1,female,15,41,not married,34,1,4139.1,0,0,white,15436
+1,female,25,42,married,25,0,4082.4,0,0,hispanic,11350
+1,male,19,40,married,21,0,3883.95,0,0,white,9534
+1,female,19,39,not married,20,0,3628.8,0,0,hispanic,9080
+1,male,26,38,married,21,0,3175.2,0,0,white,9534
+1,female,28,39,married,45,0,4167.45,0,0,white,20430
+1,male,34,38,married,26,1,3770.55,0,0,white,11804
+1,female,24,38,married,34,0,2976.75,0,0,white,15436
+1,male,31,37,married,27,0,3175.2,0,0,white,12258
+1,female,28,38,married,30,0,3260.25,0,0,hispanic,13620
+1,female,19,39,married,65,1,2778.3,0,0,white,29510
+1,female,23,40,married,30,0,3628.8,0,0,hispanic,13620
+1,male,34,37,married,40,0,2920.05,0,0,white,18160
+1,male,32,42,married,25,0,2891.7,0,0,hispanic,11350
+1,female,23,34,not married,50,1,2211.3,1,1,white,22700
+2,female,35,38,married,3,0,2664.9,0,0,white,1362
+1,male,28,41,married,20,0,3430.35,0,0,white,9080
+1,female,37,38,not married,30,0,3940.65,0,0,hispanic,13620
+1,male,26,37,married,45,0,3430.35,0,0,white,20430
+1,male,28,37,married,10,1,3402,0,0,white,4540
+1,male,26,35,married,31,0,3231.9,0,1,white,14074
+1,male,29,39,married,NA,0,3657.15,0,0,white,NA
+1,female,24,39,married,48,0,4139.1,0,0,white,21792
+1,female,26,38,married,30,1,2976.75,0,0,white,13620
+1,male,24,37,married,46,0,3402,0,0,white,20884
+1,female,31,37,married,30,0,3373.65,0,0,white,13620
+1,male,22,38,not married,40,0,3373.65,0,0,hispanic,18160
+1,male,30,40,married,40,1,3628.8,0,0,white,18160
+1,male,21,38,married,46,0,3373.65,0,0,hispanic,20884
+1,female,35,39,married,30,0,3260.25,0,0,white,13620
+1,female,24,36,married,20,0,2976.75,0,1,white,9080
+3,female,34,34,married,68,0,2041.2,1,1,white,30872
+1,female,34,40,married,18,0,3657.15,0,0,white,8172
+1,male,26,41,married,8,1,3685.5,0,0,white,3632
+1,male,34,39,married,25,0,3487.05,0,0,white,11350
+1,male,33,40,married,38,0,4167.45,0,0,white,17252
+1,male,34,40,married,60,0,4734.45,0,0,white,27240
+1,male,33,39,married,8,0,2891.7,0,0,white,3632
+2,male,33,37,married,50,0,2778.3,0,0,white,22700
+1,female,27,38,married,28,0,3402,0,0,white,12712
+1,female,32,40,married,40,0,3600.45,0,0,white,18160
+1,female,24,41,married,20,0,3487.05,0,0,white,9080
+1,female,28,39,married,33,0,3430.35,0,0,white,14982
+1,female,22,35,married,50,0,3373.65,0,1,white,22700
+1,female,19,40,married,50,0,3118.5,0,0,white,22700
+1,female,33,38,married,30,0,3430.35,0,0,white,13620
+1,female,18,36,not married,15,0,2636.55,0,1,hispanic,6810
+1,female,19,36,not married,33,0,3175.2,0,1,hispanic,14982
+1,male,18,43,married,81,0,3090.15,0,0,white,36774
+1,female,28,38,married,15,0,3316.95,0,0,white,6810
+1,male,34,34,married,28,0,3175.2,0,1,white,12712
+1,male,21,33,married,32,1,3260.25,0,1,white,14528
+1,male,26,39,married,NA,0,4139.1,0,0,white,NA
+1,male,29,40,married,27,0,3260.25,0,0,white,12258
+1,female,38,39,married,32,0,3713.85,0,0,white,14528
+1,female,31,41,married,36,1,3855.6,0,0,white,16344
+1,female,35,42,married,20,0,3402,0,0,white,9080
+1,male,29,38,married,31,0,4139.1,0,0,white,14074
+1,female,32,39,married,36,0,3997.35,0,0,white,16344
+1,female,32,39,married,NA,0,2523.15,0,0,white,NA
+1,female,24,41,not married,28,0,3430.35,0,0,white,12712
+1,female,24,42,married,39,0,3572.1,0,0,hispanic,17706
+1,male,22,39,not married,14,0,3770.55,0,0,white,6356
+1,female,18,41,not married,38,0,3345.3,0,0,hispanic,17252
+1,male,25,39,married,25,0,4139.1,0,0,white,11350
+1,male,22,37,married,20,1,2381.4,1,0,white,9080
+1,male,33,40,married,18,0,3543.75,0,0,white,8172
+1,female,29,36,married,32,0,3033.45,0,1,white,14528
+1,female,18,40,not married,52,1,3061.8,0,0,white,23608
+1,male,28,40,married,32,0,3543.75,0,0,white,14528
+1,female,37,41,married,10,0,3260.25,0,0,white,4540
+1,female,34,39,married,45,0,3628.8,0,0,white,20430
+1,male,20,37,not married,69,0,4394.25,0,0,hispanic,31326
+1,male,26,28,not married,21,1,1445.85,1,1,white,9534
+1,female,43,40,not married,50,0,3657.15,0,0,white,22700
+1,male,24,38,married,29,0,2268,1,0,hispanic,13166
+1,male,28,38,married,40,0,3316.95,0,0,white,18160
+1,male,20,39,married,21,0,3742.2,0,0,white,9534
+1,female,28,39,not married,47,1,3146.85,0,0,white,21338
+1,female,32,39,not married,30,0,3742.2,0,0,hispanic,13620
+1,female,37,42,married,20,0,3713.85,0,0,white,9080
+1,female,24,39,married,42,0,4309.2,0,0,white,19068
+1,female,32,39,married,39,0,2920.05,0,0,white,17706
+1,female,39,34,married,38,0,2891.7,0,1,white,17252
+1,female,28,39,married,15,0,3458.7,0,0,white,6810
+1,female,19,37,not married,11,0,2920.05,0,0,white,4994
+1,male,20,39,married,36,0,3203.55,0,0,hispanic,16344
+1,female,24,37,married,43,1,2778.3,0,0,white,19522
+1,female,26,39,not married,25,0,4592.7,0,0,hispanic,11350
+1,female,34,42,married,25,0,3657.15,0,0,white,11350
+1,male,25,40,not married,20,0,3969,0,0,hispanic,9080
+2,male,27,31,married,62,0,2579.85,0,1,white,28148
+1,female,26,39,married,69,0,4139.1,0,0,white,31326
+1,male,40,38,married,20,0,3118.5,0,0,white,9080
+1,male,36,37,married,38,0,3373.65,0,0,white,17252
+1,female,31,41,married,30,0,3912.3,0,0,white,13620
+1,male,19,39,married,30,0,3997.35,0,0,white,13620
+1,male,31,38,married,NA,NA,3685.5,0,0,white,NA
+1,female,31,38,married,52,0,4195.8,0,0,white,23608
+1,female,17,39,not married,50,0,3316.95,0,0,white,22700
+1,male,36,39,not married,40,0,2608.2,0,0,hispanic,18160
+1,female,18,38,not married,45,0,3770.55,0,0,hispanic,20430
+1,male,22,39,married,50,1,2976.75,0,0,white,22700
+1,male,20,40,not married,40,0,3883.95,0,0,white,18160
+1,female,29,39,married,28,1,3430.35,0,0,white,12712
+1,male,28,40,married,30,1,3430.35,0,0,white,13620
+1,female,29,42,married,30,0,3146.85,0,0,white,13620
+1,male,26,41,married,NA,0,3487.05,0,0,white,NA
+1,female,29,39,married,30,1,2664.9,0,0,white,13620
+1,female,22,39,not married,25,0,2891.7,0,0,white,11350
+1,female,30,40,married,20,1,2664.9,0,0,white,9080
+1,female,30,39,married,13,1,2948.4,0,0,white,5902
+1,female,34,40,married,32,0,2778.3,0,0,white,14528
+1,female,28,41,not married,15,1,3316.95,0,0,white,6810
+1,male,23,38,married,32,0,3572.1,0,0,white,14528
+1,male,29,37,married,10,0,3033.45,0,0,white,4540
+1,male,20,40,not married,45,0,3231.9,0,0,white,20430
+1,male,23,40,married,6,0,3316.95,0,0,white,2724
+1,female,18,37,not married,24,1,2721.6,0,0,white,10896
+1,male,30,40,married,40,0,3345.3,0,0,white,18160
+1,male,23,40,not married,26,0,3600.45,0,0,white,11804
+1,female,28,39,married,18,0,3430.35,0,0,white,8172
+1,female,15,41,not married,35,0,3231.9,0,0,white,15890
+1,male,17,39,not married,60,0,4025.7,0,0,white,27240
+1,male,29,40,married,44,0,3940.65,0,0,white,19976
+1,female,33,38,married,37,0,4337.55,0,0,white,16798
+1,male,30,39,married,27,0,3713.85,0,0,white,12258
+1,male,30,41,married,26,0,3827.25,0,0,white,11804
+1,female,29,39,married,18,0,3713.85,0,0,white,8172
+1,male,22,40,married,40,0,3430.35,0,0,white,18160
+1,female,15,40,not married,22,1,2579.85,0,0,white,9988
+1,male,26,39,married,40,0,4167.45,0,0,white,18160
+1,male,23,39,married,40,0,3345.3,0,0,white,18160
+1,female,35,40,married,30,0,3033.45,0,0,white,13620
+1,male,24,37,married,21,0,2948.4,0,0,white,9534
+1,female,26,42,married,36,0,3118.5,0,0,white,16344
+1,female,19,41,married,27,0,3657.15,0,0,white,12258
+2,male,38,37,married,55,0,2920.05,0,0,white,24970
+1,male,23,40,not married,20,0,3345.3,0,0,hispanic,9080
+1,male,38,41,married,30,0,3770.55,0,0,white,13620
+1,female,32,38,married,38,0,3175.2,0,0,white,17252
+1,male,28,40,married,33,0,3572.1,0,0,white,14982
+1,female,17,38,married,24,1,3657.15,0,0,white,10896
+1,female,36,40,not married,35,1,3458.7,0,0,white,15890
+1,female,26,40,married,30,0,3657.15,0,0,white,13620
+1,female,29,35,married,35,0,2835,0,1,white,15890
+1,male,29,40,married,21,0,3798.9,0,0,white,9534
+1,male,22,39,not married,31,0,3175.2,0,0,hispanic,14074
+1,male,31,36,married,20,0,3685.5,0,1,white,9080
+1,female,31,38,married,40,0,3912.3,0,0,white,18160
+1,male,29,35,married,25,0,2863.35,0,1,white,11350
+1,male,34,40,married,32,1,3175.2,0,0,white,14528
+2,male,26,38,married,39,0,3175.2,0,0,white,17706
+2,male,30,35,married,35,0,2409.75,1,1,white,15890
+1,male,24,39,married,43,0,3175.2,0,0,white,19522
+1,female,37,39,married,28,0,3288.6,0,0,white,12712
+1,female,34,40,married,37,0,3260.25,0,0,white,16798
+1,male,30,41,married,24,0,3742.2,0,0,white,10896
+1,female,37,38,married,12,0,3430.35,0,0,white,5448
+1,male,17,39,not married,36,0,3487.05,0,0,white,16344
+1,male,24,39,married,40,1,3600.45,0,0,white,18160
+1,female,23,39,not married,71,0,3713.85,0,0,white,32234
+1,male,35,35,married,50,0,2579.85,0,1,white,22700
+1,male,21,41,not married,34,0,3487.05,0,0,white,15436
+2,female,24,35,married,45,0,1814.4,1,1,white,20430
+1,male,31,35,married,0,0,3146.85,0,1,white,0
+1,male,29,40,not married,10,0,3146.85,0,0,hispanic,4540
+1,female,25,39,not married,55,0,3883.95,0,0,white,24970
+1,male,20,40,married,56,1,3798.9,0,0,white,25424
+1,male,32,40,married,30,0,3883.95,0,0,white,13620
+1,female,23,36,married,40,0,3855.6,0,1,white,18160
+1,female,24,39,married,13,0,2976.75,0,0,hispanic,5902
+1,female,28,39,married,22,0,2835,0,0,white,9988
+1,male,33,41,married,23,0,3600.45,0,0,white,10442
+1,male,29,36,married,32,0,3430.35,0,1,white,14528
+2,male,34,37,married,30,0,2863.35,0,0,white,13620
+1,female,20,36,married,30,0,1956.15,1,1,white,13620
+1,male,18,39,not married,33,0,3742.2,0,0,white,14982
+1,female,25,38,married,20,0,3146.85,0,0,white,9080
+1,female,20,38,married,40,0,3175.2,0,0,white,18160
+1,male,29,43,married,44,0,3345.3,0,0,white,19976
+2,female,26,30,married,32,0,1729.35,1,1,white,14528
+1,female,22,45,married,15,1,3288.6,0,0,white,6810
+1,male,23,38,married,39,0,2948.4,0,0,white,17706
+1,male,23,38,married,NA,1,3713.85,0,0,white,NA
+1,female,34,38,married,45,0,3430.35,0,0,white,20430
+1,male,26,36,not married,32,0,4309.2,0,1,hispanic,14528
+1,male,23,35,married,20,0,2948.4,0,1,hispanic,9080
+1,male,21,36,married,32,1,4082.4,0,1,white,14528
+1,male,31,40,married,31,0,4365.9,0,0,white,14074
+1,female,22,32,not married,25,0,2693.25,0,1,white,11350
+1,female,30,38,married,30,0,3146.85,0,0,white,13620
+1,female,22,35,married,NA,0,3855.6,0,1,hispanic,NA
+1,male,29,39,married,40,0,2976.75,0,0,white,18160
+1,female,39,34,not married,30,0,3005.1,0,1,hispanic,13620
+1,female,32,41,married,30,0,3061.8,0,0,white,13620
+1,male,28,39,married,29,0,3458.7,0,0,white,13166
+1,male,24,40,not married,37,0,2721.6,0,0,hispanic,16798
+1,female,36,42,married,31,0,4139.1,0,0,white,14074
+1,female,20,40,married,28,0,3373.65,0,0,hispanic,12712
+1,female,33,40,married,34,0,3883.95,0,0,white,15436
+1,male,30,40,married,32,0,3770.55,0,0,white,14528
+1,female,26,40,married,40,0,3543.75,0,0,white,18160
+1,male,28,39,married,28,0,4507.65,0,0,white,12712
+3,male,34,35,married,50,0,2551.5,0,1,white,22700
+1,male,21,39,married,31,0,3600.45,0,0,white,14074
+1,female,33,35,married,23,0,1956.15,1,1,white,10442
+1,male,23,40,not married,25,1,3203.55,0,0,white,11350
+1,male,26,41,married,32,0,3912.3,0,0,hispanic,14528
+1,female,34,37,married,45,0,3118.5,0,0,white,20430
+1,female,31,40,not married,22,0,3175.2,0,0,white,9988
+1,female,32,41,married,33,0,3997.35,0,0,white,14982
+1,male,30,45,married,30,0,3798.9,0,0,white,13620
+1,female,21,38,married,18,1,2466.45,1,0,white,8172
+1,male,27,35,not married,38,0,3345.3,0,1,hispanic,17252
+1,male,20,40,not married,17,0,3288.6,0,0,white,7718
+1,male,28,33,married,30,0,1871.1,1,1,white,13620
+1,female,28,35,married,35,1,3090.15,0,1,white,15890
+1,male,29,39,married,30,0,3515.4,0,0,white,13620
+1,male,25,40,married,25,0,4450.95,0,0,white,11350
+1,male,35,38,married,37,0,3969,0,0,white,16798
+1,male,18,40,married,51,0,3713.85,0,0,hispanic,23154
+1,male,30,41,married,38,0,4479.3,0,0,white,17252
+1,male,21,39,not married,10,1,2806.65,0,0,white,4540
+1,male,19,38,not married,55,0,3685.5,0,0,white,24970
+1,female,23,42,not married,27,0,3798.9,0,0,hispanic,12258
+1,female,28,39,married,21,0,3345.3,0,0,white,9534
+1,male,32,38,married,40,0,3685.5,0,0,white,18160
+1,male,24,40,married,47,NA,4224.15,0,0,hispanic,21338
+1,female,20,37,married,56,0,3231.9,0,0,white,25424
+1,male,24,39,not married,23,1,3005.1,0,0,white,10442
+1,male,31,38,married,40,0,3685.5,0,0,white,18160
+1,male,31,39,married,37,0,3969,0,0,white,16798
+1,male,32,39,married,45,1,2806.65,0,0,white,20430
+1,female,31,38,married,23,0,3543.75,0,0,white,10442
+1,male,34,39,married,26,0,3883.95,0,0,white,11804
+1,female,30,41,married,38,0,3231.9,0,0,white,17252
+1,male,19,41,not married,45,0,3373.65,0,0,white,20430
+1,female,22,41,not married,7,0,2976.75,0,0,hispanic,3178
+1,male,27,32,married,45,0,1304.1,1,1,white,20430
+1,male,28,41,married,35,0,3600.45,0,0,white,15890
+1,female,31,43,married,40,0,3231.9,0,0,white,18160
+1,male,28,34,married,20,1,1020.6,1,1,white,9080
+2,female,21,36,married,23,0,2409.75,1,1,hispanic,10442
+1,male,19,39,not married,20,0,3657.15,0,0,white,9080
+1,female,34,36,married,23,0,3883.95,0,1,white,10442
+1,female,33,39,married,6,0,3033.45,0,0,hispanic,2724
+1,male,34,40,married,33,0,3940.65,0,0,hispanic,14982
+1,female,34,39,married,40,0,4082.4,0,0,white,18160
+1,male,21,41,married,30,0,3969,0,0,hispanic,13620
+1,female,29,43,married,38,0,3685.5,0,0,white,17252
+1,female,23,38,married,57,0,3628.8,0,0,white,25878
+1,male,30,40,not married,30,0,3061.8,0,0,hispanic,13620
+1,female,27,39,married,10,0,3827.25,0,0,white,4540
+1,female,27,40,married,28,0,3770.55,0,0,hispanic,12712
+1,male,30,39,not married,33,1,3543.75,0,0,white,14982
+1,female,17,41,not married,4,0,3033.45,0,0,hispanic,1816
+1,male,21,41,not married,20,0,2976.75,0,0,hispanic,9080
+1,female,31,45,married,25,1,3657.15,0,0,white,11350
+1,male,19,37,not married,27,0,3118.5,0,0,white,12258
+1,female,25,39,married,15,0,3373.65,0,0,white,6810
+1,male,20,40,not married,60,1,3288.6,0,0,white,27240
+1,female,27,35,not married,65,1,2551.5,0,1,white,29510
+1,female,35,38,married,64,0,3940.65,0,0,white,29056
+1,male,37,39,not married,65,0,4536,0,0,white,29510
+1,male,29,38,not married,50,0,3685.5,0,0,white,22700
+1,female,35,37,married,33,0,3061.8,0,0,white,14982
+1,female,30,39,married,20,0,2806.65,0,0,white,9080
+1,male,32,37,married,30,0,3685.5,0,0,white,13620
+1,female,39,42,married,38,0,3600.45,0,0,white,17252
+1,male,24,31,not married,15,1,1984.5,1,1,white,6810
+1,female,19,35,not married,60,1,2693.25,0,1,white,27240
+1,male,25,33,not married,60,0,2976.75,0,1,white,27240
+1,female,37,39,married,38,0,3855.6,0,0,white,17252
+1,female,25,45,married,40,0,3061.8,0,0,white,18160
+1,female,40,39,married,20,0,3855.6,0,0,white,9080
+1,male,35,39,married,27,0,3061.8,0,0,white,12258
+1,female,26,39,married,45,0,3061.8,0,0,white,20430
+1,female,17,39,not married,6,0,3118.5,0,0,hispanic,2724
+1,male,21,41,married,14,0,3373.65,0,0,hispanic,6356
+1,male,27,37,married,33,0,3260.25,0,0,white,14982
+1,female,39,40,married,37,0,4507.65,0,0,white,16798
+1,female,22,43,not married,35,1,3600.45,0,0,white,15890
+1,male,20,34,not married,12,0,2012.85,1,1,hispanic,5448
+1,female,22,41,not married,25,0,3118.5,0,0,hispanic,11350
+1,male,24,40,married,35,0,3600.45,0,0,white,15890
+1,male,20,36,married,27,1,2778.3,0,1,white,12258
+1,female,21,39,married,30,0,3316.95,0,0,hispanic,13620
+1,male,27,39,married,NA,0,3118.5,0,0,white,NA
+1,female,21,40,not married,45,1,3742.2,0,0,white,20430
+1,male,22,28,married,20,0,595.35,1,1,white,9080
+1,male,18,41,married,38,1,3090.15,0,0,white,17252
+1,female,25,45,married,43,1,3798.9,0,0,white,19522
+1,female,23,39,married,20,0,3260.25,0,0,white,9080
+1,male,20,42,not married,NA,NA,2721.6,0,0,white,NA
+1,male,27,38,not married,28,0,3316.95,0,0,white,12712
+1,female,22,38,married,9,0,2891.7,0,0,white,4086
+1,female,31,39,married,27,0,3373.65,0,0,white,12258
+1,male,40,42,married,19,0,3855.6,0,0,white,8626
+1,male,22,39,not married,23,0,3515.4,0,0,hispanic,10442
+1,male,27,38,married,26,0,3770.55,0,0,white,11804
+1,male,18,42,not married,NA,0,3288.6,0,0,hispanic,NA
+2,male,28,38,married,50,0,3033.45,0,0,white,22700
+1,male,37,40,married,23,0,3458.7,0,0,white,10442
+1,male,29,40,married,50,0,5131.35,0,0,white,22700
+1,male,37,39,married,30,0,3997.35,0,0,white,13620
+1,male,20,40,not married,8,0,3146.85,0,0,hispanic,3632
+1,female,29,38,married,23,0,3657.15,0,0,hispanic,10442
+1,female,29,40,not married,20,0,3345.3,0,0,hispanic,9080
+1,female,18,35,not married,19,0,850.5,1,1,white,8626
+1,female,29,40,married,30,0,3855.6,0,0,white,13620
+1,male,29,40,married,40,0,3798.9,0,0,white,18160
+1,female,26,39,married,35,1,3175.2,0,0,white,15890
+1,male,36,39,married,29,0,4110.75,0,0,white,13166
+1,female,22,39,married,55,0,3543.75,0,0,white,24970
+1,male,17,36,not married,33,0,3402,0,1,white,14982
+1,male,16,22,married,6,1,567,1,1,white,2724
+1,female,30,41,married,35,0,2891.7,0,0,white,15890
+1,male,30,39,married,0,0,3883.95,0,0,white,0
+1,female,19,41,married,40,0,3685.5,0,0,white,18160
+1,male,22,39,not married,30,1,3146.85,0,0,white,13620
+1,male,24,39,married,NA,0,3798.9,0,0,hispanic,NA
+1,male,19,31,not married,20,1,2041.2,1,1,white,9080
+1,female,20,41,married,40,0,3402,0,0,white,18160
+1,female,21,41,married,46,1,3345.3,0,0,white,20884
+1,male,23,37,married,27,0,2948.4,0,0,hispanic,12258
+1,male,32,41,married,43,0,3770.55,0,0,white,19522
+1,male,30,40,married,40,0,3260.25,0,0,white,18160
+1,female,24,38,married,33,0,3146.85,0,0,white,14982
+1,female,30,40,married,40,0,3713.85,0,0,white,18160
+1,male,27,36,married,42,0,2920.05,0,1,white,19068
+1,female,34,40,married,45,0,4054.05,0,0,white,20430
+1,male,30,40,married,40,0,4082.4,0,0,white,18160
+2,female,30,36,married,35,0,2296.35,1,1,white,15890
+1,female,22,40,not married,30,1,3487.05,0,0,white,13620
+1,male,22,37,married,36,1,2749.95,0,0,white,16344
+1,male,26,38,not married,19,0,2466.45,1,0,hispanic,8626
+1,male,35,43,married,30,0,3487.05,0,0,white,13620
+1,female,19,40,married,43,0,3997.35,0,0,white,19522
+1,female,30,39,married,8,0,3515.4,0,0,white,3632
+1,male,35,45,married,40,0,3061.8,0,0,white,18160
+1,female,31,40,married,32,0,3402,0,0,white,14528
+1,male,19,37,married,65,0,3713.85,0,0,white,29510
+1,male,30,38,married,30,0,3600.45,0,0,white,13620
+1,female,18,40,not married,44,0,3175.2,0,0,white,19976
+1,male,25,40,married,26,0,3515.4,0,0,white,11804
+1,male,30,40,married,73,0,4025.7,0,0,white,33142
+1,male,38,41,married,24,0,3203.55,0,0,white,10896
+1,female,36,40,married,30,0,3373.65,0,0,white,13620
+1,female,21,40,not married,39,1,3855.6,0,0,white,17706
+2,male,20,28,married,16,0,1105.65,1,1,white,7264
+1,male,30,39,married,37,0,4082.4,0,0,white,16798
+1,male,22,44,not married,30,1,2324.7,1,0,white,13620
+1,female,30,41,married,NA,0,3316.95,0,0,hispanic,NA
+1,female,20,39,married,20,1,3146.85,0,0,white,9080
+1,female,25,39,married,27,0,4025.7,0,0,white,12258
+1,female,37,40,married,27,0,4167.45,0,0,white,12258
+1,female,32,40,married,36,1,3146.85,0,0,white,16344
+1,male,23,39,married,20,0,2239.65,1,0,white,9080
+1,male,30,41,married,35,0,4167.45,0,0,white,15890
+1,male,21,40,married,38,0,3628.8,0,0,white,17252
+1,female,18,36,not married,26,0,3033.45,0,1,white,11804
+1,male,33,39,married,36,0,3940.65,0,0,white,16344
+1,female,29,39,married,17,0,3827.25,0,0,white,7718
+1,female,32,38,married,21,0,2749.95,0,0,white,9534
+1,male,21,40,not married,55,0,4054.05,0,0,white,24970
+1,female,27,40,married,22,0,3175.2,0,0,white,9988
+1,female,39,38,not married,45,0,2693.25,0,0,white,20430
+1,female,32,39,married,39,0,4280.85,0,0,white,17706
+1,male,27,39,married,22,0,3855.6,0,0,white,9988
+1,female,28,37,married,18,0,3118.5,0,0,black,8172
+1,female,21,41,not married,15,0,2976.75,0,0,black,6810
+1,female,17,40,not married,NA,0,3430.35,0,0,black,NA
+1,male,18,40,not married,20,0,3288.6,0,0,black,9080
+1,female,21,39,not married,27,0,3402,0,0,black,12258
+1,female,26,39,married,0,0,3742.2,0,0,black,0
+1,male,20,38,not married,28,0,3033.45,0,0,black,12712
+1,female,31,38,married,25,0,3118.5,0,0,black,11350
+1,male,16,39,not married,64,0,3316.95,0,0,black,29056
+1,male,22,38,not married,40,1,3316.95,0,0,black,18160
+1,male,19,27,not married,11,0,453.6,1,1,black,4994
+1,male,20,40,married,25,0,3260.25,0,0,black,11350
+1,male,21,39,not married,11,0,3175.2,0,0,black,4994
+1,male,19,41,not married,37,0,3260.25,0,0,black,16798
+1,male,28,42,married,10,0,4195.8,0,0,black,4540
+1,female,20,39,not married,43,0,4110.75,0,0,black,19522
+1,female,20,37,not married,20,0,2381.4,1,0,black,9080
+1,male,16,41,not married,38,0,3572.1,0,0,black,17252
+1,female,38,38,not married,17,0,2664.9,0,0,black,7718
+1,male,37,37,not married,50,1,2948.4,0,0,black,22700
+1,male,22,40,not married,44,0,3912.3,0,0,black,19976
+1,female,24,42,married,35,1,2891.7,0,0,black,15890
+1,male,18,37,not married,23,0,2409.75,1,0,black,10442
+1,female,25,38,married,35,0,3316.95,0,0,black,15890
+1,female,17,40,not married,22,0,3345.3,0,0,black,9988
+1,male,17,39,not married,20,0,2749.95,0,0,black,9080
+1,female,27,39,not married,15,1,3090.15,0,0,black,6810
+1,female,26,39,married,35,0,3713.85,0,0,black,15890
+1,female,20,41,not married,30,1,3685.5,0,0,black,13620
+1,female,21,43,not married,50,0,2976.75,0,0,black,22700
+1,female,25,37,not married,0,0,3005.1,0,0,black,0
+1,female,27,42,not married,71,1,3657.15,0,0,black,32234
+1,female,24,39,not married,48,0,2920.05,0,0,black,21792
+1,male,21,41,not married,25,0,3118.5,0,0,black,11350
+1,male,27,39,not married,33,0,3345.3,0,0,black,14982
+1,female,18,41,not married,30,0,3430.35,0,0,black,13620
+1,male,21,39,not married,60,0,3628.8,0,0,black,27240
+1,male,25,43,married,40,0,3572.1,0,0,black,18160
+1,female,16,38,not married,28,0,2749.95,0,0,black,12712
+1,female,23,37,not married,23,0,3260.25,0,0,black,10442
+1,male,33,29,married,10,0,1587.6,1,1,black,4540
+1,female,22,40,not married,60,0,3316.95,0,0,black,27240
+1,male,35,36,married,42,0,2438.1,1,1,black,19068
+1,male,24,41,not married,40,0,3345.3,0,0,black,18160
+1,female,33,40,married,8,0,2948.4,0,0,black,3632
+1,female,26,40,not married,40,0,3430.35,0,0,black,18160
+1,male,26,38,married,40,0,4280.85,0,0,black,18160
+1,male,20,NA,not married,NA,0,3855.6,0,1,black,NA
+1,male,29,45,not married,18,0,3458.7,0,0,black,8172
+1,female,19,34,not married,17,0,3033.45,0,1,black,7718
+1,female,35,34,married,25,0,2126.25,1,1,black,11350
+1,male,22,37,not married,18,0,2693.25,0,0,black,8172
+1,male,18,34,not married,32,0,2636.55,0,1,black,14528
+1,female,19,38,not married,27,0,2806.65,0,0,black,12258
+1,female,38,39,married,30,0,3430.35,0,0,black,13620
+1,male,24,43,married,48,0,3487.05,0,0,black,21792
+1,male,25,40,not married,20,0,2664.9,0,0,black,9080
+1,female,19,40,not married,0,0,3373.65,0,0,black,0
+1,male,15,40,not married,25,0,3260.25,0,0,black,11350
+1,female,26,37,not married,41,0,2976.75,0,0,black,18614
+1,male,28,38,married,12,0,3203.55,0,0,black,5448
+1,male,23,37,married,25,0,2778.3,0,0,black,11350
+1,male,19,37,not married,40,0,3203.55,0,0,black,18160
+1,female,29,38,married,37,0,3345.3,0,0,black,16798
+1,female,39,39,married,45,0,3543.75,0,0,black,20430
+1,female,18,39,not married,43,1,3628.8,0,0,black,19522
+2,male,23,35,not married,50,1,2069.55,1,1,black,22700
+1,male,26,38,married,NA,0,3033.45,0,0,black,NA
+1,female,20,43,not married,10,0,3373.65,0,0,black,4540
+1,male,20,38,not married,19,0,3175.2,0,0,black,8626
+1,male,27,39,not married,41,0,3657.15,0,0,black,18614
+1,male,21,38,not married,45,1,3061.8,0,0,black,20430
+1,female,42,37,not married,0,0,2693.25,0,0,black,0
+1,male,34,40,married,25,0,4337.55,0,0,black,11350
+1,male,18,40,not married,30,0,3316.95,0,0,black,13620
+1,male,23,38,married,70,0,4167.45,0,0,black,31780
+1,female,19,41,not married,30,0,3288.6,0,0,black,13620
+2,female,20,22,not married,40,0,340.2,1,1,black,18160
+1,male,19,41,not married,30,0,3260.25,0,0,black,13620
+1,female,20,38,not married,34,0,2778.3,0,0,black,15436
+1,male,21,36,not married,24,0,2721.6,0,1,black,10896
+2,female,33,35,married,40,0,3146.85,0,1,black,18160
+2,male,30,36,married,40,0,1842.75,1,1,black,18160
+1,female,26,33,not married,30,0,3033.45,0,1,black,13620
+1,female,27,39,not married,12,0,3260.25,0,0,black,5448
+1,female,28,36,married,23,0,3005.1,0,1,black,10442
+1,male,31,38,married,52,0,3288.6,0,0,black,23608
+1,male,30,39,married,33,0,3430.35,0,0,black,14982
+1,male,21,40,not married,29,0,4195.8,0,0,black,13166
+1,female,23,40,not married,32,1,3628.8,0,0,black,14528
+1,female,29,38,not married,35,0,3061.8,0,0,black,15890
+1,male,18,26,not married,20,0,765.45,1,1,black,9080
+1,male,29,42,not married,15,0,2920.05,0,0,black,6810
+1,male,22,38,not married,51,0,3288.6,0,0,black,23154
+1,male,38,39,married,22,1,3175.2,0,0,black,9988
+1,female,24,40,not married,25,0,3118.5,0,0,black,11350
+1,female,28,36,married,46,0,3855.6,0,1,black,20884
+1,female,19,40,not married,28,0,3203.55,0,0,black,12712
+1,female,26,37,married,37,0,2466.45,1,0,black,16798
+1,male,20,40,not married,28,0,3402,0,0,black,12712
+1,female,21,41,not married,25,0,3628.8,0,0,black,11350
+1,male,18,41,not married,42,0,3855.6,0,0,black,19068
+1,female,19,37,not married,15,0,2494.8,1,0,black,6810
+1,female,24,39,not married,50,0,3146.85,0,0,black,22700
+1,female,23,41,married,25,0,3175.2,0,0,black,11350
+1,female,33,39,married,14,0,2835,0,0,black,6356
+1,male,26,23,not married,15,1,538.65,1,1,black,6810
+1,male,26,38,not married,14,0,3827.25,0,0,black,6356
+1,male,20,35,not married,27,0,3090.15,0,1,black,12258
+1,female,18,40,not married,40,0,3487.05,0,0,black,18160
+1,male,23,37,married,36,1,3316.95,0,0,black,16344
+1,male,27,40,married,20,0,3345.3,0,0,black,9080
+1,male,19,36,not married,32,0,2523.15,0,1,black,14528
+1,female,19,39,not married,33,0,3090.15,0,0,black,14982
+1,female,31,39,not married,40,0,3288.6,0,0,black,18160
+1,female,23,35,married,33,0,2920.05,0,1,black,14982
+1,female,24,38,married,19,0,3090.15,0,0,black,8626
+1,male,20,41,not married,31,1,3260.25,0,0,black,14074
+1,female,18,37,not married,21,1,2353.05,1,0,black,9534
+1,male,20,38,not married,25,0,3912.3,0,0,black,11350
+1,female,18,40,not married,28,0,3572.1,0,0,black,12712
+1,male,24,37,not married,33,0,1814.4,1,0,black,14982
+1,male,39,39,married,20,0,2466.45,1,0,black,9080
+1,male,31,40,married,0,0,2608.2,0,0,black,0
+1,male,16,38,not married,12,0,2749.95,0,0,black,5448
+1,male,20,41,married,20,0,4054.05,0,0,black,9080
+1,female,29,40,not married,30,0,4139.1,0,0,black,13620
+1,female,28,44,married,23,0,4621.05,0,0,black,10442
+2,female,29,33,not married,30,1,2381.4,1,1,black,13620
+1,female,18,26,not married,10,0,1162.35,1,1,black,4540
+1,male,22,39,not married,40,0,3260.25,0,0,black,18160
+1,male,28,42,married,35,0,3458.7,0,0,black,15890
+1,male,21,40,not married,30,0,3061.8,0,0,black,13620
+1,female,30,32,not married,43,1,3288.6,0,1,black,19522
+1,male,33,39,married,48,0,3685.5,0,0,black,21792
+1,female,20,39,not married,38,0,2806.65,0,0,black,17252
+1,male,20,37,married,NA,NA,2664.9,0,0,black,NA
+1,female,18,40,not married,11,0,2636.55,0,0,black,4994
+1,male,27,37,not married,58,0,3005.1,0,0,black,26332
+1,male,31,39,married,20,0,3458.7,0,0,black,9080
+1,male,34,38,married,15,0,3515.4,0,0,black,6810
+1,female,21,41,not married,61,0,3827.25,0,0,black,27694
+1,male,31,38,married,20,0,3146.85,0,0,black,9080
+1,male,22,38,not married,67,0,3146.85,0,0,black,30418
+1,female,20,38,not married,25,0,2636.55,0,0,black,11350
+1,female,22,40,married,40,0,3288.6,0,0,black,18160
+1,female,24,34,not married,37,0,2466.45,1,1,black,16798
+1,male,23,39,married,30,0,2778.3,0,0,black,13620
+1,female,16,34,not married,23,0,2636.55,0,1,black,10442
+1,female,27,38,married,25,0,3883.95,0,0,black,11350
+1,female,29,38,married,23,0,3430.35,0,0,black,10442
+1,male,33,38,not married,30,0,4564.35,0,0,black,13620
+2,female,18,27,not married,0,0,1020.6,1,1,black,0
+1,male,18,41,not married,30,0,3316.95,0,0,black,13620
+1,female,23,40,not married,20,0,3373.65,0,0,black,9080
+1,male,24,36,not married,41,0,3628.8,0,1,black,18614
+1,female,23,39,married,33,0,3260.25,0,0,black,14982
+1,male,19,34,not married,15,0,2664.9,0,1,black,6810
+1,male,23,37,not married,17,1,3090.15,0,0,black,7718
+1,female,22,37,married,22,0,2041.2,1,0,black,9988
+1,male,32,38,married,32,0,3657.15,0,0,black,14528
+1,male,23,36,not married,20,0,2296.35,1,1,black,9080
+1,male,21,38,not married,27,0,2409.75,1,0,black,12258
+1,female,23,43,not married,71,1,3231.9,0,0,black,32234
+1,male,38,41,not married,25,1,2126.25,1,0,black,11350
+1,female,34,40,married,32,0,3090.15,0,0,black,14528
+1,male,21,37,married,15,1,3090.15,0,0,black,6810
+1,male,18,38,not married,30,1,2693.25,0,0,black,13620
+1,male,20,36,married,36,0,3402,0,1,black,16344
+1,female,23,39,not married,8,0,3118.5,0,0,black,3632
+1,female,21,40,not married,16,1,3005.1,0,0,black,7264
+1,female,23,40,married,20,0,3572.1,0,0,black,9080
+1,female,25,39,married,25,0,3316.95,0,0,black,11350
+1,male,31,31,married,26,0,3203.55,0,1,black,11804
+1,male,29,40,not married,0,0,4337.55,0,0,black,0
+1,female,23,41,not married,60,0,3487.05,0,0,black,27240
+1,female,18,40,not married,5,1,3146.85,0,0,black,2270
+1,male,34,38,not married,19,1,4507.65,0,0,black,8626
+1,female,32,39,married,19,0,2835,0,0,black,8626
+1,female,21,38,not married,30,0,3600.45,0,0,black,13620
+1,male,26,40,not married,14,0,4082.4,0,0,black,6356
+1,male,19,41,not married,20,0,3855.6,0,0,black,9080
+1,female,34,35,not married,6,1,2863.35,0,1,black,2724
+1,male,32,41,married,10,0,3713.85,0,0,black,4540
+1,male,41,41,married,22,0,2749.95,0,0,black,9988
+1,female,19,39,not married,34,0,4564.35,0,0,black,15436
+1,male,19,25,not married,11,0,623.7,1,1,black,4994
+1,female,24,40,not married,12,0,2664.9,0,0,black,5448
+1,female,24,36,married,27,0,2920.05,0,1,black,12258
+1,male,18,36,not married,10,0,2778.3,0,1,black,4540
+1,male,28,35,not married,55,0,3572.1,0,1,black,24970
+1,female,27,39,not married,14,0,3033.45,0,0,black,6356
+1,male,30,37,married,8,0,2863.35,0,0,black,3632
+1,female,26,39,married,65,0,3515.4,0,0,black,29510
+1,male,17,39,not married,28,0,3118.5,0,0,black,12712
+1,female,24,40,not married,25,1,3061.8,0,0,black,11350
+1,male,22,38,not married,49,0,4309.2,0,0,black,22246
+1,male,42,35,not married,35,0,2664.9,0,1,black,15890
+1,female,20,36,not married,40,1,2835,0,1,black,18160
+1,male,22,40,not married,20,0,3487.05,0,0,black,9080
+1,female,32,38,married,10,0,3543.75,0,0,black,4540
+1,male,27,39,married,60,0,3770.55,0,0,black,27240
+1,female,23,40,not married,10,0,3316.95,0,0,black,4540
+1,female,18,39,not married,20,0,2778.3,0,0,black,9080
+1,male,36,39,married,30,0,3345.3,0,0,black,13620
+1,male,43,34,married,35,0,2466.45,1,1,black,15890
+1,female,30,37,married,30,0,2891.7,0,0,black,13620
+1,male,19,41,not married,25,0,3628.8,0,0,black,11350
+1,female,30,39,married,20,0,2749.95,0,0,black,9080
+1,male,22,39,not married,15,0,3005.1,0,0,black,6810
+1,male,23,38,not married,72,1,4536,0,0,black,32688
+1,female,16,30,not married,35,0,2012.85,1,1,black,15890
+1,male,24,38,married,27,0,3912.3,0,0,black,12258
+1,female,31,41,married,7,0,3770.55,0,0,black,3178
+1,female,26,38,married,26,0,3033.45,0,0,black,11804
+1,female,27,38,not married,17,0,2835,0,0,black,7718
+1,male,21,42,not married,45,0,3090.15,0,0,black,20430
+1,male,24,41,not married,13,0,3345.3,0,0,black,5902
+1,male,19,40,not married,29,0,3175.2,0,0,black,13166
+1,female,24,39,married,28,0,3543.75,0,0,black,12712
+1,male,21,39,not married,15,1,3373.65,0,0,black,6810
+1,male,28,38,married,20,0,3430.35,0,0,black,9080
+1,female,33,39,not married,41,0,3572.1,0,0,black,18614
+1,female,25,37,not married,30,1,2863.35,0,0,black,13620
+1,female,19,45,not married,65,0,3033.45,0,0,black,29510
+1,male,21,37,not married,50,0,3005.1,0,0,black,22700
+1,female,20,40,not married,35,0,3940.65,0,0,black,15890
+1,male,21,40,not married,36,0,3373.65,0,0,black,16344
+1,male,28,39,married,28,0,3515.4,0,0,black,12712
+1,female,33,40,not married,45,0,3231.9,0,0,black,20430
+1,female,18,40,not married,50,0,3515.4,0,0,black,22700
+1,female,41,39,married,30,1,2778.3,0,0,black,13620
+1,female,31,39,married,45,0,3231.9,0,0,black,20430
+1,male,21,41,not married,30,1,3458.7,0,0,black,13620
+1,male,25,40,not married,30,0,3827.25,0,0,black,13620
+1,male,26,41,not married,35,1,3770.55,0,0,black,15890
+1,female,20,34,not married,30,0,2466.45,1,1,black,13620
+1,male,21,37,not married,15,0,2069.55,1,0,black,6810
+1,male,16,44,not married,16,0,3600.45,0,0,black,7264
+1,male,17,38,not married,55,0,3316.95,0,0,black,24970
+1,male,33,39,married,29,0,3430.35,0,0,black,13166
+1,female,37,41,not married,30,1,3146.85,0,0,black,13620
+1,female,21,35,not married,34,0,2636.55,0,1,black,15436
+1,male,33,39,married,15,0,3373.65,0,0,black,6810
+1,male,20,39,not married,61,0,3231.9,0,0,black,27694
+1,female,25,38,not married,27,1,3033.45,0,0,black,12258
+1,male,20,39,not married,16,1,2778.3,0,0,black,7264
+1,male,13,39,not married,14,0,3402,0,0,black,6356
+1,female,31,39,not married,25,0,3572.1,0,0,black,11350
+1,female,37,39,married,25,0,2948.4,0,0,black,11350
+1,female,21,36,not married,33,0,2438.1,1,1,black,14982
+2,male,28,36,not married,30,0,2664.9,0,1,black,13620
+1,female,29,44,married,42,0,3628.8,0,0,black,19068
+1,female,24,40,married,30,0,3373.65,0,0,black,13620
+1,female,23,40,married,32,0,3827.25,0,0,black,14528
+1,female,22,38,married,40,0,2466.45,1,0,black,18160
+1,male,31,35,married,30,0,2409.75,1,1,black,13620
+1,female,17,35,not married,25,0,2466.45,1,1,black,11350
+1,male,34,42,not married,9,0,3458.7,0,0,black,4086
+1,male,26,40,married,40,0,3515.4,0,0,black,18160
+1,female,28,38,not married,28,0,3146.85,0,0,black,12712
+1,female,27,40,not married,13,0,3912.3,0,0,black,5902
+1,male,27,39,not married,41,0,3260.25,0,0,black,18614
+1,female,26,42,married,35,0,3543.75,0,0,black,15890
+1,male,25,40,not married,42,0,2891.7,0,0,black,19068
+1,male,25,40,married,10,0,3231.9,0,0,black,4540
+1,female,18,41,not married,85,0,3515.4,0,0,black,38590
+1,female,30,42,married,70,0,3798.9,0,0,black,31780
+1,female,35,41,married,26,0,3543.75,0,0,black,11804
+1,male,16,39,not married,27,0,2806.65,0,0,black,12258
+1,female,28,39,married,35,0,3260.25,0,0,black,15890
+1,male,30,40,not married,20,0,3118.5,0,0,black,9080
+1,male,17,38,not married,22,0,3260.25,0,0,black,9988
+1,male,23,39,married,20,0,3487.05,0,0,black,9080
+1,female,21,37,not married,1,0,2324.7,1,0,black,454
+1,male,28,38,married,28,0,3685.5,0,0,black,12712
+1,male,21,39,not married,6,0,3316.95,0,0,black,2724
+1,male,19,35,not married,5,0,2182.95,1,1,black,2270
+1,female,25,40,not married,42,0,2891.7,0,0,black,19068
+1,female,15,35,not married,20,0,2948.4,0,1,black,9080
+1,female,29,39,married,20,0,2693.25,0,0,black,9080
+1,male,15,41,not married,24,0,3231.9,0,0,black,10896
+1,male,19,40,not married,25,0,2579.85,0,0,black,11350
+1,female,23,41,married,35,0,3912.3,0,0,black,15890
+1,male,22,42,not married,20,0,3969,0,0,black,9080
+1,male,20,35,not married,15,0,2579.85,0,1,black,6810
+1,male,38,40,not married,20,0,3600.45,0,0,black,9080
+1,male,19,40,not married,37,1,3316.95,0,0,black,16798
+1,female,26,38,not married,30,0,3572.1,0,0,black,13620
+1,male,28,37,married,30,0,2494.8,1,0,black,13620
+1,male,28,40,married,30,0,4479.3,0,0,black,13620
+1,female,29,40,not married,10,0,2891.7,0,0,black,4540
+1,male,18,39,not married,NA,0,2891.7,0,0,black,NA
+1,female,34,36,not married,51,0,2693.25,0,1,black,23154
+1,male,29,41,married,25,0,3402,0,0,black,11350
+1,male,20,39,married,22,0,3515.4,0,0,black,9988
+1,female,24,42,not married,22,0,4025.7,0,0,black,9988
+1,female,32,37,married,0,0,3345.3,0,0,black,0
+1,female,19,41,not married,20,0,3033.45,0,0,black,9080
+1,male,19,40,married,60,0,4110.75,0,0,black,27240
+1,male,29,39,married,23,0,3458.7,0,0,black,10442
+1,male,25,41,not married,26,0,3997.35,0,0,black,11804
+1,male,23,39,not married,15,0,3713.85,0,0,black,6810
+1,male,22,39,not married,35,0,3798.9,0,0,black,15890
+1,male,40,34,not married,15,1,2069.55,1,1,black,6810
+1,male,21,39,not married,19,0,3090.15,0,0,black,8626
+1,male,31,38,not married,28,0,2353.05,1,0,black,12712
+2,male,22,27,not married,20,0,907.2,1,1,black,9080
+1,female,27,37,not married,15,0,2693.25,0,0,black,6810
+1,male,21,44,not married,10,0,4167.45,0,0,black,4540
+1,female,22,35,not married,18,0,3231.9,0,1,black,8172
+1,male,19,40,not married,25,0,2920.05,0,0,black,11350
+1,female,22,40,not married,30,0,2664.9,0,0,black,13620
+1,female,20,38,not married,20,0,3402,0,0,black,9080
+1,female,25,40,married,5,0,3231.9,0,0,black,2270
+2,male,27,33,not married,NA,1,1871.1,1,1,black,NA
+1,female,30,40,married,21,0,3118.5,0,0,black,9534
+1,female,19,39,not married,45,0,3231.9,0,0,black,20430
+1,male,23,41,married,29,0,3005.1,0,0,black,13166
+1,male,22,39,not married,48,0,3543.75,0,0,black,21792
+1,female,23,41,not married,10,0,2891.7,0,0,black,4540
+1,male,21,34,married,27,0,2126.25,1,1,black,12258
+1,male,21,40,married,NA,0,3458.7,0,0,black,NA
+1,female,20,37,not married,32,0,3260.25,0,0,black,14528
+1,female,18,40,not married,25,0,3090.15,0,0,black,11350
+1,male,18,36,not married,21,0,3600.45,0,1,black,9534
+1,male,24,28,not married,30,1,992.25,1,1,black,13620
+1,female,30,39,married,60,0,3260.25,0,0,black,27240
+1,female,22,39,married,60,0,3628.8,0,0,black,27240
+1,female,37,40,married,19,0,3940.65,0,0,black,8626
+1,male,29,37,not married,20,1,3402,0,0,black,9080
+1,female,21,31,not married,29,0,1162.35,1,1,black,13166
+1,male,19,41,not married,5,0,3090.15,0,0,other,2270
+1,female,16,44,not married,47,0,3260.25,0,0,other,21338
+1,female,21,37,not married,14,0,3118.5,0,0,other,6356
+1,male,31,35,not married,46,1,2721.6,0,1,other,20884
+1,female,18,40,not married,46,1,3487.05,0,0,other,20884
+1,male,19,37,not married,48,0,3487.05,0,0,other,21792
+1,female,29,34,married,22,1,2920.05,0,1,other,9988
+1,female,19,36,not married,42,0,3146.85,0,1,other,19068
+1,male,27,39,married,19,1,2976.75,0,0,other,8626
+1,male,26,41,married,48,1,3118.5,0,0,other,21792
+1,female,30,38,married,27,0,3316.95,0,0,other,12258
+1,male,33,39,married,32,0,3798.9,0,0,other,14528
+1,male,20,40,not married,31,0,3175.2,0,0,other,14074
+1,male,24,39,not married,42,0,2239.65,1,0,other,19068
+1,female,29,39,married,64,0,3855.6,0,0,other,29056
+1,male,19,39,not married,22,0,3345.3,0,0,other,9988
+1,female,21,35,not married,25,0,2353.05,1,1,other,11350
+1,female,28,39,married,24,0,3827.25,0,0,other,10896
+1,female,28,40,not married,30,0,3997.35,0,0,other,13620
+1,female,27,40,not married,60,1,3487.05,0,0,other,27240
+1,male,30,40,married,56,0,4025.7,0,0,other,25424
+1,female,16,38,not married,20,0,3175.2,0,0,other,9080
+1,female,32,37,married,45,0,3316.95,0,0,other,20430
+1,male,30,39,married,45,0,3827.25,0,0,other,20430
+1,female,37,40,married,33,0,2749.95,0,0,other,14982
+1,female,37,41,married,31,0,3940.65,0,0,other,14074
+1,female,33,39,married,NA,0,3005.1,0,0,other,NA
+1,male,26,39,not married,50,0,3940.65,0,0,other,22700
+1,male,30,39,married,29,0,3430.35,0,0,other,13166
+1,male,37,41,married,41,0,3458.7,0,0,other,18614
+1,female,27,41,married,22,0,3543.75,0,0,other,9988
+1,female,20,36,married,35,0,3798.9,0,1,other,15890
+1,male,20,40,not married,25,0,3912.3,0,0,other,11350
+1,male,40,41,married,27,0,3260.25,0,0,other,12258
+1,male,36,39,married,26,0,3685.5,0,0,other,11804
+1,male,20,42,not married,40,0,3969,0,0,other,18160
+1,male,35,40,married,38,0,4082.4,0,0,other,17252
+1,female,30,38,married,42,0,2976.75,0,0,other,19068
+1,male,31,38,married,40,0,3770.55,0,0,other,18160
+1,female,35,38,married,20,0,3118.5,0,0,other,9080
+1,female,16,36,married,23,0,2664.9,0,1,other,10442
+1,female,20,39,not married,15,0,2976.75,0,0,other,6810
+1,female,17,39,not married,30,0,2721.6,0,0,other,13620
+1,female,24,45,married,55,0,3770.55,0,0,other,24970
+1,female,32,38,married,35,0,2693.25,0,0,other,15890
+1,female,32,40,married,29,0,3487.05,0,0,other,13166
+1,male,30,32,married,30,0,1984.5,1,1,other,13620
+1,female,40,42,married,32,0,3402,0,0,other,14528

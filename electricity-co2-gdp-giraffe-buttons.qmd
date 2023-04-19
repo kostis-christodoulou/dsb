@@ -1,0 +1,235 @@
+---
+title: "energy flexdashboard"
+output: flexdashboard::flex_dashboard
+runtime: shiny
+---
+
+
+```{r global, include = FALSE}
+library(tidyverse)
+library(janitor)
+library(wbstats)
+library(viridis)
+library(shiny)
+library(bs4Dash)
+# Load necessary libraries
+library(shiny)
+library(ggplot2)
+library(ggrepel)
+library(bslib)
+library(shiny)
+library(bsicons)
+library(plotly)
+library(ggiraph)
+
+# use bigger font size
+theme_set(theme_bw(base_size = 16)) 
+
+url <- "https://nyc3.digitaloceanspaces.com/owid-public/data/energy/owid-energy-data.csv"
+
+energy2 <- vroom::vroom(url)
+glimpse(energy2)
+
+fubar <- energy2 %>% 
+  select(1:5,
+         biofuel = biofuel_electricity,
+         coal = coal_electricity,
+         gas = gas_electricity,
+         hydro = hydro_electricity,
+         nuclear = nuclear_electricity,
+         oil = oil_electricity,
+         other_renewable = other_renewable_exc_biofuel_electricity,
+         solar = solar_electricity,
+         wind = wind_electricity, 
+         electricity_demand,
+         electricity_generation,
+         net_elec_imports,	# Net electricity imports, measured in terawatt-hours
+         energy_per_capita,	# Primary energy consumption per capita, measured in kilowatt-hours	Calculated by Our World in Data based on BP Statistical Review of World Energy and EIA International Energy Data
+         energy_per_gdp,	# Energy consumption per unit of GDP. This is measured in kilowatt-hours per 2011 international-$.
+         per_capita_electricity, #	Electricity generation per capita, measured in kilowatt-hours
+  ) %>% 
+  mutate(electricity_percent = per_capita_electricity / energy_per_capita,
+         percent_renew = (solar + wind + hydro + other_renewable ) / electricity_generation)
+
+
+energy_long <- fubar %>% 
+  select(1:4,         
+         biofuel,
+         coal,
+         gas,
+         hydro,
+         nuclear,
+         oil,
+         other_renewable,
+         solar,
+         wind, 
+         energy_per_capita ) %>% 
+  pivot_longer(cols = 5:13,
+               names_to = 'source',
+               values_to = 'value') %>% 
+  drop_na(iso_code) %>% 
+  drop_na(value)
+
+
+
+
+
+# Download data for C02 emissions per capita https://data.worldbank.org/indicator/EN.ATM.CO2E.PC
+co2_percap <- wb_data(country = "countries_only", 
+                      indicator = "EN.ATM.CO2E.PC", 
+                      start_date = 1970, 
+                      end_date = 2022,
+                      return_wide=FALSE) %>% 
+  filter(!is.na(value)) %>% 
+  #drop unwanted variables
+  select(-c(unit, obs_status, footnote, last_updated)) %>% 
+  rename(year = date,
+         co2percap = value)
+
+
+# Download data for GDP per capita  https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD
+gdp_percap <- wb_data(country = "countries_only", 
+                      indicator = "NY.GDP.PCAP.PP.CD", 
+                      start_date = 1970, 
+                      end_date = 2022,
+                      return_wide=FALSE) %>% 
+  filter(!is.na(value)) %>% 
+  #drop unwanted variables
+  select(-c(unit, obs_status, footnote, last_updated)) %>% 
+  rename(year = date,
+         GDPpercap = value)
+
+country_names <- energy_long %>% 
+  distinct(iso_code, country) %>% 
+  select(iso_code, country)
+
+join1 <- gdp_percap %>% 
+  left_join(co2_percap, by = c("country", "year")) %>% 
+  select(iso_code = iso3c.x, country, year, GDPpercap, co2percap) %>% 
+  left_join(country_names, by = "iso_code") %>% 
+  rename(country = country.y)
+
+
+energy_wide <- energy_long |> 
+  pivot_wider(names_from = source,
+              values_from = value) |> 
+
+  mutate(across(where(is.numeric), ~ ifelse(is.na(.), 0, .))) |> 
+  
+  mutate(total_energy = biofuel + coal + gas + hydro + nuclear + oil + other_renewable + solar + wind,
+         electricity_percap = total_energy*1e9 / population, # energy is given in Twh, convert to Kwh
+          electricity_perday = electricity_percap / 365) # energy is given in Twh, convert to Kwh
+
+
+
+join2 <- join1 %>% 
+  left_join(energy_wide, by = c("country", "year")) 
+
+
+
+```
+
+
+
+```{r}
+
+
+ui <- fluidPage(
+  theme = bslib::bs_theme(
+    # Colors (background, foreground, primary)
+    bg = '#FAFAFA', 
+    fg = '#06436e', 
+    primary = colorspace::lighten('#06436e', 0.3),
+    
+    # Fonts (Use multiple in case a font cannot be displayed)
+    base_font = c('Atkinson Hyperlegible','Source Sans Pro',  'Lato', 'Merriweather', 'Roboto Regular', 'Cabin Regular'),
+    heading_font = c('Atkinson Hyperlegible', 'Prata', 'Roboto', 'Playfair Display', 'Montserrat'),
+    font_scale = 1.25
+  ),
+  h1('Sources of Electricity, CO2 emissions and GDP'),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("country", "Select a country:", choices = unique(energy_long$country)),   
+      sliderInput("years", "Select range of years:", 
+                  min = 1990, max = 2021, 
+                  value = as.integer(c(2000,2021)), step = 1)
+    ),
+    mainPanel = mainPanel(
+      plotOutput("electricity_sources"),
+       plotOutput("co2_plot"),
+      plotOutput("energy_intensity")
+    )
+  )
+)
+
+
+# Define server
+server <- function(input, output) {
+
+  
+  output$electricity_sources <- renderPlot({
+
+        energy_long %>% filter(country == input$country,
+                         year >= input$years[1],
+                         year <= input$years[2],
+                         value > 0 ) %>%
+      
+
+   mutate(source = fct_reorder(source, value, max)) %>%
+
+    ggplot()+
+    aes(x=year, y = value, fill=source )+
+    geom_area(color="grey90",
+              alpha = 0.5,
+              position = "fill")+ # so you get to 100%
+    theme_bw()+
+    scale_fill_viridis(discrete = T,
+                       option = "H") +
+    scale_y_continuous(labels = scales::percent)+
+      ggtitle("Electricity Production Mix") +
+      xlab(" ") +
+      ylab(" ")
+  })
+
+    # Render co2 percapita
+  output$co2_plot <- renderPlot({
+
+        join1 %>% filter(country == input$country,
+                         year >= input$years[1],
+                         year <= input$years[2]) %>% 
+
+    ggplot()+
+      aes(x = GDPpercap, y = co2percap) +
+      geom_point() +
+      geom_text_repel(aes(label = year), size = 5)+
+      scale_x_continuous(labels = scales::dollar)+
+
+      ggtitle("Are CO2 and GDP per capita related?") +
+      xlab("GDP per capita") +
+      ylab("CO2 per capita")
+  })
+  
+      # Render energy_intensity percapita
+  output$energy_intensity <- renderPlot({
+
+        join2 %>% filter(country == input$country,
+                         year >= input$years[1],
+                         year <= input$years[2]) %>% 
+
+    ggplot()+
+      aes(x = electricity_perday, y = co2percap) +
+      geom_point() +
+      geom_text_repel(aes(label = year), size = 5)+
+
+      ggtitle("Are CO2 and electricity consumption per capita/day related?") +
+      xlab("Electricity used (kWh) per capita/day") +
+      ylab("CO2 per capita")
+  })
+  
+  
+}
+
+# Run the application
+shinyApp(ui = ui, server = server)
+
+```
