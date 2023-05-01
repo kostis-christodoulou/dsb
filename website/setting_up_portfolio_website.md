@@ -32,17 +32,17 @@
       command = "hugo"
 
     [build.environment]
-      HUGO_VERSION = "0.110.0"
+      HUGO_VERSION = "0.101.0"
       HUGO_ENABLEGITINFO = "true"
 
     [context.production.environment]
       HUGO_ENV = "production"
       
     [context.branch-deploy.environment]
-      HUGO_VERSION = "0.110.0"
+      HUGO_VERSION = "0.101.0"
 
     [context.deploy-preview.environment]
-      HUGO_VERSION = "0.110.0"  
+      HUGO_VERSION = "0.101.0"  
 
 7.  Do a basic customisation, by editing the `config.yaml` file
 
