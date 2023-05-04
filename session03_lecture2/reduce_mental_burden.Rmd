@@ -1,0 +1,460 @@
+---
+title: "Reduce mental burden in plots"
+author: "Your name goes here"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: true
+    toc: yes
+    toc_float: yes
+---
+
+
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r libraries, include=FALSE}
+library(tidyverse)
+library(extrafont)
+library(vroom)
+library(ggtext)
+library(gapminder)
+library(ggrepel)
+library(patchwork)
+library(gghighlight)
+library(skimr)
+
+# remotes::install_github("kjhealy/nycdogs")
+library(nycdogs)
+library(sf) # for geospatial visualisation
+
+# loadfonts(device="pdf") if you have a mac
+# loadfonts(device="win") if you have a windows machine
+
+```
+
+# Who killed the emperors?
+
+1. Read in the emperors data (no need to change this part of the code)
+2. Sort the data by the number of each type of killer
+3. Take a look at the data up until this point. Pick something you find interesting that you want to highlight. Then, in `mutate()`, create a new variable that is `TRUE` if `killer` matches the category you want to highlight and `FALSE` otherwise
+4. Use the variable you just created in the `fill` aesthetic of the ggplot call
+5. Finally, use `scale_fill_manual()` to add the fill colours grey70 = #B3B3B3 for the background, and tomato = #FF6347 to higlights. 
+
+
+```{r, emperors, eval=FALSE}
+# make sure you remove eval=FALSE before knitting the document
+
+# source of data https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-08-13
+url <- "https://github.com/rfordatascience/tidytuesday/raw/master/data/2019/2019-08-13/emperors.csv"
+emperors <- vroom(url)
+
+
+emperor_killers <- emperors %>%
+  count(killer) 
+
+#if you want to use hex codes, gplots::col2hex("colour name") will give you hex code
+# grey70 = #B3B3B3, tomato = #FF6347
+
+# Besides 'tomato' experiment with a different colour to highlight
+# https://color.adobe.com/create/color-wheel
+# https://www.color-hex.com/ 
+
+#define colours to use: grey70 for everything, tomato for assassination
+my_colours <- c("grey70", "tomato")
+my colours <- c("#b3b3b3", "#ff6347")
+
+
+emperor_killers %>% 
+  mutate(
+    ___________ = ifelse(killer == "___________", TRUE, FALSE),
+    # use `fct_inorder()` to maintain the way we sorted the data
+    killer = fct_inorder(killer)
+  ) %>%
+  ggplot(aes(x = n, y = killer, fill = ___________)) +
+  geom_col() +
+  scale_fill_manual(values = my_colours)+
+  geom_text(
+    aes(label = n, x = n - .25), 
+    color = "white", 
+    size = 5,
+    hjust = 1
+  ) +
+  theme_minimal() +
+  theme(
+    axis.title.y = element_blank(), 
+    legend.position = "none" 
+  ) +
+  ___________(values = ___________) +
+  xlab("number of emperors")
+```
+
+
+# Add legends for just some gapminder countries
+
+1. Use `sample()` to select 20 random countries from the Gapminder dataset to plot (run the `set.seed()` line first if you want the same results)
+2. In the `mutate()` call, check if `country` is one of the countries in `some_countries`. If it's not, make the label an empty string (""),
+3. Add the text repel geom from ggrepel. Set the `label` aesthetic using the variable just created in `mutate()`
+
+```{r, gapminder_some_countries, eval = FALSE}
+# make sure you remove eval=FALSE before knitting the document
+
+set.seed(42)
+
+some_countries <- gapminder$country %>% 
+  levels() %>% 
+  sample(20) 
+
+# what if we try to add label for all countries?
+gapminder %>%
+  filter(year == 2007) %>%
+  ggplot(aes(log(gdpPercap), lifeExp)) +
+    geom_point(
+    size = 3,
+    alpha = 0.8,
+    shape = 21,
+    colour = "white",
+    fill = "#001e62"
+  )+
+  theme_minimal() +
+  geom_text_repel(aes(label=country))+
+  theme(
+    legend.position = "none",
+    panel.grid.minor = element_blank()
+  ) +
+  labs(
+    title = "Gapminder 2007: Life expectancy vs GDP per capita",
+    x = "log(GDP per capita)",
+    y = "Life Expectancy"
+  )+
+  NULL
+
+# let us only add labels to the 20 randomly chosen countries
+gapminder %>%
+  filter(year == 2007) %>%
+  mutate(
+    label = ifelse(______  %in% _____, as.character(country), _____________ )
+  ) %>%
+  ggplot(aes(log(gdpPercap), lifeExp)) +
+    geom_point(
+    size = 3,
+    alpha = 0.8,
+    shape = 21,
+    colour = "white",
+    fill = "#001e62"
+  )+
+  theme_minimal() +
+  geom_text_repel(aes(label = label))+
+  theme(
+    legend.position = "none",
+    panel.grid.minor = element_blank()
+  ) +
+  labs(
+    title = "Gapminder 2007: Life expectancy vs GDP per capita",
+    x = "log(GDP per capita)",
+    y = "Life Expectancy"
+  )
+```
+
+
+# Were there more men or women on the Titanic?
+
+```{r, titanic}
+
+# adapted from https://clauswilke.com/dataviz/histograms-density-plots.html#multiple-histograms-densities
+
+# load titanic data
+titanic <- vroom::vroom(here::here("data", "titanic3.csv"))
+
+# First, explore effect of different values of bandwith in geom_density()
+# bw	:The smoothing bandwidth to be used, siilar to a histogram's binwidth
+
+pdens1 <- ggplot(titanic, aes(x = age)) + 
+  geom_density(fill = "#56B4E9", color = "#56B4E9", bw = .5, kernel = "gaussian") + 
+  scale_y_continuous(limits = c(0, 0.046), expand = c(0, 0), name = "density") +
+  scale_x_continuous(name = "age (years)", limits = c(0, 75), expand = c(0, 0)) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(12) +
+  theme(
+    axis.line.x = element_blank(),
+    plot.margin = margin(3, 1.5, 3, 1.5)
+  )
+
+pdens2 <- ggplot(titanic, aes(x = age)) + 
+ geom_density(fill = "#56B4E9", color = "#56B4E9", bw = 2, kernel = "gaussian") + 
+  scale_y_continuous(limits = c(0, 0.046), expand = c(0, 0), name = "density") +
+  scale_x_continuous(name = "age (years)", limits = c(0, 75), expand = c(0, 0)) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(12)  +
+  theme(
+    axis.line.x = element_blank(),
+    plot.margin = margin(3, 1.5, 3, 1.5)
+  )
+
+pdens3 <- ggplot(titanic, aes(x = age)) + 
+ geom_density(fill = "#56B4E9", color = "#56B4E9", bw = 5, kernel = "gaussian") + 
+  scale_y_continuous(limits = c(0, 0.046), expand = c(0, 0), name = "density") +
+  scale_x_continuous(name = "age (years)", limits = c(0, 75), expand = c(0, 0)) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(12)  +
+  theme(
+    axis.line.x = element_blank(),
+    plot.margin = margin(3, 1.5, 3, 1.5)
+  )
+
+pdens4 <- ggplot(titanic, aes(x = age)) + 
+  geom_density(fill = "#56B4E9", color = "#56B4E9", bw = 2, kernel = "rectangular") + 
+  scale_y_continuous(limits = c(0, 0.046), expand = c(0, 0), name = "density") +
+  scale_x_continuous(name = "age (years)", limits = c(0, 75), expand = c(0, 0)) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(12)  +
+  theme(
+    axis.line.x = element_blank(),
+    plot.margin = margin(3, 1.5, 3, 1.5)
+  )
+
+# use patchwork to arrange plots
+(pdens1 + pdens2) / (pdens3 + pdens4) 
+
+
+# Define a vector of colours... grey80 for background, and two different colours for male/female
+density_colours <- c(
+  "male" = "#0072B2",
+  "female" = "#D55E00",
+  "all passengers" = "grey80"
+)
+
+# the default density plot + facet_wrap-- difference between men and women seems small
+titanic %>%
+  drop_na(sex, age) %>% # remove NAs for sex and age
+  ggplot(aes(age)) +
+  geom_density(aes(fill = sex, colour = sex), alpha = 0.7) +
+  scale_color_manual(name = NULL, values = density_colours) +
+  scale_fill_manual(name = NULL, values = density_colours) +
+  theme_minimal(16) +
+  theme(legend.position = "bottom", legend.justification = "center")+
+  facet_wrap(~sex)+
+  NULL
+
+
+
+
+titanic %>%
+  drop_na(sex, age) %>% # remove NAs for sex and age, and pass dataframe to ggplot
+  
+  # in the ggplot(), besides `x = age`, add `y = ..count..` to `aes()`
+  ggplot(aes(x = age, y = ..count..)) + 
+  
+  
+  # Add an additional `geom_density()` that will draw the background density, for all participants. 
+  # This should come *before* the 'normal' `geom_density()` so that it draws the background.
+  geom_density(
+    
+    # In the background geom_density(), set the `data` argument to be a function. This function 
+    # takes a data frame and removes sex (select x, -sex) (on which sex we will facet on later).
+    data = function(x) select(x, -sex),
+    
+    # Set both `colour` and `fill` equal to "all passengers", *not* `sex`.
+    aes(fill = "all passengers", colour = "all passengers")
+  ) +
+  
+  # now that we have the grey background, we can plot densities
+  # coloured and facet_wrapped by sex
+  geom_density(aes(fill = sex, colour = sex), alpha = 0.7, bw = 2) +
+  
+  # `facet_wrap()` to facet the plot by `sex`.
+  # labeller() makes it easy to assign different labellers to different factors
+  facet_wrap(~sex, labeller = labeller(sex = function(sex) paste(sex, "passengers"))) +
+  
+  
+  # use the colours you defined for male, female, and all participants
+  scale_colour_manual(
+    values = density_colours,
+    breaks = c("male", "female", "all passengers"),
+    labels = c( "males", "females","all passengers"),
+    name = NULL,
+    guide = guide_legend(direction = "horizontal")
+  )+
+  scale_fill_manual(
+    values = density_colours,
+    breaks = c("male", "female", "all passengers"),
+    labels = c( "males", "females","all passengers"),
+    name = NULL,
+    guide = guide_legend(direction = "horizontal")
+  )+
+  scale_x_continuous(name = "age (years)", limits = c(0, 75), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, 40), expand = c(0, 0), name = "scaled density") +
+  coord_cartesian(clip = "off") +
+  theme_minimal() +
+  theme(legend.position = "bottom", 
+        legend.justification = "center",
+        text=element_text(size=12, family="Lato"),
+        plot.title.position = "plot"
+  ) +
+  NULL
+
+  
+```
+
+# `gghighlight`
+
+We want to create a graph that looks at African countriews were life expectancy between 1992 and 2007 went down.
+
+```{r}
+africa <- gapminder %>%
+  filter(continent == "Africa") %>% 
+  # sort by life expectancy in 1952, the first year in the dataframe
+  arrange(year, desc(lifeExp)) %>% 
+  mutate(country = fct_inorder(factor(country)))
+
+# find the African countries that had better life expectancy in 1992 compared to 2007
+life_expectancy_dropped <- africa %>%
+  
+  # pivot wider to be able to compare life expectancy in 1992 to 2007,
+  pivot_wider(country, names_from = year, values_from = lifeExp) %>%
+  
+  # create new variables, `le_dropped`, that is `TRUE` if life expectancy was higher in 1992
+  # and `le_delta` which is simply the difference between life expectancy in 2007 and 1992
+  mutate(
+    le_delta = `2007` - `1992`,
+    le_dropped = `1992` > `2007`) %>% 
+  select(-c(2:13))
+
+# join `le_dropped` to each observation for each country
+africa <- left_join(africa, life_expectancy_dropped, by = "country")
+
+le_line_plot <- africa %>%
+  ggplot(aes(year, lifeExp, color = country, group = country)) +
+  geom_line(size = 1.2, alpha = 0.9, color = "#E58C23") +
+  theme_minimal(base_size = 14) +
+  
+  # let us add a vertical line at 1992, when we start our comparison
+  geom_vline(xintercept = 1992, alpha = 0.1)+
+
+  theme(
+    # remove legend using the legend.position argument in theme()
+    # ________________,
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank()
+  ) +
+  labs(
+    title = "Life expectancy reduction, 1992 to 2007",
+    y = "life expectancy", 
+    caption = "sorted by life expectancy in 1952") +
+  scale_x_continuous(breaks = seq(1952, 2007, 10))+
+  NULL
+
+le_line_plot
+
+
+# Using `gghighlight()` we add add direct labels to the plot. 
+# The first argument defines which lines to highlight using `le_dropped`. 
+# Also add the arguments `use_group_by = FALSE` and `unhighlighted_colour = "grey80"`. 
+
+le_line_plot + 
+  gghighlight(
+    le_dropped,
+    use_group_by = FALSE,
+    unhighlighted_colour = "grey80"
+  )
+
+#  If we facet_wrap() we do not need direct labels, so set `use_direct_label = FALSE` 
+
+le_line_plot +
+  gghighlight(
+    le_dropped,
+    use_group_by = FALSE,
+    use_direct_label = FALSE,
+    unhighlighted_colour = "grey80"
+  ) +
+  facet_wrap(~country)
+```
+
+# On your own: NYC Dogs 
+
+This is to get you started on your own. You can install the relevant `nycdogs` package and read more about it here https://kjhealy.github.io/nycdogs/ 
+
+```{r, nyc_dogs}
+
+# You can install nycdogs from GitHub with:
+# devtools::install_github("kjhealy/nycdogs")
+
+# load the data
+library(nycdogs)
+data("nyc_license")
+data("nyc_zips")
+
+# what is the prevalent NYC breed ?
+nyc_license %>% 
+  count(breed_rc, sort=TRUE) 
+
+# what is the prevalent NYC dog name by animal gender? 
+# Bella for girls, Max for boys!
+
+nyc_license %>% 
+  count(animal_name, animal_gender, sort=TRUE) 
+
+
+
+# Maps for two Breeds
+top_breeds <- nyc_license %>%
+  group_by(zip_code, breed_rc) %>%
+  tally() %>%
+  filter(n>10) %>% 
+  mutate(freq = n / sum(n),
+         pct = round(freq*100, 2)) %>%
+  filter(breed_rc == "Yorkshire Terrier" |  breed_rc == "Labrador (or Crossbreed)") 
+
+
+
+top_breeds_map <- left_join(nyc_zips, top_breeds) %>% 
+  na.omit() 
+
+
+top_breeds_map %>% ggplot(mapping = aes(fill = pct)) +
+  geom_sf(color = "gray80", size = 0.1) +
+  scale_fill_viridis_b(option = "A", direction= -1) +
+  labs(fill = "Percent of Licensed Dogs") +
+  facet_wrap(~breed_rc)+
+  theme_void() + 
+  guides(fill = guide_legend(title.position = "top", 
+                             label.position = "bottom")) 
+
+
+```
+# On your own: Coffee ratings
+
+Coffee ratings. Which country produces the best coffee? Does location and altitude of cultivation play a role?
+
+You can see someone's analysis here https://towardsdatascience.com/the-data-speak-ethiopia-has-the-best-coffee-91f88ed37e84
+
+
+
+```{r, coffee_ratings}
+
+url <- 'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-07/coffee_ratings.csv'
+
+coffee_ratings <- vroom::vroom(url)
+
+skim(coffee_ratings)
+
+```
+
+
