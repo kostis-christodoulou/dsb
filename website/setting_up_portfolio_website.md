@@ -23,7 +23,7 @@
           empty_dirs = TRUE,            
           to_yaml = TRUE)
 
-6.  Go to the Files section in the bottom right of RStudio, open `netlify.toml`, **delete its contents** and paste the following. The `"0.101.0"` refers to the hugo version you are using-- find out which one you have by typing `blogdown::hugo_version()` in the console
+6.  Go to the Files section in the bottom right of RStudio, open `netlify.toml`, **delete its contents** and paste the following. The `"0.111.3"` refers to the hugo version you are using-- find out which one you have by typing `blogdown::hugo_version()` in the console
 
 <!-- -->
 
@@ -32,17 +32,17 @@
       command = "hugo"
 
     [build.environment]
-      HUGO_VERSION = "0.101.0"
+      HUGO_VERSION = "0.111.3"
       HUGO_ENABLEGITINFO = "true"
 
     [context.production.environment]
       HUGO_ENV = "production"
       
     [context.branch-deploy.environment]
-      HUGO_VERSION = "0.101.0"
+      HUGO_VERSION = "0.111.3"
 
     [context.deploy-preview.environment]
-      HUGO_VERSION = "0.101.0"  
+      HUGO_VERSION = "0.111.3"  
 
 7.  Do a basic customisation, by editing the `config.yaml` file
 
@@ -109,7 +109,6 @@ brexit_results <- read_csv(here::here("data","brexit_results.csv"))
 
 18. Push everything to github. You must push your changes by going through all of the steps below and Netlify will update your webpage
 
-<!-- -->
 
     - git add -A
     - git commit -m "initial commit"

@@ -325,7 +325,12 @@ Specific questions:
     -   An aside: There is a great package called [`countrycode`](https://github.com/vincentarelbundock/countrycode) that helps solve the problem of inconsistent country names (Is it UK? United Kingdom? Great Britain?). `countrycode()` takes as an input a country's name in a specific format and outputs it using whatever format you specify.
 3.  Write a function that takes as input any country's name and returns all three graphs. You can use the `patchwork` package to arrange the three graphs as shown below
 
-![](images/electricity-co2-gdp.png)
+
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics(here::here("images", "electricity-co2-gdp.png"), error = FALSE)
+```
+
 
 # Deliverables
 
