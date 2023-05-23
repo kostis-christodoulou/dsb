@@ -295,7 +295,7 @@ url <- str_c(base_url, page)
 
 
 
-# Create a shiny app 
+# Create a shiny app - OPTIONAL
 
 We have already worked with the data on electricity production and usage, GDP/capita and CO2/capita since 1990.
 You have to create a simple Shiny app, where a user chooses a country from a drop down list and a time interval between 1990 and 2020 and shiny outputs the following
