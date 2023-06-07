@@ -46,6 +46,15 @@
 
 7.  Do a basic customisation, by editing the `config.yaml` file
 
+- First add these lines, with the exact identation at the very end of your config.yaml
+
+<!-- -->
+markup:
+  goldmark:
+    renderer:
+      unsafe: true  
+
+
 -Line 3: change the title to, e.g., title: Portfolio website for Kostis Christodoulou
 
 -Line 13: Add your real name and short description
