@@ -1,0 +1,94 @@
+---
+title: "Gapminder exploration"
+runtime: shiny
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+---
+
+```{r}
+library(flexdashboard)
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(gapminder)
+
+# use bigger font size
+theme_set(theme_bw(base_size = 16)) 
+
+# Define UI
+ui <- fluidPage(
+  
+  # Sidebar layout with input controls
+  sidebarLayout(
+    
+    # Sidebar panel with input controls
+    sidebarPanel(
+      selectInput("country", 
+                  "Select one or more countries:", 
+                  choices = unique(gapminder$country), 
+                  multiple = TRUE),      
+      sliderInput("years", 
+                  "Select a range of years:", 
+                  min = 1952L, max = 2007L, 
+                  value = as.integer(c(1952, 2007)), 
+                  step = 5)
+    ),
+    
+    # Main panel with output plots
+    mainPanel(
+      plotOutput("life_expectancy_plot"),
+      plotOutput("gdp_plot"),
+      plotOutput("population_plot")
+    )
+  )
+)
+# Define server
+server <- function(input, output) {
+  
+  # Create reactive subset of gapminder data based on user input
+  selected_data <- reactive({
+    gapminder %>% filter(country %in% input$country,
+                         year >= input$years[1], 
+                         year <= input$years[2])
+  })
+  
+  # Render life expectancy plot
+  output$life_expectancy_plot <- renderPlot({
+    ggplot(selected_data(), aes(x = year, y = lifeExp, group = country, colour = country)) +
+      geom_point()+
+      geom_line() +
+      ggtitle("Life Expectancy Over Time") +
+      xlab("Year") +
+      ylab("Life Expectancy") 
+  })
+  
+  # Render GDP plot
+  output$gdp_plot <- renderPlot({
+    ggplot(selected_data(), aes(x = year, y = gdpPercap,group = country, colour = country)) +
+      geom_point()+
+      geom_line() +
+      ggtitle("GDP per Capita Over Time") +
+      xlab("Year") +
+      ylab("GDP per Capita") 
+  })
+  
+  # Render population plot
+  output$population_plot <- renderPlot({
+    ggplot(selected_data(), aes(x = year, y = pop, group = country, colour = country)) +
+      geom_point()+
+      geom_line() +
+      ggtitle("Population Over Time") +
+      xlab("Year") +
+      ylab("Population") 
+  })
+}
+
+
+#Run the application
+shinyApp(ui = ui, server = server)
+
+```
+
+
+

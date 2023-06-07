@@ -1,0 +1,239 @@
+---
+title: "Portfolio Growth over time and CAPM"
+runtime: shiny
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+---
+
+```{r setup, message = FALSE}
+library(tidyverse)
+library(shiny)
+library(highcharter)
+library(tidyquant)
+library(timetk)
+library(scales)
+library(broom)
+library(highcharter)
+library(plotly)
+```
+
+Sidebar {.sidebar data-width=230}
+=====================================
+  
+```{r}
+
+fluidRow(
+  column(6, # column width
+         
+  # variable stock 1, show "Stock 1", and choose by default "AAPL"
+  textInput("stock1", "Stock 1", "AAPL")),
+  
+  
+  column(5,
+  
+  # weight of stock 1, show "Weight %", 25% by default, anc check weight is 0-100
+  numericInput("w1", "Weight %", 25, min = 0, max = 100))
+)  
+
+fluidRow(
+  column(6,
+  textInput("stock2", "Stock 2", "BA")),
+  column(5,
+  numericInput("w2", "Weight %", 25, min = 0, max = 100))
+)
+
+fluidRow(
+  column(6,
+  textInput("stock3", "Stock 3", "DIS")),
+  column(5,
+  numericInput("w3", "Weight %", 20, min = 0, max = 100))
+)
+
+fluidRow(
+  column(6,
+  textInput("stock4", "Stock 4", "GS")),
+  column(5,
+  numericInput("w4", "Weight %", 20, min = 0, max = 100))
+)
+
+fluidRow(
+  column(6,
+  textInput("stock5", "Stock 5", "MRK")),
+  column(5,
+  numericInput("w5", "Weight %", 10, min = 0, max = 100))
+)
+
+fluidRow(
+  column(7,
+  dateInput("date", "Starting Date", "2007-01-01", format = "yyyy-mm-dd"))
+)
+
+actionButton("go", "Submit")
+```
+
+
+```{r}
+myportfolio_data <- eventReactive(input$go, {
+
+# Get symbols from user  
+symbols <- c(input$stock1, input$stock2, input$stock3, input$stock4, input$stock5)
+
+# Get weights from user and make sure they add up to 100
+weights <- c(input$w1/100, input$w2/100, input$w3/100, input$w4/100, input$w5/100)
+validate(need(input$w1 + input$w2+ input$w3 + input$w4+input$w5 == 100,
+            "Portfolio weights must sum to 100%!"))
+
+
+myStocks <- symbols %>% 
+  tq_get(get  = "stock.prices",
+         from = input$date,
+         to   = Sys.Date()) %>%
+  group_by(symbol) 
+
+# get prices for SPY, the SP500 ETF
+spy <- tq_get("SPY", get  = "stock.prices",
+              from = input$date,
+              to   =  Sys.Date()) 
+
+#calculate monthly  returns for the chosen stocks
+myStocks_returns_monthly <- myStocks %>% 
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = "monthly", 
+               type       = "arithmetic",
+               col_rename = "monthly_return",
+               cols = c(nested.col)) 
+
+
+#calculate SPY monthly  returns
+spy_returns_monthly <- spy %>%
+  tq_transmute(select     = adjusted, 
+               mutate_fun = periodReturn, 
+               period     = "monthly", 
+               type       = "arithmetic",
+               col_rename = "SPY_return",
+               cols = c(nested.col))
+
+#calculate portfolio monthly  returns - weights * returns
+portfolio_returns_tq_rebalanced_monthly <-  tq_portfolio(data = myStocks_returns_monthly,
+             assets_col = symbol,
+             returns_col = monthly_return,
+             weights = weights,
+             col_rename = "monthly_return",
+             wealth.index = FALSE)
+  
+myportfolio_data <- left_join(portfolio_returns_tq_rebalanced_monthly, 
+                              spy_returns_monthly, 
+                              by="date") %>% 
+                              na.omit() %>% 
+                    mutate(
+                      # cumsum() and cumprod() calcuale the running sum/product
+                      # here we use cumprod, as we calcualte return using type=arithmetic
+                      # if we had calculated return using log, we would need cumsum
+                        portfolio_growth =  100 * cumprod(1 + monthly_return),
+                        sp500_growth = 	100 * cumprod(1 + SPY_return)
+                    )
+})
+
+portfolio_model_augmented <- eventReactive(input$go, {
+  
+  myportfolio_data <- myportfolio_data()
+  
+  
+  portfolio_model_augmented <- 
+    myportfolio_data %>% 
+    lm(monthly_return ~ SPY_return, data = .) %>% 
+    augment() %>% 
+    mutate(date = myportfolio_data$date)
+  
+})
+  
+```
+
+
+
+Choose 5 stocks and a starting date
+=====================================  
+
+Row {data-height=320}
+-----------------------------------------------------------------------
+
+### Growth of $100 invested in portfolio (blue) vs. SP500 (red)
+
+
+```{r}
+#use plotly to create interactive chart, so when we place our cursor on ti, we can see values
+
+renderPlotly({
+  
+  fubar1 <- myportfolio_data() %>% 
+    ggplot(aes(x=date))+
+    geom_line(aes(y=portfolio_growth),
+              colour="#001e62")+
+    geom_line(aes(y=sp500_growth),
+              colour="tomato")+
+    scale_y_continuous(labels = scales::dollar)+
+    theme_minimal()+
+    labs(x="", y="")  
+    
+  ggplotly(fubar1)
+})
+
+
+```
+
+
+Row 2 {data-height=320}
+-----------------------------------------------------------------------
+### CAPM: Portfolio Returns vs Market Index (SP500) returns
+
+```{r}
+#use highchart to get interactive scatter plot
+
+renderHighchart({
+
+myportfolio_data <- myportfolio_data()
+portfolio_model_augmented <- portfolio_model_augmented()
+
+highchart() %>% 
+  hc_title(text = "Portfolio Returns vs SP500 returns with Regression Line") %>% 
+  hc_add_series(portfolio_model_augmented, 
+                type = "scatter",
+                color = "cornflowerblue",
+                hcaes(x = round(SPY_return, 4), 
+                      y = round(monthly_return, 4),
+                      date = date), 
+                name = "Returns") %>%
+  hc_add_series(portfolio_model_augmented, 
+                 type = "line", 
+                 enableMouseTracking = FALSE,
+                 hcaes(x = SPY_return, y = .fitted), 
+                 name = "CAPM Beta = Slope of Line") %>% 
+  hc_xAxis(title = list(text = "Market Returns")) %>% 
+  hc_yAxis(title = list(text = "Portfolio Returns")) %>% 
+  hc_tooltip(formatter = JS("function(){
+     return ('portfolio: ' + this.y + '  SP500: ' + this.x +  
+     '  date: ' + this.point.date)}"))%>% 
+  hc_add_theme(hc_theme_flat())
+
+})
+```
+
+
+Row 3 {data-height=100}
+----------------------------------
+
+### CAPM Model Results, fitted through entire time interval
+
+```{r}
+renderTable({
+
+  myportfolio_data <- myportfolio_data()
+  
+    myportfolio_data %>% 
+    lm(monthly_return ~ SPY_return, data = .) %>% 
+    tidy(conf.int=TRUE) %>% 
+  mutate(term = c("alpha", "beta"))
+}, digits = 4)
+```
