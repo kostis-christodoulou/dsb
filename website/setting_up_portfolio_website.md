@@ -17,44 +17,48 @@
 
 <!-- -->
 
-        blogdown::new_site(theme = "MarcusVirg/forty", 
-          sample = TRUE, 
-          theme_example = TRUE,            
-          empty_dirs = TRUE,            
-          to_yaml = TRUE)
+```         
+    blogdown::new_site(theme = "MarcusVirg/forty", 
+      sample = TRUE, 
+      theme_example = TRUE,            
+      empty_dirs = TRUE,            
+      to_yaml = TRUE)
+```
 
 6.  Go to the Files section in the bottom right of RStudio, open `netlify.toml`, **delete its contents** and paste the following. The `"0.111.3"` refers to the hugo version you are using-- find out which one you have by typing `blogdown::hugo_version()` in the console
 
 <!-- -->
 
-    [build] 
-      publish = "public"
-      command = "hugo"
+```         
+[build] 
+  publish = "public"
+  command = "hugo"
 
-    [build.environment]
-      HUGO_VERSION = "0.111.3"
-      HUGO_ENABLEGITINFO = "true"
+[build.environment]
+  HUGO_VERSION = "0.111.3"
+  HUGO_ENABLEGITINFO = "true"
 
-    [context.production.environment]
-      HUGO_ENV = "production"
-      
-    [context.branch-deploy.environment]
-      HUGO_VERSION = "0.111.3"
+[context.production.environment]
+  HUGO_ENV = "production"
+  
+[context.branch-deploy.environment]
+  HUGO_VERSION = "0.111.3"
 
-    [context.deploy-preview.environment]
-      HUGO_VERSION = "0.111.3"  
+[context.deploy-preview.environment]
+  HUGO_VERSION = "0.111.3"  
+```
 
 7.  Do a basic customisation, by editing the `config.yaml` file
 
-- First add these lines, with the exact identation at the very end of your config.yaml
+-   First add these lines, with the exact identation at the very end of your config.yaml
 
 <!-- -->
-
-markup:
-  goldmark:
-    renderer:
-      unsafe: true  
-
+```
+markup: 
+  goldmark: 
+    renderer: 
+      unsafe: true
+```
 
 -Line 3: change the title to, e.g., title: Portfolio website for Kostis Christodoulou
 
@@ -64,7 +68,11 @@ markup:
 
 -Lines 15-30: Change your contact details: address (lines 17-19), email (line 24), phone (line 28). Please do not change line 15
 
--Line 37 onwards: Change what appears at the footer (bottom) of each webpage. If there is something you do not want to add, just comment it out with hashtags \# -Line 44 onward: Change the social media links to correspond to your own accounts. If you don't want something, comment it out with a hashtag \#-- Do not delete stuff, just comment it out.
+-Line 37 onwards: Change what appears at the footer (bottom) of each webpage. If there is something you do not want to add, just comment it out with hashtags
+
+-Line 44 onward: Change the social media links to correspond to your own accounts. If you don't want something, comment it out with a hashtag
+
+-- Do not delete stuff, just comment it out.
 
 -Line 62 onwards: navigation When a user clicks on the menu, there are four choices, defined in lines 70, 72, 74, 76. If you only want to keep, e.g, two choices, comment out with \# everything from lines 74-77 -BY default, we also get two buttons in lines 63-68.
 
@@ -88,10 +96,12 @@ markup:
 
 <!-- -->
 
-    - git add -A
-    - git commit -m "initial commit"
-    - git pull
-    - git push
+```         
+- git add -A
+- git commit -m "initial commit"
+- git pull
+- git push
+```
 
 12. To change the background pictures of the tiles, save any jpg/jpeg/png files you want in the `\themes\forty\static\img` folder. I have saved an LBS pic, called `lbs.jpg` in this directory, so please copy lbs.jpg to the `\themes\forty\static\img` folder. Then change `config.yaml` and to make the first tile picture be one ob LBS and not of NYC at night, change line 84 from `pic01.jpg` to `lbs.jpg`
 
@@ -100,16 +110,15 @@ markup:
 -   Line 8: added an image, called `spices.jpg`. You should save that picture in `\static\img\blogs`. Again, acceptable formats= jpg, jpeg, or png . Your iPhone pics wont work
 -   Line 11: changed the `slug` to `risk_return`. The slug is the shorthand URL address. but make sure you have no spaces in the slug. And how do I use the slug? Well, I need to edit line 87 of config.yaml and change it from `url: blogs/aliquam` to `url: blogs/risk_return`
 
-
 14. If you want to add another picture `pic1.jpg` anywhere in the Rmd, make sure you save the picture in `\static\img` and insert a chunk of code as follows:
 
-```
+```         
 knitr::include_graphics("/img/pic1.jpg",error=FALSE)
 ```
 
-15. If you want to add a datafile that you use in one of your Rmds, say brexit_results.csv, create a folder `\data\` in the root folder of your website (where you also have the *.Rproj file). Save the brexit_results.csv file in that folder and to read it, use 
+15. If you want to add a datafile that you use in one of your Rmds, say brexit_results.csv, create a folder `\data\` in the root folder of your website (where you also have the \*.Rproj file). Save the brexit_results.csv file in that folder and to read it, use
 
-```
+```         
 brexit_results <- read_csv(here::here("data","brexit_results.csv"))
 ```
 
@@ -119,8 +128,7 @@ brexit_results <- read_csv(here::here("data","brexit_results.csv"))
 
 18. Push everything to github. You must push your changes by going through all of the steps below and Netlify will update your webpage
 
-
-    - git add -A
-    - git commit -m "initial commit"
-    - git pull
-    - git push
+    -   git add -A
+    -   git commit -m "initial commit"
+    -   git pull
+    -   git push
