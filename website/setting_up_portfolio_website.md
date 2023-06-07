@@ -49,6 +49,7 @@
 - First add these lines, with the exact identation at the very end of your config.yaml
 
 <!-- -->
+
 markup:
   goldmark:
     renderer:
