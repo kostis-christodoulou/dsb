@@ -1,0 +1,451 @@
+---
+title: "Final Group project"
+author: "Your name goes here"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+  pdf_document:
+    toc: yes
+---
+
+
+```{r}
+#| label: load-libraries
+#| echo: false # This option disables the printing of code (only output is displayed).
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(tidymodels)
+library(skimr)
+library(kknn)
+library(here)
+library(tictoc)
+library(vip)
+library(ranger)
+```
+
+# The problem: predicting credit card fraud
+
+The goal of the project is to predict fraudulent credit card transactions.
+
+We will be using a dataset with credit card transactions containing legitimate and fraud transactions. Fraud is typically well below 1% of all transactions, so a naive model that predicts that all transactions are legitimate and not fraudulent would have an accuracy of well over 99%-- pretty good, no? 
+
+You can read more on credit card fraud on [Credit Card Fraud Detection Using Weighted Support Vector Machine](https://www.scirp.org/journal/paperinformation.aspx?paperid=105944)
+
+The dataset we will use consists of credit card transactions and it includes information about each transaction including customer details, the merchant and category of purchase, and whether or not the transaction was a fraud.
+
+## Obtain the data
+
+The dataset is too large to be hosted on Canvas or Github, so please download it from dropbox https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0 and save it in your `dsb` repo, under the `data` folder.
+
+As we will be building a classifier model using tidymodels, there's two things we need to do:
+
+1. Define the outcome variable `is_fraud` as a factor, or categorical, variable, instead of the numerical 0-1 varaibles.
+2. In tidymodels, the first level is the event of interest. If we leave our data as is, `0` is the first level, but we want to find out when we actually did (`1`) have a fraudulent transaction
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+card_fraud <- read_csv(here::here("data", "card_fraud.csv")) %>% 
+
+  mutate(
+    # in tidymodels, outcome should be a factor  
+    is_fraud = factor(is_fraud),
+    
+    # first level is the event in tidymodels, so we need to reorder
+    is_fraud = relevel(is_fraud, ref = "1")
+         )
+
+glimpse(card_fraud)
+```
+
+The data dictionary is as follows
+
+| column(variable)      | description                                 |
+|-----------------------|---------------------------------------------|
+| trans_date_trans_time | Transaction DateTime                        |
+| trans_year            | Transaction year                            |
+| category              | category of merchant                        |
+| amt                   | amount of transaction                       |
+| city                  | City of card holder                         |
+| state                 | State of card holder                        |
+| lat                   | Latitude location of purchase               |
+| long                  | Longitude location of purchase              |
+| city_pop              | card holder's city population               |
+| job                   | job of card holder                          |
+| dob                   | date of birth of card holder                |
+| merch_lat             | Latitude Location of Merchant               |
+| merch_long            | Longitude Location of Merchant              |
+| is_fraud              | Whether Transaction is Fraud (1) or Not (0) |
+
+We also add some of the variables we considered in our EDA for this dataset during homework 2.
+
+```{r}
+card_fraud <- card_fraud %>% 
+  mutate( hour = hour(trans_date_trans_time),
+          wday = wday(trans_date_trans_time, label = TRUE),
+          month_name = month(trans_date_trans_time, label = TRUE),
+          age = interval(dob, trans_date_trans_time) / years(1)
+) %>% 
+  rename(year = trans_year) %>% 
+  
+  mutate(
+    
+    # convert latitude/longitude to radians
+    lat1_radians = lat / 57.29577951,
+    lat2_radians = merch_lat / 57.29577951,
+    long1_radians = long / 57.29577951,
+    long2_radians = merch_long / 57.29577951,
+    
+    # calculate distance in miles
+    distance_miles = 3963.0 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians)),
+
+    # calculate distance in km
+    distance_km = 6377.830272 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians))
+
+  )
+
+```
+
+## Exploratory Data Analysis (EDA) 
+
+You have done some EDA and you can pool together your group's expertise in which variables to use as features.
+You can reuse your EDA from earlier, but we expect at least a few visualisations and/or tables to explore teh dataset and identify any useful features.
+
+Group all variables by type and examine each variable class by class. The dataset has the following types of variables:
+
+1.  Strings
+2.  Geospatial Data
+3.  Dates
+4.  Date/Times
+5.  Numerical
+
+Strings are usually not a useful format for classification problems. The strings should be converted to factors, dropped, or otherwise transformed.
+
+***Strings to Factors*** 
+
+-   `category`, Category of Merchant
+-   `job`, Job of Credit Card Holder
+
+***Strings to Geospatial Data*** 
+
+We have plenty of geospatial data as lat/long pairs, so I want to convert city/state to lat/long so I can compare to the other geospatial variables. This will also make it easier to compute new variables like the distance the transaction is from the home location. 
+
+-   `city`, City of Credit Card Holder
+-   `state`, State of Credit Card Holder
+
+##  Exploring factors: how is the compactness of categories?
+
+-   Do we have excessive number of categories? Do we want to combine some?
+
+```{r}
+card_fraud %>% 
+  count(category, sort=TRUE)%>% 
+  mutate(perc = n/sum(n))
+
+card_fraud %>% 
+  count(job, sort=TRUE) %>% 
+  mutate(perc = n/sum(n))
+
+
+```
+
+
+The predictors `category` and `job` are transformed into factors.
+
+```{r}
+#| label: convert-strings-to-factors
+
+
+card_fraud <- card_fraud %>% 
+  mutate(category = factor(category),
+         job = factor(job))
+
+```
+
+`category` has 14 unique values, and `job` has 494 unique values. The dataset is quite large, with over 670K records, so these variables don't have an excessive number of levels at first glance. However, it is worth seeing if we can compact the levels to a smaller number.
+
+### Why do we care about the number of categories and whether they are "excessive"?
+
+Consider the extreme case where a dataset had categories that only contained one record each. There is simply insufficient data to make correct predictions using category as a predictor on new data with that category label. Additionally, if your modeling uses dummy variables, having an extremely large number of categories will lead to the production of a huge number of predictors, which can slow down the fitting. This is fine if all the predictors are useful, but if they aren't useful (as in the case of having only one record for a category), trimming them will improve the speed and quality of the data fitting.
+
+If I had subject matter expertise, I could manually combine categories. If you don't have subject matter expertise, or if performing this task would be too labor intensive, then you can use cutoffs based on the amount of data in a category. If the majority of the data exists in only a few categories, then it might be reasonable to keep those categories and lump everything else in an "other" category or perhaps even drop the data points in smaller categories. 
+
+
+## Do all variables have sensible types?
+
+Consider each variable and decide whether to keep, transform, or drop it. This is a mixture of Exploratory Data Analysis and Feature Engineering, but it's helpful to do some simple feature engineering as you explore the data. In this project, we have all data to begin with, so any transformations will be performed on the entire dataset. Ideally, do the transformations as a `recipe_step()` in the tidymodels framework. Then the transformations would be applied to any data the recipe was used on as part of the modeling workflow. There is less chance of data leakage or missing a step when you perform the feature engineering in the recipe.
+
+## Which variables to keep in your model?
+
+You have a number of variables and you have to decide which ones to use in your model. For instance, you have the latitude/lognitude of the customer, that of the merchant, the same data in radians, as well as the `distance_km` and `distance_miles`. Do you need them all? 
+
+
+## Fit your workflows in smaller sample
+
+You will be running a series of different models, along the lines of the California housing example we have seen in class. However, this dataset has 670K rows and if you try various models and run cross validation on them, your computer may slow down or crash.
+
+Thus, we will work with a smaller sample of 10% of the values the original dataset to identify the best model, and once we have the best model we can use the full dataset to train- test our best model.
+
+
+```{r}
+# select a smaller subset
+my_card_fraud <- card_fraud %>% 
+  # select a smaller subset, 10% of the entire dataframe 
+  slice_sample(prop = 0.10) 
+```
+
+
+## Split the data in training - testing
+
+```{r}
+# **Split the data**
+
+set.seed(123)
+
+data_split <- initial_split(my_card_fraud, # updated data
+                           prop = 0.8, 
+                           strata = is_fraud)
+
+card_fraud_train <- training(data_split) 
+card_fraud_test <- testing(data_split)
+```
+
+
+## Cross Validation
+
+Start with 3 CV folds to quickly get an estimate for the best model and you can increase the number of folds to 5 or 10 later.
+
+```{r}
+set.seed(123)
+cv_folds <- vfold_cv(data = card_fraud_train, 
+                          v = 3, 
+                          strata = is_fraud)
+cv_folds 
+```
+
+
+## Define a tidymodels `recipe`
+
+What steps are you going to add to your recipe? Do you need to do any log transformations?
+
+```{r, define_recipe}
+
+fraud_rec <- recipe(is_fraud ~ ., data = card_fraud_train) %>%
+
+
+
+
+
+```
+
+Once you have your recipe, you can check the pre-processed dataframe 
+
+```{r}
+prepped_data <- 
+  fraud_rec %>% # use the recipe object
+  prep() %>% # perform the recipe on training data
+  juice() # extract only the preprocessed dataframe 
+
+glimpse(prepped_data)
+
+```
+
+
+## Define various models
+
+You should define the following classification models:
+
+1. Logistic regression, using the `glm` engine
+2. Decision tree, using the `C5.0` engine
+3. Random Forest, using  the `ranger` engine and setting `importance = "impurity"`)  
+4. A boosted tree using Extreme Gradient Boosting, and the `xgboost` engine
+5. A k-nearest neighbours,  using 4 nearest_neighbors and the `kknn` engine  
+
+```{r, define_models}
+## Model Building 
+
+# 1. Pick a `model type`
+# 2. set the `engine`
+# 3. Set the `mode`:  classification
+
+
+```
+
+## Bundle recipe and model with `workflows`
+
+```{r, define_workflows}
+
+
+## Bundle recipe and model with `workflows`
+
+
+log_wflow <- # new workflow object
+ workflow() %>% # use workflow function
+ add_recipe(fraud_rec) %>%   # use the new recipe
+ add_model(log_spec)   # add your model spec
+
+```
+
+
+## Fit models
+
+You may want to compare the time it takes to fit each model. `tic()` starts a simple timer and `toc()` stops it
+
+```{r, fit_models}
+tic()
+log_res <- log_wflow %>% 
+  fit_resamples(
+    resamples = cv_folds, 
+    metrics = metric_set(
+      recall, precision, f_meas, accuracy,
+      kap, roc_auc, sens, spec),
+    control = control_resamples(save_pred = TRUE)) 
+time <- toc()
+log_time <- time[[4]]
+
+
+```
+
+## Compare models
+
+```{r, compare_models}
+## Model Comparison
+
+log_metrics <- 
+  log_res %>% 
+  collect_metrics(summarise = TRUE) %>%
+  # add the name of the model to every row
+  mutate(model = "Logistic Regression",
+         time = log_time)
+
+# add mode models here
+
+# create dataframe with all models
+model_compare <- bind_rows(log_metrics,
+                            tree_metrics,
+                            rf_metrics,
+                           xgb_metrics,
+                           knn_metrics
+                      ) %>% 
+  # get rid of 'sec elapsed' and turn it into a number
+  mutate(time = str_sub(time, end = -13) %>% 
+           as.double()
+         )
+
+
+```
+
+## Which metric to use
+
+This is a highly imbalanced data set, as roughly 99.5% of all transactions are ok, and it's only 0.5% of transactions that are fraudulent. A `naive` model, which classifies everything as ok and not-fraud, would have an accuracy of 99.5%, but what about the sensitivity, specificity, the AUC, etc?
+
+## `last_fit()`
+```{r}
+
+## `last_fit()` on test set
+
+# - `last_fit()`  fits a model to the whole training data and evaluates it on the test set. 
+# - provide the workflow object of the best model as well as the data split object (not the training data). 
+ 
+
+```
+
+
+
+## Get variable importance using `vip` package
+
+
+```{r}
+
+```
+
+## Plot Final Confusion matrix and ROC curve
+
+
+```{r}
+## Final Confusion Matrix
+
+last_fit_xgb %>%
+  collect_predictions() %>% 
+  conf_mat(is_fraud, .pred_class) %>% 
+  autoplot(type = "heatmap")
+
+
+## Final ROC curve
+last_fit_xgb %>% 
+  collect_predictions() %>% 
+  roc_curve(is_fraud, .pred_1) %>% 
+  autoplot()
+```
+
+
+##  Calculating the cost of fraud to the company
+
+
+- How much money (in US\$ terms) are fraudulent transactions costing the company? Generate a table that summarizes the total amount of legitimate and fraudulent transactions per year and calculate the % of fraudulent transactions, in US\$ terms. Compare your model vs the naive classification that we do not have any fraudulent transactions. 
+
+```{r}
+#| label: savings-for-cc-company
+
+best_model_preds <- 
+  best_model_wflow %>% 
+  fit(data = card_fraud_train) %>%  
+  
+  ## Use `augment()` to get predictions for entire data set
+  augment(new_data = card_fraud)
+
+best_model_preds %>% 
+  conf_mat(truth = is_fraud, estimate = .pred_class)
+
+cost <- best_model_preds %>%
+  select(is_fraud, amt, pred = .pred_class) 
+
+cost <- cost %>%
+  mutate(
+  
+
+  # naive false-- we think every single transaction is ok and not fraud
+
+
+  # false negatives-- we thought they were not fraud, but they were
+
+  
+  
+  # false positives-- we thought they were fraud, but they were not
+
+  
+    
+  # true positives-- we thought they were fraud, and they were 
+
+
+  
+  # true negatives-- we thought they were ok, and they were 
+)
+  
+# Summarising
+
+cost_summary <- cost %>% 
+  summarise(across(starts_with(c("false","true", "amt")), 
+            ~ sum(.x, na.rm = TRUE)))
+
+cost_summary
+
+```
+
+
+- If we use a naive classifier thinking that all transactions are legitimate and not fraudulent, the cost to the company is `r scales::dollar(cost_summary$false_naives)`.
+- With our best model, the total cost of false negatives, namely transactions our classifier thinks are legitimate but which turned out to be fraud, is `r scales::dollar(cost_summary$false_negatives)`.
+
+- Our classifier also has some false positives, `r scales::dollar(cost_summary$false_positives)`, namely flagging transactions as fraudulent, but which were legitimate. Assuming the card company makes around 2% for each transaction (source: https://startups.co.uk/payment-processing/credit-card-processing-fees/), the amount of money lost due to these false positives is `r scales::dollar(cost_summary$false_positives * 0.02)`
+
+- The \$ improvement over the naive policy is `r scales::dollar(cost_summary$false_naives - cost_summary$false_negatives - cost_summary$false_positives * 0.02)`.
