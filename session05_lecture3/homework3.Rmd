@@ -1,5 +1,5 @@
 ---
-title: "Homework 3: Databases, web scraping, and a basic Shiny app"
+title: "Homework 3: Databases and web scraping"
 author: "Your name goes here"
 date: "`r Sys.Date()`"
 output:
@@ -294,17 +294,6 @@ url <- str_c(base_url, page)
 -   Write the data frame to a csv file called `all_consulting_jobs.csv` in the `data` folder.
 
 
-
-# Create a shiny app - OPTIONAL
-
-We have already worked with the data on electricity production and usage, GDP/capita and CO2/capita since 1990.
-You have to create a simple Shiny app, where a user chooses a country from a drop down list and a time interval between 1990 and 2020 and shiny outputs the following
-
-```{r echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "electricity-shiny.png"), error = FALSE)
-```
-
-You can use chatGPT to get the basic layout of Shiny app, but you need to adjust the code it gives you. Ask chatGPT to create the Shiny app using the `gapminder` data and make up similar requests for the inputs/outpus you are thinking of deploying.
 
 
 

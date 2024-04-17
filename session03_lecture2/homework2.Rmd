@@ -13,7 +13,7 @@ output:
   pdf_document:
     toc: yes
 ---
----
+
 
 ```{r}
 #| label: load-libraries
@@ -245,6 +245,7 @@ card_fraud <- card_fraud %>%
 ```
 
 Plot a boxplot or a violin plot that looks at the relationship of distance and `is_fraud`. Does distance seem to be a useful feature in explaining fraud?
+
 
 # Exploring sources of electricity production, CO2 emissions, and GDP per capita.
 

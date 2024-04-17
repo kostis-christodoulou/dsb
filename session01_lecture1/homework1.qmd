@@ -1,7 +1,7 @@
 ---
 title: "Homerwork 1"
 author: "YOUR NAME HERE"
-date: 2023-05-14
+date: "`r Sys.Date()`"
 format: 
   docx: default
   html:
@@ -219,21 +219,21 @@ The age gaps dataset includes "gender" columns, which always contain the values 
 
 The following is a data dictionary of the variables used
 
-| variable            | class     | description                                                                                             |
-|:-----------|:-----------|:----------------------------------------------|
-| movie_name          | character | Name of the film                                                                                        |
-| release_year        | integer   | Release year                                                                                            |
-| director            | character | Director of the film                                                                                    |
-| age_difference      | integer   | Age difference between the characters in whole years                                                    |
-| couple_number       | integer   | An identifier for the couple in case multiple couples are listed for this film                          |
-| actor_1\_name       | character | The name of the older actor in this couple                                                              |
-| actor_2\_name       | character | The name of the younger actor in this couple                                                            |
-| character_1\_gender | character | The gender of the older character, as identified by the person who submitted the data for this couple   |
-| character_2\_gender | character | The gender of the younger character, as identified by the person who submitted the data for this couple |
-| actor_1\_birthdate  | date      | The birthdate of the older member of the couple                                                         |
-| actor_2\_birthdate  | date      | The birthdate of the younger member of the couple                                                       |
-| actor_1\_age        | integer   | The age of the older actor when the film was released                                                   |
-| actor_2\_age        | integer   | The age of the younger actor when the film was released                                                 |
+| variable           | class     | description                                                                                             |
+|:--------------|:--------------|:------------------------------------------|
+| movie_name         | character | Name of the film                                                                                        |
+| release_year       | integer   | Release year                                                                                            |
+| director           | character | Director of the film                                                                                    |
+| age_difference     | integer   | Age difference between the characters in whole years                                                    |
+| couple_number      | integer   | An identifier for the couple in case multiple couples are listed for this film                          |
+| actor_1_name       | character | The name of the older actor in this couple                                                              |
+| actor_2_name       | character | The name of the younger actor in this couple                                                            |
+| character_1_gender | character | The gender of the older character, as identified by the person who submitted the data for this couple   |
+| character_2_gender | character | The gender of the younger character, as identified by the person who submitted the data for this couple |
+| actor_1_birthdate  | date      | The birthdate of the older member of the couple                                                         |
+| actor_2_birthdate  | date      | The birthdate of the younger member of the couple                                                       |
+| actor_1_age        | integer   | The age of the older actor when the film was released                                                   |
+| actor_2_age        | integer   | The age of the younger actor when the film was released                                                 |
 
 ```{r}
 
