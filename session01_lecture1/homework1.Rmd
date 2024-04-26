@@ -1,13 +1,14 @@
 ---
-title: "Homerwork 1"
-author: "YOUR NAME HERE"
+author: "Your name goes here"
 date: "`r Sys.Date()`"
-format: 
-  docx: default
-  html:
-    toc: true
-    toc_float: true
-    code-fold: true
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
 editor: visual
 ---
 
@@ -23,57 +24,25 @@ library(skimr)
 
 ```
 
-# Data Manipulation
+# Data Manipulation `nycflights13`
 
-## Problem 1: Use logical operators to find flights that:
+## Problem 1: What months had the highest and lowest proportion of cancelled flights? Interpret any seasonal patterns. 
 
-```         
--   Had an arrival delay of two or more hours (\> 120 minutes)
--   Flew to Houston (IAH or HOU)
--   Were operated by United (`UA`), American (`AA`), or Delta (`DL`)
--   Departed in summer (July, August, and September)
--   Arrived more than two hours late, but didn't leave late
--   Were delayed by at least an hour, but made up over 30 minutes in flight
-```
+
+To determine if a flight was cancelled use the following code
 
 ```{r}
-#| label: problem-1
-
-# Had an arrival delay of two or more hours (> 120 minutes)
-
-
-# Flew to Houston (IAH or HOU)
-
-
-# Were operated by United (`UA`), American (`AA`), or Delta (`DL`)
-
-
-# Departed in summer (July, August, and September)
-  
-  
-# Arrived more than two hours late, but didn't leave late
-
-
-# Were delayed by at least an hour, but made up over 30 minutes in flight
-```
-
-## Problem 2: What months had the highest and lowest proportion of cancelled flights? Interpret any seasonal patterns. To determine if a flight was cancelled use the following code
-
-<!-- -->
-
-```         
-flights %>% 
-  filter(is.na(dep_time)) 
-```
-
-```{r}
-#| label: problem-2
 
 # What months had the highest and lowest % of cancelled flights?
 
+flights %>% 
+  filter(is.na(dep_time)) 
+
 ```
 
-## Problem 3: What plane (specified by the `tailnum` variable) traveled the most times from New York City airports in 2013? Please `left_join()` the resulting table with the table `planes` (also included in the `nycflights13` package).
+## Problem 2: What plane (specified by the `tailnum` variable) traveled the most times from New York City airports in 2013? 
+
+Please `left_join()` the resulting table with the table `planes` (also included in the `nycflights13` package).
 
 For the plane with the greatest number of flights and that had more than 50 seats, please create a table where it flew to during 2013.
 
@@ -82,19 +51,7 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ```
 
-## Problem 4: The `nycflights13` package includes a table (`weather`) that describes the weather during 2013. Use that table to answer the following questions:
-
-```         
--   What is the distribution of temperature (`temp`) in July 2013? Identify any important outliers in terms of the `wind_speed` variable.
--   What is the relationship between `dewp` and `humid`?
--   What is the relationship between `precip` and `visib`?
-```
-
-```{r}
-
-```
-
-## Problem 5: Use the `flights` and `planes` tables to answer the following questions:
+## Problem 3: Use the `flights` and `planes` tables to answer the following questions:
 
 ```         
 -   How many planes have a missing date of manufacture?
@@ -106,29 +63,10 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ```
 
-## Problem 6: Use the `flights` and `planes` tables to answer the following questions:
+## Problem 4: Which carriers service the route to San Francisco International (SFO). 
 
-```         
--   What is the oldest plane (specified by the tailnum variable) that flew from New York City airports in 2013?
--   How many airplanes that flew from New York City are included in the planes table?
-```
 
-```{r}
-
-```
-
-## Problem 7: Use the `nycflights13` to answer the following questions:
-
-```         
--   What is the median arrival delay on a month-by-month basis in each airport?
--   For each airline, plot the median arrival delay for each month and origin airport.
-```
-
-```{r}
-
-```
-
-## Problem 8: Let's take a closer look at what carriers service the route to San Francisco International (SFO). Join the `flights` and `airlines` tables and count which airlines flew the most to SFO. Produce a new dataframe, `fly_into_sfo` that contains three variables: the `name` of the airline, e.g., `United Air Lines Inc.` not `UA`, the count (number) of times it flew to SFO, and the `percent` of the trips that that particular airline flew to SFO.
+Join the `flights` and `airlines` tables and count which airlines flew the most to SFO. Produce a new dataframe, `fly_into_sfo` that contains three variables: the `name` of the airline, e.g., `United Air Lines Inc.` not `UA`, the count (number) of times it flew to SFO, and the `percent` of the trips that that particular airline flew to SFO.
 
 ```{r}
 
@@ -140,13 +78,15 @@ And here is some bonus ggplot code to plot your dataframe
 #| label: ggplot-flights-toSFO
 #| message: false
 #| warning: false
+#| eval: false
+
 
 fly_into_sfo %>% 
   
   # sort 'name' of airline by the numbers it times to flew to SFO
   mutate(name = fct_reorder(name, count)) %>% 
   
-  ggplot() +
+  ggplot() + 
   
   aes(x = count, 
       y = name) +
@@ -189,7 +129,10 @@ fly_into_sfo %>%
  
 ```
 
-## Problem 9: Let's take a look at cancellations of flights to SFO. We create a new dataframe `cancellations` as follows
+## Problem 5: Cancellations of flights to SFO. 
+
+
+We create a new dataframe `cancellations` as follows
 
 ```{r}
 
@@ -207,9 +150,113 @@ I want you to think how we would organise our data manipulation to create the fo
 
 ![](images/sfo-cancellations.png)
 
-## Problem 10: On your own -- Hollywood Age Gap
+# Rents in San Francsisco 2000-2018
 
-The website https://hollywoodagegap.com is a record of *THE AGE DIFFERENCE IN YEARS BETWEEN MOVIE LOVE INTERESTS*. This is an informational site showing the age gap between movie love interests and the data follows certain rules:
+[Kate Pennington](https://www.katepennington.org/data) created a panel of historic Craigslist rents by scraping posts archived by the Wayback Machine. You can read more about her work here
+
+[What impact does new housing have on rents, displacement, and gentrification in the surrounding neighborhood? Read our interview with economist Kate Pennington about her article, "Does Building New Housing Cause Displacement?:The Supply and Demand Effects of Construction in San Francisco."](https://matrix.berkeley.edu/research-article/kate-pennington-on-gentrification-and-displacement-in-san-francisco/)
+
+In our case, we have a clean(ish) dataset with about 200K rows that correspond to Craigslist listings for renting properties in the greater SF area. The data dictionary is as follows
+
+| variable    | class     | description           |
+|-------------|-----------|-----------------------|
+| post_id     | character | Unique ID             |
+| date        | double    | date                  |
+| year        | double    | year                  |
+| nhood       | character | neighborhood          |
+| city        | character | city                  |
+| county      | character | county                |
+| price       | double    | price in USD          |
+| beds        | double    | n of beds             |
+| baths       | double    | n of baths            |
+| sqft        | double    | square feet of rental |
+| room_in_apt | double    | room in apartment     |
+| address     | character | address               |
+| lat         | double    | latitude              |
+| lon         | double    | longitude             |
+| title       | character | title of listing      |
+| descr       | character | description           |
+| details     | character | additional details    |
+
+The dataset was used in a recent [tidyTuesday](https://github.com/rfordatascience/tidytuesday) project.
+
+```{r}
+# download directly off tidytuesdaygithub repo
+
+rent <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-07-05/rent.csv')
+
+```
+
+What are the variable types? Do they all correspond to what they really are? Which variables have most missing values?
+
+```{r skim_data}
+# YOUR CODE GOES HERE
+skimr::skim(rent)
+
+```
+
+Make a plot that shows the top 20 cities in terms of % of classifieds between 2000-2018. You need to calculate the number of listings by city, and then convert that number to a %.
+
+The final graph should look like this
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics(here::here("images", "top_cities.png"), error = FALSE)
+```
+
+
+
+
+```{r top_cities}
+# YOUR CODE GOES HERE
+
+
+```
+
+Make a plot that shows the evolution of median prices in San Francisco for 0, 1, 2, and 3 bedrooms listings. The final graph should look like this
+
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics(here::here("images", "sf_rentals.png"), error = FALSE)
+```
+
+
+```{r sf_median_prices}
+
+# YOUR CODE GOES HERE
+
+
+```
+
+Finally, make a plot that shows median rental prices for one-bed flats in the top 12 cities in the Bay area. Your final graph should look like this
+
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics(here::here("images", "one_bed_bay_area.png"), error = FALSE)
+```
+
+
+```{r spirit_plot}
+# YOUR CODE GOES HERE
+
+```
+
+What can you infer from these plots? Don't just explain what's in the graph, but speculate or tell a short story (1-2 paragraphs max).
+
+## Challenge
+
+How would you go about creating this?
+
+
+```{r, echo=FALSE, out.width="90%"}
+knitr::include_graphics(here::here("images", "challenge1.png"), error = FALSE)
+```
+
+
+> TYPE YOUR ANSWER AFTER (AND OUTSIDE!) THIS BLOCKQUOTE.
+
+# On your own -- Hollywood Age Gap
+
+The website <https://hollywoodagegap.com> is a record of *THE AGE DIFFERENCE IN YEARS BETWEEN MOVIE LOVE INTERESTS*. This is an informational site showing the age gap between movie love interests and the data follows certain rules:
 
 -   The two (or more) actors play actual love interests (not just friends, coworkers, or some other non-romantic type of relationship)
 -   The youngest of the two actors is at least 17 years old
@@ -220,7 +267,7 @@ The age gaps dataset includes "gender" columns, which always contain the values 
 The following is a data dictionary of the variables used
 
 | variable           | class     | description                                                                                             |
-|:--------------|:--------------|:------------------------------------------|
+|:----------------|:----------------|:-------------------------------------|
 | movie_name         | character | Name of the film                                                                                        |
 | release_year       | integer   | Release year                                                                                            |
 | director           | character | Director of the film                                                                                    |
