@@ -32,19 +32,17 @@ library(scales)
 library(vip)
 ```
 
-
 # The Bechdel Test
 
-https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/
+<https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/>
 
-The [Bechdel test](https://bechdeltest.com) is a way to assess how women are depicted in Hollywood movies.  In order for a movie to pass the test:
+The [Bechdel test](https://bechdeltest.com) is a way to assess how women are depicted in Hollywood movies. In order for a movie to pass the test:
 
-1. It has to have at least two [named] women in it
-2. Who talk to each other
-3. About something besides a man
+1.  It has to have at least two [named] women in it
+2.  Who talk to each other
+3.  About something besides a man
 
-There is a nice article and analysis you can find here https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/
-We have a sample of 1394 movies and we want to fit a model to predict whether a film passes the test or not.
+There is a nice article and analysis you can find here <https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/> We have a sample of 1394 movies and we want to fit a model to predict whether a film passes the test or not.
 
 ```{r read_data}
 
@@ -53,14 +51,15 @@ bechdel <- read_csv(here::here("data", "bechdel.csv")) %>%
 glimpse(bechdel)
 
 ```
+
 How many films fail/pass the test, both as a number and as a %?
 
 ```{r}
 
 ```
 
-
 ## Movie scores
+
 ```{r}
 ggplot(data = bechdel, aes(
   x = metascore,
@@ -77,8 +76,8 @@ ggplot(data = bechdel, aes(
  theme_light()
 ```
 
-
 # Split the data
+
 ```{r}
 # **Split the data**
 
@@ -93,13 +92,14 @@ bechdel_test <- testing(data_split)
 ```
 
 Check the counts and % (proportions) of the `test` variable in each set.
+
 ```{r}
 
 ```
 
 ## Feature exploration
 
-## Any outliers? 
+## Any outliers?
 
 ```{r}
 
@@ -122,7 +122,8 @@ bechdel %>%
 
 ## Scatterplot - Correlation Matrix
 
-Write a paragraph discussing the output of the following 
+Write a paragraph discussing the output of the following
+
 ```{r, warning=FALSE, message=FALSE}
 bechdel %>% 
   select(test, budget_2013, domgross_2013, intgross_2013, imdb_rating, metascore)%>% 
@@ -130,10 +131,10 @@ bechdel %>%
   theme_bw()
 ```
 
-
 ## Categorical variables
 
-Write a paragraph discussing the output of the following 
+Write a paragraph discussing the output of the following
+
 ```{r}
 bechdel %>% 
   group_by(genre, test) %>%
@@ -200,8 +201,8 @@ lr_preds %>%
 
 ```
 
-
 ## Decision Tree
+
 ```{r}
 tree_preds <- tree_fit %>%
   augment(new_data = bechdel) %>%
@@ -261,10 +262,10 @@ tree_fit <- tree_mod %>%
   )
 ```
 
-
 ## `collect_metrics()`
 
 Unnest the metrics column from a tidymodels `fit_resamples()`
+
 ```{r}
 
 collect_metrics(lr_fit)
@@ -272,7 +273,6 @@ collect_metrics(tree_fit)
 
 
 ```
-
 
 ```{r}
 tree_preds <- tree_mod %>% 
@@ -295,28 +295,26 @@ tree_preds %>%
 
 ```
 
-
 # Build a better training set with `recipes`
 
 ## Preprocessing options
 
-- Encode categorical predictors
-- Center and scale variables
-- Handle class imbalance
-- Impute missing data
-- Perform dimensionality reduction 
-- ... ...
+-   Encode categorical predictors
+-   Center and scale variables
+-   Handle class imbalance
+-   Impute missing data
+-   Perform dimensionality reduction
+-   ... ...
 
 ## To build a recipe
 
-1. Start the `recipe()`
-1. Define the variables involved
-1. Describe **prep**rocessing [step-by-step]
+1.  Start the `recipe()`
+2.  Define the variables involved
+3.  Describe **prep**rocessing [step-by-step]
 
 ## Collapse Some Categorical Levels
 
-Do we have any `genre` with few observations?  Assign genres that have less than 3% to a new category 'Other'
-
+Do we have any `genre` with few observations? Assign genres that have less than 3% to a new category 'Other'
 
 ```{r}
 #| echo = FALSE
@@ -332,7 +330,6 @@ bechdel %>%
   theme_light()
 ```
 
-
 ```{r}
 movie_rec <-
   recipe(test ~ .,
@@ -341,7 +338,6 @@ movie_rec <-
   # Genres with less than 5% will be in a catewgory 'Other'
     step_other(genre, threshold = .03) 
 ```
-  
 
 ## Before recipe
 
@@ -350,7 +346,6 @@ movie_rec <-
 bechdel_train %>% 
   count(genre, sort = TRUE)
 ```
-
 
 ## After recipe
 
@@ -374,12 +369,12 @@ movie_rec <- recipe(test ~ ., data = bechdel) %>%
 movie_rec 
 ```
 
-## Let's think about the modelling 
+## Let's think about the modelling
 
 What if there were no films with `rated` NC-17 in the training data?
 
--  Will the model have a coefficient for `rated` NC-17?
--  What will happen if the test data includes a film with `rated` NC-17?
+-   Will the model have a coefficient for `rated` NC-17?
+-   What will happen if the test data includes a film with `rated` NC-17?
 
 ## `step_novel()`
 
@@ -394,7 +389,6 @@ movie_rec <- recipe(test ~ ., data = bechdel) %>%
 
 ```
 
-
 ## `step_zv()`
 
 Intelligently handles zero variance variables (variables that contain only a single value)
@@ -407,7 +401,6 @@ movie_rec <- recipe(test ~ ., data = bechdel) %>%
   step_zv(all_numeric(), -all_outcomes()) 
   
 ```
-
 
 ## `step_normalize()`
 
@@ -422,7 +415,6 @@ movie_rec <- recipe(test ~ ., data = bechdel) %>%
   step_normalize(all_numeric()) 
 
 ```
-
 
 ## `step_corr()`
 
@@ -441,7 +433,6 @@ movie_rec <- recipe(test ~ ., data = bechdel) %>%
 
 movie_rec
 ```
-
 
 # Define different models to fit
 
@@ -491,9 +482,7 @@ knn_spec <-
   set_mode("classification") 
 ```
 
-
 # Bundle recipe and model with `workflows`
-
 
 ```{r}
 log_wflow <- # new workflow object
@@ -531,21 +520,17 @@ knn_wflow <-
 
 HEADS UP
 
-1. How many models have you specified?
-2. What's the difference between a model specification and a workflow?
-3. Do you need to add a formula (e.g., `test ~ .`)  if you have a recipe?
-
+1.  How many models have you specified?
+2.  What's the difference between a model specification and a workflow?
+3.  Do you need to add a formula (e.g., `test ~ .`) if you have a recipe?
 
 # Model Comparison
 
-You now have all your models. Adapt the code from slides `code-from-slides-CA-housing.R`, line 400 onwards to assess which model gives you the best classification. 
-
+You now have all your models. Adapt the code from slides `code-from-slides-CA-housing.R`, line 400 onwards to assess which model gives you the best classification.
 
 ```{r}
 
 ```
-
-
 
 # Deliverables
 

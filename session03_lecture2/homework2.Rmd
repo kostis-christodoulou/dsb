@@ -14,7 +14,6 @@ output:
     toc: yes
 ---
 
-
 ```{r}
 #| label: load-libraries
 #| echo: false # This option disables the printing of code (only output is displayed).
@@ -32,104 +31,6 @@ library(here)
 
 Now that you've demonstrated your software is setup, and you have the basics of data manipulation, the goal of this assignment is to practice transforming, visualising, and exploring data.
 
-# Mass shootings in the US
-
-In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, Colorado, [Mother Jones](https://www.motherjones.com/politics/2012/07/mass-shootings-map/) published a report on mass shootings in the United States since 1982. Importantly, they provided the underlying data set as [an open-source database](https://www.motherjones.com/politics/2012/12/mass-shootings-mother-jones-full-data/) for anyone interested in studying and understanding this criminal behavior.
-
-## Obtain the data
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-
-mass_shootings <- read_csv(here::here("data", "mass_shootings.csv"))
-
-glimpse(mass_shootings)
-```
-
-| column(variable)     | description                                                                 |
-|--------------------------|----------------------------------------------|
-| case                 | short name of incident                                                      |
-| year, month, day     | year, month, day in which the shooting occurred                             |
-| location             | city and state where the shooting occcurred                                 |
-| summary              | brief description of the incident                                           |
-| fatalities           | Number of fatalities in the incident, excluding the shooter                 |
-| injured              | Number of injured, non-fatal victims in the incident, excluding the shooter |
-| total_victims        | number of total victims in the incident, excluding the shooter              |
-| location_type        | generic location in which the shooting took place                           |
-| male                 | logical value, indicating whether the shooter was male                      |
-| age_of_shooter       | age of the shooter when the incident occured                                |
-| race                 | race of the shooter                                                         |
-| prior_mental_illness | did the shooter show evidence of mental illness prior to the incident?      |
-
-## Explore the data
-
-### Specific questions
-
--   Generate a data frame that summarizes the number of mass shootings per year.
-
-```{r}
-
-```
-
--   Generate a bar chart that identifies the number of mass shooters associated with each race category. The bars should be sorted from highest to lowest and each bar should show its number.
-
-```{r}
-
-```
-
--   Generate a boxplot visualizing the number of total victims, by type of location.
-
-```{r}
-
-```
-
--   Redraw the same plot, but remove the Las Vegas Strip massacre from the dataset.
-
-```{r}
-
-```
-
-### More open-ended questions
-
-Address the following questions. Generate appropriate figures/tables to support your conclusions.
-
--   How many white males with prior signs of mental illness initiated a mass shooting after 2000?
-
-```{r}
-
-```
-
--   Which month of the year has the most mass shootings? Generate a bar chart sorted in chronological (natural) order (Jan-Feb-Mar- etc) to provide evidence of your answer.
-
-```{r}
-
-```
-
--   How does the distribution of mass shooting fatalities differ between White and Black shooters? What about White and Latino shooters?
-
-```{r}
-
-```
-
-### Very open-ended
-
--   Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter?
-
-```{r}
-
-```
-
--   Assess the relationship between mental illness and total victims, mental illness and location type, and the intersection of all three variables.
-
-```{r}
-
-```
-
-Make sure to provide a couple of sentences of written interpretation of your tables/figures. Graphs and tables alone will not be sufficient to answer this question.
-
 # Exploring credit card fraud
 
 We will be using a dataset with credit card transactions containing legitimate and fraud transactions. Fraud is typically well below 1% of all transactions, so a naive model that predicts that all transactions are legitimate and not fraudulent would have an accuracy of well over 99%-- pretty good, no? (well, not quite as we will see later in the course)
@@ -140,7 +41,7 @@ The dataset we will use consists of credit card transactions and it includes inf
 
 ## Obtain the data
 
-The dataset is too large to be hosted on Canvas or Github, so please download it from dropbox https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0 and save it in your `dsb` repo, under the `data` folder
+The dataset is too large to be hosted on Canvas or Github, so please download it from dropbox <https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0> and save it in your `dsb` repo, under the `data` folder
 
 ```{r}
 #| echo: false
@@ -246,7 +147,6 @@ card_fraud <- card_fraud %>%
 
 Plot a boxplot or a violin plot that looks at the relationship of distance and `is_fraud`. Does distance seem to be a useful feature in explaining fraud?
 
-
 # Exploring sources of electricity production, CO2 emissions, and GDP per capita.
 
 There are many sources of data on how countries generate their electricity and their CO2 emissions. I would like you to create three graphs:
@@ -326,12 +226,9 @@ Specific questions:
     -   An aside: There is a great package called [`countrycode`](https://github.com/vincentarelbundock/countrycode) that helps solve the problem of inconsistent country names (Is it UK? United Kingdom? Great Britain?). `countrycode()` takes as an input a country's name in a specific format and outputs it using whatever format you specify.
 3.  Write a function that takes as input any country's name and returns all three graphs. You can use the `patchwork` package to arrange the three graphs as shown below
 
-
-
 ```{r, echo=FALSE, out.width="100%"}
 knitr::include_graphics(here::here("images", "electricity-co2-gdp.png"), error = FALSE)
 ```
-
 
 # Deliverables
 

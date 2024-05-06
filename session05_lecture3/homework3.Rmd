@@ -38,14 +38,13 @@ library(readxl)
 
 # Money in UK politics
 
-[The Westminster Accounts](https://news.sky.com/story/the-westminster-accounts-12786091), a recent collaboration between Sky News and Tortoise Media, examines the flow of money through UK politics. It does so by combining data from three key sources: 
+[The Westminster Accounts](https://news.sky.com/story/the-westminster-accounts-12786091), a recent collaboration between Sky News and Tortoise Media, examines the flow of money through UK politics. It does so by combining data from three key sources:
 
-1. [Register of Members’ Financial Interests](https://www.parliament.uk/mps-lords-and-offices/standards-and-financial-interests/parliamentary-commissioner-for-standards/registers-of-interests/register-of-members-financial-interests/), 
-1. [Electoral Commission records of donations to parties](http://search.electoralcommission.org.uk/English/Search/Donations), and
-1. [Register of All-Party Parliamentary Groups](https://www.parliament.uk/mps-lords-and-offices/standards-and-financial-interests/parliamentary-commissioner-for-standards/registers-of-interests/register-of-all-party-party-parliamentary-groups/). 
+1.  [Register of Members’ Financial Interests](https://www.parliament.uk/mps-lords-and-offices/standards-and-financial-interests/parliamentary-commissioner-for-standards/registers-of-interests/register-of-members-financial-interests/),
+2.  [Electoral Commission records of donations to parties](http://search.electoralcommission.org.uk/English/Search/Donations), and
+3.  [Register of All-Party Parliamentary Groups](https://www.parliament.uk/mps-lords-and-offices/standards-and-financial-interests/parliamentary-commissioner-for-standards/registers-of-interests/register-of-all-party-party-parliamentary-groups/).
 
 You can [search and explore the results](https://news.sky.com/story/westminster-accounts-search-for-your-mp-or-enter-your-full-postcode-12771627) through the collaboration’s interactive database. Simon Willison [has extracted a database](https://til.simonwillison.net/shot-scraper/scraping-flourish) and this is what we will be working with. If you want to read more about [the project’s methodology](https://www.tortoisemedia.com/2023/01/08/the-westminster-accounts-methodology/).
-
 
 ## Open a connection to the database
 
@@ -64,10 +63,9 @@ How many tables does the database have?
 DBI::dbListTables(sky_westminster)
 ```
 
-## Which MP has received the most amount of money? 
+## Which MP has received the most amount of money?
 
 You need to work with the `payments` and `members` tables and for now we just want the total among all years. To insert a new, blank chunk of code where you can write your beautiful code (and comments!), please use the following shortcut: `Ctrl + Alt + I` (Windows) or `cmd + option + I` (mac)
-
 
 ## Any `entity` that accounts for more than 5% of all donations?
 
@@ -75,26 +73,24 @@ Is there any `entity` whose donations account for more than 5% of the total paym
 
 ## Do `entity` donors give to a single party or not?
 
-- How many distinct entities who paid money to MPS are there?
-- How many (as a number and %) donated to MPs belonging to a single party only?
+-   How many distinct entities who paid money to MPS are there?
+-   How many (as a number and %) donated to MPs belonging to a single party only?
 
+## Which party has raised the greatest amount of money in each of the years 2020-2022?
 
-## Which party has raised the greatest amount of money in each of the years 2020-2022? 
-
-I would like you to write code that generates the following table. 
+I would like you to write code that generates the following table.
 
 ```{r echo=FALSE, out.width="80%"}
 knitr::include_graphics(here::here("images", "total_donations_table.png"), error = FALSE)
 ```
 
-
-... and then, based on this data, plot the following graph. 
+... and then, based on this data, plot the following graph.
 
 ```{r echo=FALSE, out.width="80%"}
 knitr::include_graphics(here::here("images", "total_donations_graph.png"), error = FALSE)
 ```
 
-This uses the default ggplot colour pallete, as I dont want you to worry about using the [official colours for each party](https://en.wikipedia.org/wiki/Wikipedia:Index_of_United_Kingdom_political_parties_meta_attributes). However, I would like you to ensure the parties are sorted according to total donations and not alphabetically. You may even want to remove some of the smaller parties that hardly register on the graph. Would facetting help you?  
+This uses the default ggplot colour pallete, as I dont want you to worry about using the [official colours for each party](https://en.wikipedia.org/wiki/Wikipedia:Index_of_United_Kingdom_political_parties_meta_attributes). However, I would like you to ensure the parties are sorted according to total donations and not alphabetically. You may even want to remove some of the smaller parties that hardly register on the graph. Would facetting help you?
 
 Finally, when you are done working with the databse, make sure you close the connection, or disconnect from the database.
 
@@ -102,14 +98,13 @@ Finally, when you are done working with the databse, make sure you close the con
 dbDisconnect(sky_westminster)
 ```
 
-
 # Anonymised Covid patient data from the CDC
 
 We will be using a dataset with [anonymous Covid-19 patient data that the CDC publishes every month](https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data-with-Ge/n8mc-b4w4). The file we will use was released on April 11, 2023, and has data on 98 million of patients, with 19 features. This file cannot be loaded in memory, but luckily we have the data in `parquet` format and we will use the `{arrow}` package.
 
 ## Obtain the data
 
-The dataset `cdc-covid-geography` in in `parquet` format that {arrow}can handle. It is > 600Mb and too large to be hosted on Canvas or Github, so please download it from dropbox https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0 and save it in your `dsb` repo, under the `data` folder
+The dataset `cdc-covid-geography` in in `parquet` format that {arrow}can handle. It is \> 600Mb and too large to be hosted on Canvas or Github, so please download it from dropbox <https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0> and save it in your `dsb` repo, under the `data` folder
 
 ```{r}
 #| echo: false
@@ -124,6 +119,7 @@ toc() # stop timer
 
 glimpse(cdc_data)
 ```
+
 Can you query the database and replicate the following plot?
 
 ```{r echo=FALSE, out.width="100%"}
@@ -132,49 +128,43 @@ knitr::include_graphics(here::here("images", "covid-CFR-ICU.png"), error = FALSE
 
 The previous plot is an aggregate plot for all three years of data. What if we wanted to plot Case Fatality Ratio (CFR) over time? Write code that collects the relevant data from the database and plots the following
 
-
 ```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics(here::here("images", "cfr-icu-overtime.png"), error = FALSE)
 ```
 
-
 For each patient, the dataframe also lists the patient's states and county [FIPS code](https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code). The CDC also has information on the [NCHS Urban-Rural classification scheme for counties](https://www.cdc.gov/nchs/data_access/urban_rural.htm)
+
 ```{r}
 urban_rural <- read_xlsx(here::here("data", "NCHSURCodes2013.xlsx")) %>% 
   janitor::clean_names() 
 ```
 
-
 Each county belongs in seix diffent categoreis, with categories 1-4 being urban areas and categories 5-6 being rural, according to the following criteria captured in `x2013_code`
 
 Category name
 
-1. Large central metro - 1 million or more population and contains the entire population of the largest principal city
-2. large fringe metro - 1 million or more poulation, but does not qualify as 1
-3. Medium metro - 250K - 1 million population
-4. Small metropolitan population < 250K
-5. Micropolitan 
-6. Noncore
+1.  Large central metro - 1 million or more population and contains the entire population of the largest principal city
+2.  large fringe metro - 1 million or more poulation, but does not qualify as 1
+3.  Medium metro - 250K - 1 million population
+4.  Small metropolitan population \< 250K
+5.  Micropolitan
+6.  Noncore
 
 Can you query the database, extract the relevant information, and reproduce the following two graphs that look at the Case Fatality ratio (CFR) in different counties, according to their population?
-
 
 ```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics(here::here("images", "cfr-county-population.png"), error = FALSE)
 ```
 
-
-
 ```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics(here::here("images", "cfr-rural-urban.png"), error = FALSE)
 ```
-
 
 # Money in US politics
 
 In the United States, [*"only American citizens (and immigrants with green cards) can contribute to federal politics, but the American divisions of foreign companies can form political action committees (PACs) and collect contributions from their American employees."*](https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs)
 
-We will scrape and work with data foreign connected PACs that donate to US political campaigns. The data for foreign connected PAC contributions in the 2022 election cycle can be found at https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs/2022. Then, we will use a similar approach to get data such contributions from previous years so that we can examine trends over time.
+We will scrape and work with data foreign connected PACs that donate to US political campaigns. The data for foreign connected PAC contributions in the 2022 election cycle can be found at <https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs/2022>. Then, we will use a similar approach to get data such contributions from previous years so that we can examine trends over time.
 
 All data come from [OpenSecrets.org](https://www.opensecrets.org), a *"website tracking the influence of money on U.S. politics, and how that money affects policy and citizens' lives"*.
 
@@ -193,9 +183,9 @@ contributions_tables <- base_url %>%
 
 ```
 
-- First, make sure you can scrape the data for 2022. Use janitor::clean_names() to rename variables scraped using `snake_case` naming. 
+-   First, make sure you can scrape the data for 2022. Use janitor::clean_names() to rename variables scraped using `snake_case` naming.
 
-- Clean the data: 
+-   Clean the data:
 
     -   Write a function that converts contribution amounts in `total`, `dems`, and `repubs` from character strings to numeric values.
     -   Separate the `country_of_origin_parent_company` into two such that country and parent company appear in different columns for country-level analysis.
@@ -228,9 +218,6 @@ contributions <- contributions %>%
   )
 ```
 
-
-
-
 -   Write a function called `scrape_pac()` that scrapes information from the Open Secrets webpage for foreign-connected PAC contributions in a given year. This function should
 
     -   have one input: the URL of the webpage and should return a data frame.
@@ -243,7 +230,6 @@ contributions <- contributions %>%
 -   Map the `scrape_pac()` function over `urls` in a way that will result in a data frame called `contributions_all`.
 
 -   Write the data frame to a csv file called `contributions-all.csv` in the `data` folder.
-
 
 # Scraping consulting jobs
 
@@ -265,37 +251,31 @@ listings_html <- base_url %>%
 
 Identify the CSS selectors in order to extract the relevant information from this page, namely
 
-1. job 
-1. firm
-1. functional area
-1. type
+1.  job
+2.  firm
+3.  functional area
+4.  type
 
 Can you get all pages of ads, and not just the first one, `https://www.consultancy.uk/jobs/page/1` into a dataframe?
-
 
 -   Write a function called `scrape_jobs()` that scrapes information from the webpage for consulting positions. This function should
 
     -   have one input: the URL of the webpage and should return a data frame with four columns (variables): job, firm, functional area, and type
 
-    -   Test your function works with other pages too, e.g., https://www.consultancy.uk/jobs/page/2. Does the function seem to do what you expected it to do?
+    -   Test your function works with other pages too, e.g., <https://www.consultancy.uk/jobs/page/2>. Does the function seem to do what you expected it to do?
 
     -   Given that you have to scrape `...jobs/page/1`, `...jobs/page/2`, etc., define your URL so you can join multiple stings into one string, using `str_c()`. For instnace, if `page` is 5, what do you expect the following code to produce?
-    
-```
+
+```         
 base_url <- "https://www.consultancy.uk/jobs/page/1"
 url <- str_c(base_url, page)
 ```
 
 -   Construct a vector called `pages` that contains the numbers for each page available
 
-
 -   Map the `scrape_jobs()` function over `pages` in a way that will result in a data frame called `all_consulting_jobs`.
 
 -   Write the data frame to a csv file called `all_consulting_jobs.csv` in the `data` folder.
-
-
-
-
 
 # Deliverables
 
