@@ -1,5 +1,6 @@
 library(tidyverse)
 library(gapminder)
+library(nycflights13)
 library(gganimate) # for animation
 library(gifski) # needed to render GIFs to animation
 library(plotly) # interactive charts
