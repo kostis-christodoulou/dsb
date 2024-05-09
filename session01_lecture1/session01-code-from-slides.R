@@ -1,5 +1,8 @@
 library(tidyverse)
 library(gapminder)
+library(gganimate) # for animation
+library(gifski) # needed to render GIFs to animation
+library(plotly) # interactive charts
 
 dplyr::filter(gapminder, 
               continent == "Asia")
@@ -88,6 +91,28 @@ gapminder %>%
   group_by(continent, year) %>% 
   summarise(mean_lifexp = mean(lifeExp))
 
+## Animation
+
+ggplot(gapminder) + 
+  aes(x = gdpPercap, y = lifeExp, 
+      size = pop, 
+      colour = country) +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  # Switch to log scale; use $ units
+  scale_x_log10(labels = scales::dollar) + 
+  facet_wrap(~continent) +
+  theme_bw()+
+  
+  # Here comes the gganimate specific code
+  labs(title = 'Year: {frame_time}', 
+       x = 'GDP per capita', 
+       y = 'life expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+
+# -------------------------------
                   
 ## `nycflights13` data package
 library(nycflights13) 
@@ -155,3 +180,41 @@ UA_flights <- flights %>%
   UA_flights <- flights %>% 
   filter(carrier == "UA")
 )
+
+# dplyr --> ggplot
+
+arrival_delay_chart <- flights %>% 
+  # Group by tailnum and calculate summary statistics
+  group_by(tailnum) %>%
+  summarise(
+    mean_dep_delay = mean(dep_delay),
+    mean_arr_delay = mean(arr_delay),
+    n = n()) %>%
+  
+  # Filter for planes with more than 100 flights
+  filter(n > 100) %>% 
+  
+  # Sort by mean arrival delay in descending order
+  arrange(desc(mean_arr_delay)) %>%
+  
+  # Pass resulting dataframe to ggplot() to create the scatter plot
+  ggplot()+
+  aes(x = mean_dep_delay, y = mean_arr_delay, size=n) +
+  geom_point(alpha=0.20) +
+  geom_abline(intercept = 0, slope = 1, size = 1.5, colour="red") +
+  labs(
+    title = "Most planes manage to make up time even if they depart late",
+    x = "Mean departure delay (minutes)",
+    y = "Mean arrival delay (minutes)",
+    size = 'Number of flights'
+  )+
+  
+  theme_bw()+
+  NULL
+
+arrival_delay_chart
+
+# make it interacgtive by passing chart to ggplotly()
+
+ggplotly(arrival_delay_chart)
+
