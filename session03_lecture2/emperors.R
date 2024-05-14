@@ -1,9 +1,15 @@
 library(tidyverse)
 library(vroom)
-library(extrafont)
+library(showtext)
 library(ggtext)
 
-loadfonts(device="pdf")
+font_add_google("Montserrat", "Montserrat")
+font_add_google("Ubuntu", "Ubuntu")
+font_add_google("Oswald", "Oswald")
+font_add_google("Lato", "Lato")
+
+## Automatically use showtext to render text for future devices
+showtext_auto()
 
 # source of data https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-08-13
 url <- "https://github.com/rfordatascience/tidytuesday/raw/master/data/2019/2019-08-13/emperors.csv"
@@ -13,13 +19,9 @@ glimpse(emperors)
 
 # Plot 1
 emperors %>%
-  
-  # count causes of death
   count(cause) %>%
   ggplot(aes(x = n, y = cause)) +
   geom_col() +
-  
-  # add n to each bar
   geom_text(
     aes(label = n, x = n - .25),
     colour = "white",
@@ -27,53 +29,57 @@ emperors %>%
     hjust = 1
   ) +
   theme_minimal() +
+  theme(
+    axis.title.y = element_blank(),
+    legend.position = "none"
+  ) +
   labs(
     title = "Cause of death of Roman Emperors",
-    x= "Number of emperors",
-    y = NULL) 
+    x= "number of emperors")+
+  NULL
 
 # Plot 2
 # Arrange them in descending order, change font, 
 # make sure title is top-left aligned
 
-
 emperors %>%
-  
-  # count causes of death
   count(cause) %>%
+  arrange(n) %>% 
   
-  mutate(cause = fct_reorder(cause,n)) %>% 
-  
+  #arrange cause, using fct_inorder()
+  mutate(cause = fct_inorder(cause)) %>% 
   ggplot(aes(x = n, y = cause)) +
   geom_col() +
-  
-  # add n to each bar
   geom_text(
     aes(label = n, x = n - .25),
     colour = "white",
     size = 5,
-    hjust = 1
+    hjust = 1,
+    family="Lato" # change font; if you havent installed extra fonts, comment this line out
   ) +
   theme_minimal() +
-  theme(text=element_text(size=16))+ 
+  theme(
+    axis.title.y = element_blank(),
+    legend.position = "none"
+  ) +
+  theme(text=element_text(size=16, family="Lato"))+
   labs(
     title = "Cause of death of Roman Emperors",
-    x= "number of emperors",
-    y = NULL)+
+    x= "number of emperors")+
   
   # ensure title is top-left aligned
-  theme(plot.title.position = "plot") 
+  theme(plot.title.position = "plot")+
+  NULL
 
 
-  
-
-# Plot 3: Highlight assassinations/executions with a different fill
+# Plot 3: Highlight assassinations/executions with a different colour/fill
 # define a new variable 'assassination' which we will use to colour differently
 emperors_assassinated <- emperors %>%
   count(cause) %>%
+  arrange(n) %>% 
   mutate(
     assassination = ifelse(cause == "Assassination" | cause == "Execution", TRUE, FALSE),
-    cause = fct_reorder(cause,n)
+    cause = fct_inorder(cause)
   )
 
 #define colours to use: grey for everything, tomato for assassination
@@ -92,17 +98,26 @@ emperors_assassinated %>%
   scale_fill_manual(values = my_colours)+
   geom_text(
     aes(label = n, x = n - .25),
-    colour = "white", size = 5, hjust = 1,
+    colour = "white",
+    size = 5,
+    hjust = 1,
     family="Lato"
   ) +
   theme_minimal() +
+  theme(
+    axis.title.y = element_blank(),
+    legend.position = "none"
+  ) +
+  theme(text=element_text(size=12, family="Lato"))+
+  theme(plot.title.position = "plot")+
   
   # change font colour 
   labs(colour = "assassination",
-       title = "<b> Roughly half of Roman emperors died of <span style='color:#FF6347'>assassination</span> and <span style='color:#FF6347'>execution </span></b><br>
-       <span style = 'font-size:12pt'>Cause of death of Roman emperors</span>",
+       title = "<b> Cause of death of Roman emperors</b><br>
+       <span style = 'font-size:12pt'>Roughly half of the emperors died of <span style='color:#FF6347'>assassination</span> and <span style='color:#FF6347'>execution </span>.</span>",
        x= "Number of emperors",
-       y = NULL)+
+       y = "")+
+  
   
   #add a curve to draw attention to a value
   geom_curve(
@@ -127,16 +142,9 @@ emperors_assassinated %>%
   ) +
   
   theme(
-    text=element_text(size=12, family="Lato"),
     plot.title.position = "plot",
     plot.title = element_textbox_simple(size=16),
     axis.title.y = element_text(angle = 0, vjust = 0.5,size=14),
     axis.text = element_text(size=12),
-    legend.position = "none",
-    # remove gridlines
-    panel.grid.minor = element_blank(),
-    panel.grid.major = element_blank(),
-    # remove numbers from x-axis
-    axis.title.x = element_blank(),
-    axis.text.x=element_blank())
-
+    legend.position = "none") +
+  NULL
