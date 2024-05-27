@@ -511,28 +511,28 @@ knn_res %>% collect_metrics(summarize = TRUE)
 
 log_metrics <- 
   log_res %>% 
-  collect_metrics(summarise = TRUE) %>%
+  collect_metrics() %>%
   # add the name of the model to every row
   mutate(model = "Logistic Regression") 
 
 tree_metrics <- 
   tree_res %>% 
-  collect_metrics(summarise = TRUE) %>%
+  collect_metrics() %>%
   mutate(model = "Decision Tree")
 
 rf_metrics <- 
   rf_res %>% 
-  collect_metrics(summarise = TRUE) %>%
+  collect_metrics() %>%
   mutate(model = "Random Forest")
 
 xgb_metrics <- 
   xgb_res %>% 
-  collect_metrics(summarise = TRUE) %>%
+  collect_metrics() %>%
   mutate(model = "XGBoost")
 
 knn_metrics <- 
   knn_res %>% 
-  collect_metrics(summarise = TRUE) %>%
+  collect_metrics() %>%
   mutate(model = "Knn")
 
 # create dataframe with all models
@@ -606,3 +606,4 @@ last_fit_xgb %>%
   collect_predictions() %>% 
   roc_curve(price_category, .pred_above) %>% 
   autoplot()
+

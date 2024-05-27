@@ -148,41 +148,23 @@ library(rpart.plot)
 tree_fit %>%
   extract_fit_engine() %>%
   rpart.plot(roundint = FALSE)
-```
 
-:::
-::::
+
 
 ## Decision trees
 
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig-align: center
 library(rpart.plot)
 tree_fit %>%
   extract_fit_engine() %>%
   rpart.plot(roundint = FALSE)
-```
-:::
-
-::: {.column width="50%"}
--   Series of splits or if/then statements based on predictors
-
--   First the tree *grows* until some condition is met (maximum depth, no more data)
-
--   Then the tree is *pruned* to reduce its complexity
-:::
-:::
+ 
+# -   Series of splits or if/then statements based on predictors
+# 
+# -   First the tree *grows* until some condition is met (maximum depth, no more data)
+# 
+# -   Then the tree is *pruned* to reduce its complexity
 
 ## Decision trees
-
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig-align: center
 library(rpart.plot)
 tree_fit %>%
   extract_fit_engine() %>%
