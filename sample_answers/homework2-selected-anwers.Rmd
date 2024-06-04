@@ -1,0 +1,526 @@
+---
+title: "Homework 2"
+author: "Your name goes here"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
+  pdf_document:
+    toc: yes
+---
+
+
+```{r}
+#| label: load-libraries
+#| echo: false # This option disables the printing of code (only output is displayed).
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(wbstats)
+library(skimr)
+library(countrycode)
+library(here)
+library(scales)
+library(ggtext)
+```
+
+# Data Visualisation - Exploration
+
+Now that you've demonstrated your software is setup, and you have the basics of data manipulation, the goal of this assignment is to practice transforming, visualising, and exploring data.
+
+
+# Exploring sources of electricity production, CO2 emissions, and GDP per capita.
+
+There are many sources of data on how countries generate their electricity and their CO2 emissions. I would like you to create three graphs:
+
+## 1. A stacked area chart that shows how your own country generated its electricity since 2000.
+
+You will use
+
+`geom_area(colour="grey90", alpha = 0.5, position = "fill")`
+
+## 2. A scatter plot that looks at how CO2 per capita and GDP per capita are related
+
+## 3. A scatter plot that looks at how electricity usage (kWh) per capita/day GDP per capita are related
+
+We will get energy data from the Our World in Data website, and CO2 and GDP per capita emissions from the World Bank, using the `wbstats`package.
+
+```{r}
+#| message: false
+#| warning: false
+
+# Download electricity data
+url <- "https://nyc3.digitaloceanspaces.com/owid-public/data/energy/owid-energy-data.csv"
+
+energy <- read_csv(url) %>% 
+  filter(year >= 1990) %>% 
+  drop_na(iso_code) %>% 
+  select(1:3,
+         biofuel = biofuel_electricity,
+         coal = coal_electricity,
+         gas = gas_electricity,
+         hydro = hydro_electricity,
+         nuclear = nuclear_electricity,
+         oil = oil_electricity,
+         other_renewable = other_renewable_exc_biofuel_electricity,
+         solar = solar_electricity,
+         wind = wind_electricity, 
+         electricity_demand,
+         electricity_generation,
+         net_elec_imports,	# Net electricity imports, measured in terawatt-hours
+         energy_per_capita,	# Primary energy consumption per capita, measured in kilowatt-hours	Calculated by Our World in Data based on BP Statistical Review of World Energy and EIA International Energy Data
+         energy_per_gdp,	# Energy consumption per unit of GDP. This is measured in kilowatt-hours per 2011 international-$.
+         per_capita_electricity, #	Electricity generation per capita, measured in kilowatt-hours
+  ) 
+
+# Download data for C02 emissions per capita https://data.worldbank.org/indicator/EN.ATM.CO2E.PC
+co2_percap <- wb_data(country = "countries_only", 
+                      indicator = "EN.ATM.CO2E.PC", 
+                      start_date = 1990, 
+                      end_date = 2022,
+                      return_wide=FALSE) %>% 
+  filter(!is.na(value)) %>% 
+  #drop unwanted variables
+  select(-c(unit, obs_status, footnote, last_updated)) %>% 
+  rename(year = date,
+         co2percap = value)
+
+
+# Download data for GDP per capita  https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD
+gdp_percap <- wb_data(country = "countries_only", 
+                      indicator = "NY.GDP.PCAP.PP.KD", 
+                      start_date = 1990, 
+                      end_date = 2022,
+                      return_wide=FALSE) %>% 
+  filter(!is.na(value)) %>% 
+  #drop unwanted variables
+  select(-c(unit, obs_status, footnote, last_updated)) %>% 
+  rename(year = date,
+         GDPpercap = value)
+```
+
+Specific questions:
+
+1.  How would you turn `energy` to long, tidy format?
+
+```{r}
+energy %>% 
+  filter(country == "Mexico")
+
+energy_long <- energy %>% 
+  select(1:12) %>% 
+  pivot_longer(cols = 4:12,
+               names_to = 'source',
+               values_to = 'value') %>% 
+  drop_na(value) %>% 
+  drop_na(iso_code)
+  
+  
+
+energy_long %>% 
+  filter(country == "Mexico")
+
+energy_long %>% 
+  filter(country == "Mexico") %>% 
+  ggplot()+
+  aes(x= year, y = value, fill = source)+
+  geom_area(colour="grey90", alpha = 0.5, position = "fill")
+
+energy_long %>% 
+  filter(country == "Mexico") %>% 
+  mutate(source = fct_reorder(source, value, max)) %>% 
+  ggplot()+
+  aes(x= year, y = value, fill = source)+
+  geom_area(colour="grey90", alpha = 0.5, position = "fill")
+
+
+```
+
+
+
+2.  You may need to join these data frames
+    -   Use `left_join` from `dplyr` to [join the tables](http://r4ds.had.co.nz/relational-data.html)
+    -   To complete the merge, you need a unique *key* to match observations between the data frames. Country names may not be consistent among the three dataframes, so please use the 3-digit ISO code for each country
+        -   An aside: There is a great package called [`countrycode`](https://github.com/vincentarelbundock/countrycode) that helps solve the problem of inconsistent country names (Is it UK? United Kingdom? Great Britain?). `countrycode()` takes as an input a country's name in a specific format and outputs it using whatever format you specify.
+    
+    
+```{r}
+country_names <- energy_long %>% 
+  distinct(iso_code, country) %>% 
+  select(iso_code, country)
+
+join1 <- gdp_percap %>% 
+  left_join(co2_percap, by = c("country", "year")) %>% 
+  select(iso_code = iso3c.x, country, year, GDPpercap, co2percap) %>% 
+  left_join(country_names, by = "iso_code") %>% 
+  rename(country = country.y)
+
+
+join2 <- join1 %>% 
+  left_join(energy, by = c("country", "year")) 
+
+
+library(countrycode)
+join2 <- join2 %>% 
+  mutate(
+    continent = countrycode(country, 
+                            origin = 'country.name',
+                            destination = "continent"),
+    iso3c = countrycode(country, 
+                        origin = 'country.name',
+                        destination = "iso3c"),
+  ) %>% 
+  select(-c(iso_code.x, country.x, iso_code.y))
+
+
+# Let us downlaod population data from World Bank
+# https://data.worldbank.org/indicator/SP.POP.TOTL
+# Download population data 
+population <- wb_data(country = "countries_only", 
+                      indicator = "SP.POP.TOTL", 
+                      start_date = 1970, 
+                      end_date = 2022,
+                      return_wide=FALSE) %>% 
+  filter(!is.na(value)) %>% 
+  #drop unwanted variables
+  select(-c(unit, obs_status, footnote, last_updated))
+
+# join population data with everything else 
+join2 <- join2 %>% 
+  left_join(population, by=c("iso3c", "year"="date")) %>% 
+  rename(population = value,
+         country = country.x) %>% 
+  select(-c(indicator_id, indicator, iso2c, country.y))
+```
+    
+    
+3.  Write a function that takes as input any country's name and returns all three graphs. You can use the `patchwork` package to arrange the three graphs
+
+
+```{r}
+library(viridis)
+energy_mix <- function(country) {
+  
+  energy %>% 
+    select(1:2, 4:12) %>% # we will now have 11 columns
+    pivot_longer(cols = 3:11,
+                 names_to = "source",
+                 values_to = "value") %>% 
+    
+    filter(country == {{country}}, year >= 2000) %>% 
+    
+    mutate(source = fct_reorder(source, value, max)) %>% 
+    drop_na(value) %>% 
+    
+    
+    ggplot()+
+    aes(x=year, y = value, fill=source )+
+    geom_area(color="grey90", 
+              alpha = 0.5,
+              position = "fill")+ # so you get to 100%
+    theme_bw()+
+    scale_fill_viridis(discrete = T,
+                       option = "H") +
+    scale_y_continuous(labels = scales::percent)+
+    labs(title = glue::glue("Energy Production Mix for ", {{country}}),
+         x=NULL,
+         y=NULL,
+         fill= "Source")
+}
+
+energy_mix("Germany")
+
+```
+
+
+A function that plots top n countries for a chosen fuel in a certain year
+
+```{r}
+  
+energy_long <-   energy %>% 
+    select(1:2, 4:12) %>% # we will now have 11 columns
+    pivot_longer(cols = 3:11,
+                 names_to = "source",
+                 values_to = "value") 
+
+
+top_fuel <- function(.source, .year, .n) {
+  
+  energy_long %>% 
+    
+    filter(year == .year,
+           source == .source) %>%
+    drop_na(value) %>% 
+    mutate(country  =  fct_reorder(country, value)) %>%
+    slice_max(order_by = value, n = .n) %>%
+    ggplot(aes(x = value, y = country)) +
+    geom_col() +
+    theme_minimal()+
+    geom_text(
+      aes(label = scales::number(value, accuracy = 0.1), x = value - .25),
+      colour = "white",
+      size = 4,
+      hjust = 1
+    ) +
+    labs(
+      title = paste0("Top ",.n," ", .source, " producing countries ", " in ",.year),
+      subtitle = "Terra-Watthours (TWh)",
+      x= NULL,
+      y = NULL
+    )+
+    theme(
+      plot.title.position = "plot",
+  #    plot.title = element_textbox_simple(size=16),
+      axis.title.y = element_text(angle = 0, vjust = 0.5,size=14),
+      axis.text = element_text(size=12),
+      legend.position = "none") +
+    NULL
+}
+
+top_fuel("gas", 2018, 20)
+
+top_fuel("coal", 2021, 10)
+
+top_fuel("nuclear", 2021, 10)
+
+top_fuel("hydro", 2020, 10)
+
+top_fuel("wind", 2021, 10)
+
+top_fuel("solar", 2021, 15)
+
+```
+
+
+A function that takes a country as inoput and returns 3 graphs
+
+```{r}
+#| message: false
+#| warning: false
+library(viridis)
+library(patchwork)
+library(ggrepel)
+
+energy_mix_co2_gdp <- function(country) {
+  
+  plot1 <- energy %>% 
+    select(1:2, 4:12) %>% # we will now have 11 columns
+    pivot_longer(cols = 3:11,
+                 names_to = "source",
+                 values_to = "value") %>% 
+    
+    filter(country == {{country}}, year >= 2000) %>% 
+    drop_na(value) %>% 
+    mutate(source = fct_reorder(source, value, max)) %>% 
+
+    
+    
+    ggplot()+
+    aes(x=year, y = value, fill=source )+
+    geom_area(color="grey90", 
+              alpha = 0.5,
+              position = "fill")+ # so you get to 100%
+    theme_bw()+
+    scale_fill_viridis(discrete = T,
+                       option = "H") +
+    scale_y_continuous(labels = scales::percent)+
+    labs(title = glue::glue("Energy Production Mix for ", {{country}}),
+         x=NULL,
+         y=NULL,
+         fill= "Source")
+  
+  plot2 <- join2 %>% 
+    select(year, country, GDPpercap, co2percap, per_capita_electricity) %>% 
+    filter(country == {{country}}, year >= 2000) %>% 
+    
+    ggplot()+
+    aes(x=GDPpercap, y=co2percap, label=year)+
+    geom_point()+
+    geom_text_repel(size=3)+
+    theme_light() +
+    scale_x_continuous(labels = scales::dollar)+
+    labs(title = "CO2 vs GDP per capita",
+         x = "GDP per capita",
+         y = "CO2 per capita")
+  
+  plot3 <- join2 %>% 
+    select(year, country, GDPpercap, co2percap, per_capita_electricity) %>% 
+    filter(country == {{country}}, year >= 2000) %>% 
+    
+    ggplot()+
+    aes(x=per_capita_electricity/365, y=co2percap, label=year)+
+    geom_point()+
+    geom_text_repel(size=3)+
+    theme_light()+
+    labs(title = "CO2 vs per capita electricity consumption",
+         x = "Daily Electricity usage (kWh)",
+         y = NULL)
+  
+  
+# use patchwork to arrange plots
+plot1 / (plot2 + plot3)
+}
+
+energy_mix_co2_gdp("Greece")
+
+energy_mix_co2_gdp("India")
+
+energy_mix_co2_gdp("United Kingdom")
+
+energy_mix_co2_gdp("Brazil")
+
+energy_mix_co2_gdp("France")
+
+energy_mix_co2_gdp("China")
+
+energy_mix_co2_gdp("Germany")
+
+energy_mix_co2_gdp("Vietnam")
+
+energy_mix_co2_gdp("Nigeria")
+
+energy_mix_co2_gdp("Argentina")
+
+
+
+```
+```{r}
+mycolours <- c("grey70","tomato")
+
+
+join2  %>% 
+  drop_na(per_capita_electricity) %>% 
+  mutate(country = fct_reorder(country, per_capita_electricity),
+         myfill = ifelse(country %in% c("China","Denmark","India", "United States", "Italy", "Nigeria"), TRUE, FALSE)) %>% 
+  filter(year == 2019, 
+         population > 30e6) %>% 
+  ggplot()+
+  aes(x=per_capita_electricity/365, y = country, fill = myfill,label = number(per_capita_electricity/365,accuracy=0.1))+
+  geom_col()+
+  facet_wrap(~continent, scales="free")+
+  scale_fill_manual(values = mycolours)+
+  geom_text(
+    colour = "#fafafa",
+    size = 3,
+    hjust = 1
+  )+
+  theme_minimal()+
+  labs(
+    title = "How much energy does the average person use per day?",
+    subtitle = "2019 kWh per capita, countries with population > 30m",
+    fill = "Energy Source",
+    x = NULL,
+    y = NULL
+  )+
+  # ensure title is top-left aligned
+  theme(plot.title.position = "plot")+
+  theme(legend.position = "none")+
+  NULL
+
+```
+
+```{r}
+#| message: false
+#| warning: false
+
+library(plotly)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(rgdal)
+library(rgeos)
+library(patchwork)
+library(mapview)
+library(tmap)
+
+
+# per capita kwh vs co2 per cap
+co2_kwh_plot <- join2  %>% 
+  drop_na(per_capita_electricity) %>% 
+  filter(year == 2019, 
+         population > 10e6) %>% 
+  ggplot()+
+  aes(y=per_capita_electricity/365, x = co2percap, colour = continent, 
+        size = population^2, 
+      label = country)+
+  geom_point(alpha = 0.8)+
+  labs(
+    title = " CO2 per capita vs energy intensity",
+    subtitle = "2019 kWh per capita, countries with population > 10m",
+    x = "CO2 per capita emmissions",
+    y = "kWh per capita per year"
+  )+
+  coord_flip()+
+  theme_minimal()+
+  geom_text_repel(size = 4)+
+  theme(legend.position = "none")+
+  scale_colour_viridis(discrete = T,
+                       option = "D")+
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_textbox_simple(size=16),
+    axis.text = element_text(size=9),
+    legend.position = "none") +
+  NULL   
+
+
+co2_kwh_plot
+
+# Interactive CO2 vs kWh/capita plot with plotly
+
+ggplotly(co2_kwh_plot)
+
+##  World map with CO2 per cap
+
+map <- ne_countries(scale = "medium", returnclass = "sf") %>%
+  dplyr::select(name, iso_a3, geometry) %>%
+  filter(!name %in% c("Greenland", "Antarctica"))
+
+df <- map %>% 
+  left_join(join2 %>% 
+              filter(year == 2019), 
+            by = c("iso_a3" = "iso3c")) 
+
+
+
+base_map <- ggplot(data = df) +
+  geom_sf(
+    mapping = aes(
+      geometry = geometry, #use Natural Earth World boundaries
+      fill = co2percap #fill colour = percent vaccinated
+    ),
+    colour = "#FAFAFA",      # white borders between regions
+  )+
+  geom_sf_text(aes(label=number(co2percap, accuracy = 0.1)), size=2) + 
+  scale_fill_gradientn(
+    colours = c('#a6d96a','#d7191c'))+
+  labs(title = "2019 CO2 emissions per capita")+
+  theme_void()+
+  theme(legend.position = "none")+
+  NULL
+
+base_map
+
+# Mercator (ew)
+map_mercator <- base_map +
+  coord_sf(crs = "+proj=merc")
+
+map_mercator
+
+
+# Robinson projection
+map_robinson <- base_map +
+  coord_sf(crs = "+proj=robin") 
+
+map_robinson
+
+```
+
+
+
