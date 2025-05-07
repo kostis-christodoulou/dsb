@@ -139,7 +139,7 @@ urban_rural <- read_xlsx(here::here("data", "NCHSURCodes2013.xlsx")) %>%
   janitor::clean_names() 
 ```
 
-Each county belongs in seix diffent categoreis, with categories 1-4 being urban areas and categories 5-6 being rural, according to the following criteria captured in `x2013_code`
+Each county belongs in six diffent categoreis, with categories 1-4 being urban areas and categories 5-6 being rural, according to the following criteria captured in `x2013_code`
 
 Category name
 
@@ -159,77 +159,6 @@ knitr::include_graphics(here::here("images", "cfr-county-population.png"), error
 ```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics(here::here("images", "cfr-rural-urban.png"), error = FALSE)
 ```
-
-# Money in US politics
-
-In the United States, [*"only American citizens (and immigrants with green cards) can contribute to federal politics, but the American divisions of foreign companies can form political action committees (PACs) and collect contributions from their American employees."*](https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs)
-
-We will scrape and work with data foreign connected PACs that donate to US political campaigns. The data for foreign connected PAC contributions in the 2022 election cycle can be found at <https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs/2022>. Then, we will use a similar approach to get data such contributions from previous years so that we can examine trends over time.
-
-All data come from [OpenSecrets.org](https://www.opensecrets.org), a *"website tracking the influence of money on U.S. politics, and how that money affects policy and citizens' lives"*.
-
-```{r, eval=FALSE}
-#| label: allow-scraping-opensecrets
-#| warning: false
-#| message: false
-
-library(robotstxt)
-paths_allowed("https://www.opensecrets.org")
-
-base_url <- "https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs/2022"
-
-contributions_tables <- base_url %>%
-  read_html() 
-
-```
-
--   First, make sure you can scrape the data for 2022. Use janitor::clean_names() to rename variables scraped using `snake_case` naming.
-
--   Clean the data:
-
-    -   Write a function that converts contribution amounts in `total`, `dems`, and `repubs` from character strings to numeric values.
-    -   Separate the `country_of_origin_parent_company` into two such that country and parent company appear in different columns for country-level analysis.
-
-```{r, eval=FALSE}
-# write a function to parse_currency
-parse_currency <- function(x){
-  x %>%
-    
-    # remove dollar signs
-    str_remove("\\$") %>%
-    
-    # remove all occurrences of commas
-    str_remove_all(",") %>%
-    
-    # convert to numeric
-    as.numeric()
-}
-
-# clean country/parent co and contributions 
-contributions <- contributions %>%
-  separate(country_of_origin_parent_company, 
-           into = c("country", "parent"), 
-           sep = "/", 
-           extra = "merge") %>%
-  mutate(
-    total = parse_currency(total),
-    dems = parse_currency(dems),
-    repubs = parse_currency(repubs)
-  )
-```
-
--   Write a function called `scrape_pac()` that scrapes information from the Open Secrets webpage for foreign-connected PAC contributions in a given year. This function should
-
-    -   have one input: the URL of the webpage and should return a data frame.
-    -   add a new column to the data frame for `year`. We will want this information when we ultimately have data from all years, so this is a good time to keep track of it. Our function doesn't take a year argument, but the year is embedded in the URL, so we can extract it out of there, and add it as a new column. Use the `str_sub()` function to extract the last 4 characters from the URL. You will probably want to look at the help for this function to figure out how to specify "last 4 characters".
-
--   Define the URLs for 2022, 2020, and 2000 contributions. Then, test your function using these URLs as inputs. Does the function seem to do what you expected it to do?
-
--   Construct a vector called `urls` that contains the URLs for each webpage that contains information on foreign-connected PAC contributions for a given year.
-
--   Map the `scrape_pac()` function over `urls` in a way that will result in a data frame called `contributions_all`.
-
--   Write the data frame to a csv file called `contributions-all.csv` in the `data` folder.
 
 # Scraping consulting jobs
 

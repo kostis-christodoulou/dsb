@@ -167,13 +167,19 @@ We will get energy data from the Our World in Data website, and CO2 and GDP per 
 #| message: false
 #| warning: false
 
-# Download electricity data
-url <- "https://nyc3.digitaloceanspaces.com/owid-public/data/energy/owid-energy-data.csv"
 
-energy <- read_csv(url) %>% 
-  filter(year >= 1990) %>% 
-  drop_na(iso_code) %>% 
-  select(1:3,
+# Download co2 data
+co2 <- "https://nyc3.digitaloceanspaces.com/owid-public/data/co2/owid-co2-data.csv" |> 
+  read_csv() |> 
+    filter(year >= 1990) 
+
+
+# Download electricity data
+energy <- "https://nyc3.digitaloceanspaces.com/owid-public/data/energy/owid-energy-data.csv" |> 
+  read_csv()  |>  
+  filter(year >= 1990) |> 
+  drop_na(iso_code) |> 
+  select(1:5,
          biofuel = biofuel_electricity,
          coal = coal_electricity,
          gas = gas_electricity,
@@ -185,34 +191,25 @@ energy <- read_csv(url) %>%
          wind = wind_electricity, 
          electricity_demand,
          electricity_generation,
+         electricity_share_energy,
          net_elec_imports,	# Net electricity imports, measured in terawatt-hours
          energy_per_capita,	# Primary energy consumption per capita, measured in kilowatt-hours	Calculated by Our World in Data based on BP Statistical Review of World Energy and EIA International Energy Data
          energy_per_gdp,	# Energy consumption per unit of GDP. This is measured in kilowatt-hours per 2011 international-$.
-         per_capita_electricity, #	Electricity generation per capita, measured in kilowatt-hours
+         per_capita_electricity #	Electricity generation per capita, measured in kilowatt-hours
+
   ) 
 
-# Download data for C02 emissions per capita https://data.worldbank.org/indicator/EN.ATM.CO2E.PC
-co2_percap <- wb_data(country = "countries_only", 
-                      indicator = "EN.ATM.CO2E.PC", 
-                      start_date = 1990, 
-                      end_date = 2022,
-                      return_wide=FALSE) %>% 
-  filter(!is.na(value)) %>% 
-  #drop unwanted variables
-  select(-c(unit, obs_status, footnote, last_updated)) %>% 
-  rename(year = date,
-         co2percap = value)
-
-
 # Download data for GDP per capita  https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD
+# GDP per capita, PPP (constant 2021 international $)
+
 gdp_percap <- wb_data(country = "countries_only", 
                       indicator = "NY.GDP.PCAP.PP.KD", 
                       start_date = 1990, 
-                      end_date = 2022,
-                      return_wide=FALSE) %>% 
-  filter(!is.na(value)) %>% 
+                      end_date = 2023,
+                      return_wide=FALSE) |> 
+  filter(!is.na(value)) |> 
   #drop unwanted variables
-  select(-c(unit, obs_status, footnote, last_updated)) %>% 
+  select(-c(unit, obs_status, footnote, last_updated)) |> 
   rename(year = date,
          GDPpercap = value)
 ```

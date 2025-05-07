@@ -26,8 +26,7 @@ library(skimr)
 
 # Data Manipulation `nycflights13`
 
-## Problem 1: What months had the highest and lowest proportion of cancelled flights? Interpret any seasonal patterns. 
-
+## Problem 1: What months had the highest and lowest proportion of cancelled flights? Interpret any seasonal patterns.
 
 To determine if a flight was cancelled use the following code
 
@@ -40,7 +39,7 @@ flights %>%
 
 ```
 
-## Problem 2: What plane (specified by the `tailnum` variable) traveled the most times from New York City airports in 2013? 
+## Problem 2: What plane (specified by the `tailnum` variable) traveled the most times from New York City airports in 2013?
 
 Please `left_join()` the resulting table with the table `planes` (also included in the `nycflights13` package).
 
@@ -63,8 +62,7 @@ For the plane with the greatest number of flights and that had more than 50 seat
 
 ```
 
-## Problem 4: Which carriers service the route to San Francisco International (SFO). 
-
+## Problem 4: Which carriers service the route to San Francisco International (SFO).
 
 Join the `flights` and `airlines` tables and count which airlines flew the most to SFO. Produce a new dataframe, `fly_into_sfo` that contains three variables: the `name` of the airline, e.g., `United Air Lines Inc.` not `UA`, the count (number) of times it flew to SFO, and the `percent` of the trips that that particular airline flew to SFO.
 
@@ -129,8 +127,7 @@ fly_into_sfo %>%
  
 ```
 
-## Problem 5: Cancellations of flights to SFO. 
-
+## Problem 5: Cancellations of flights to SFO.
 
 We create a new dataframe `cancellations` as follows
 
@@ -203,9 +200,6 @@ The final graph should look like this
 knitr::include_graphics(here::here("images", "top_cities.png"), error = FALSE)
 ```
 
-
-
-
 ```{r top_cities}
 # YOUR CODE GOES HERE
 
@@ -214,11 +208,9 @@ knitr::include_graphics(here::here("images", "top_cities.png"), error = FALSE)
 
 Make a plot that shows the evolution of median prices in San Francisco for 0, 1, 2, and 3 bedrooms listings. The final graph should look like this
 
-
 ```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics(here::here("images", "sf_rentals.png"), error = FALSE)
 ```
-
 
 ```{r sf_median_prices}
 
@@ -227,13 +219,11 @@ knitr::include_graphics(here::here("images", "sf_rentals.png"), error = FALSE)
 
 ```
 
-Finally, make a plot that shows median rental prices for one-bed flats in the top 12 cities in the Bay area. Your final graph should look like this
-
+Finally, make a plot that shows median rental prices for one-bed flats in the top 12 cities (by number of ads) in the Bay area. Your final graph should look like this
 
 ```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics(here::here("images", "one_bed_bay_area.png"), error = FALSE)
 ```
-
 
 ```{r spirit_plot}
 # YOUR CODE GOES HERE
@@ -246,61 +236,12 @@ What can you infer from these plots? Don't just explain what's in the graph, but
 
 How would you go about creating this?
 
-
 ```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics(here::here("images", "challenge1.png"), error = FALSE)
 ```
 
-
 > TYPE YOUR ANSWER AFTER (AND OUTSIDE!) THIS BLOCKQUOTE.
 
-# On your own -- Hollywood Age Gap
-
-The website <https://hollywoodagegap.com> is a record of *THE AGE DIFFERENCE IN YEARS BETWEEN MOVIE LOVE INTERESTS*. This is an informational site showing the age gap between movie love interests and the data follows certain rules:
-
--   The two (or more) actors play actual love interests (not just friends, coworkers, or some other non-romantic type of relationship)
--   The youngest of the two actors is at least 17 years old
--   No animated characters
-
-The age gaps dataset includes "gender" columns, which always contain the values "man" or "woman". These values appear to indicate how the characters in each film identify and some of these values do not match how the actor identifies. We apologize if any characters are misgendered in the data!
-
-The following is a data dictionary of the variables used
-
-| variable           | class     | description                                                                                             |
-|:----------------|:----------------|:-------------------------------------|
-| movie_name         | character | Name of the film                                                                                        |
-| release_year       | integer   | Release year                                                                                            |
-| director           | character | Director of the film                                                                                    |
-| age_difference     | integer   | Age difference between the characters in whole years                                                    |
-| couple_number      | integer   | An identifier for the couple in case multiple couples are listed for this film                          |
-| actor_1_name       | character | The name of the older actor in this couple                                                              |
-| actor_2_name       | character | The name of the younger actor in this couple                                                            |
-| character_1_gender | character | The gender of the older character, as identified by the person who submitted the data for this couple   |
-| character_2_gender | character | The gender of the younger character, as identified by the person who submitted the data for this couple |
-| actor_1_birthdate  | date      | The birthdate of the older member of the couple                                                         |
-| actor_2_birthdate  | date      | The birthdate of the younger member of the couple                                                       |
-| actor_1_age        | integer   | The age of the older actor when the film was released                                                   |
-| actor_2_age        | integer   | The age of the younger actor when the film was released                                                 |
-
-```{r}
-
-age_gaps <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv')
-
-
-```
-
-How would you explore this data set? Here are some ideas of tables/ graphs to help you with your analysis
-
--   How is `age_difference` distributed? What's the 'typical' `age_difference` in movies?
-
--   The `half plus seven\` rule. Large age disparities in relationships carry certain stigmas. One popular rule of thumb is the [half-your-age-plus-seven](https://en.wikipedia.org/wiki/Age_disparity_in_sexual_relationships#The_.22half-your-age-plus-seven.22_rule) rule. This rule states you should never date anyone under half your age plus seven, establishing a minimum boundary on whom one can date. In order for a dating relationship to be acceptable under this rule, your partner's age must be:
-
-$$\frac{\text{Your age}}{2} + 7 < \text{Partner Age} < (\text{Your age} - 7) * 2$$ How frequently does this rule apply in this dataset?
-
--   Which movie has the greatest number of love interests?
--   Which actors/ actresses have the greatest number of love interests in this dataset?
--   Is the mean/median age difference staying constant over the years (1935 - 2022)?
--   How frequently does Hollywood depict same-gender love interests?
 
 # Deliverables
 
