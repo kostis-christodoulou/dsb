@@ -1,3 +1,3 @@
 # Data Science for Business with R
 
-A repo for the Data Science elective, Summer 2024, 07 May - 06 Jun
+A repo for the Data Science elective, Summer 2025, 12 May - 11 Jun
