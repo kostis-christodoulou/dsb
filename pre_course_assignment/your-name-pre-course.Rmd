@@ -29,11 +29,11 @@ The goal is to test your software installation, to demonstrate competency in Mar
 
 You should successfully install R and R studio in your computer. We will do all of our work in this class with the open source (and free!) programming language [R](https://cran.r-project.org/). However, we will use [RStudio](https://www.rstudio.com/) as the main program to access R.
 
-You can find details on how to [install both R and R studio here](https://am01-sep23.netlify.app/reference/01-reference/)
+You can find details on how to [install both R and R studio here](https://am01-sep24.netlify.app/reference/01-reference/)
 
 ## Install `tidyverse`, `janitor` and `nycflights13` packages
 
-A clean installation of R is known as **base R**. We need to install a collection of packages named `tidyverse`. Go to the packages panel in the bottom right of RStudio, click on "Install," type `tidyverse`,`janitor`, `nycflights13`  and press enter. You'll see a bunch of output in the RStudio console as all the packages are installed and, depending on the speed of your computer, this may take a while. You can also just paste and run the following
+A clean installation of R is known as **base R**. We need to install a collection of packages named `tidyverse`. Go to the packages panel in the bottom right of RStudio, click on "Install," type `tidyverse`,`janitor`, `nycflights13` and press enter. You'll see a bunch of output in the RStudio console as all the packages are installed and, depending on the speed of your computer, this may take a while. You can also just paste and run the following
 
 -   `install.packages("tidyverse")`
 -   `install.packages("janitor")`
